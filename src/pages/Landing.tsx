@@ -1,48 +1,44 @@
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Video, Zap, Shield, Users, ChevronRight, Play, ArrowRight, Star, ChevronLeft } from "lucide-react";
-import { useBrandName } from "@/hooks/useBrandName";
+import { Upload, Sparkles, Monitor, Users, ChevronRight, ArrowRight, Star, ChevronLeft, Check } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
 import heroImage from "@/assets/hero-imac.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
 import adminDashboard from "@/assets/admin-dashboard.png";
-import instagramIcon from "@/assets/instagram.png";
-import tiktokIcon from "@/assets/tiktok.png";
-import youtubeIcon from "@/assets/youtube.png";
-import facebookIcon from "@/assets/facebook.png";
+
+const BRAND = "Stitchly";
+const SIGNUP_URL = "https://app.stitchly.ai/signup";
+const SIGNIN_URL = "https://app.stitchly.ai";
 
 const testimonials = [
   {
     id: 1,
     rating: 5,
-    text: "Clean interface and no confusing settings. Just upload, cut the parts you want, and export. Exactly what I needed for quick social edits!",
-    author: "Samuel Johnson",
-    title: "Freelance Designer",
+    text: "I had a 6-interview project that normally takes two days of logging. Stitchly had an assembly cut ready in under an hour. I opened it in Premiere and the edit was already 80% there.",
+    author: "Jake Morrison",
+    title: "Freelance Video Editor",
   },
   {
     id: 2,
     rating: 5,
-    text: "Finally, a video editor that doesn't make me feel like I need a film degree. I trimmed, split, and exported my first video in minutes.",
-    author: "Julia Lawson",
-    title: "Marketing Manager",
+    text: "The one-click send to Premiere is what sold me. No more exporting XMLs, hunting for the file, importing, relinking. I click a button and my sequence is just there.",
+    author: "Rachel Torres",
+    title: "Senior Editor, BrandCraft Studios",
   },
   {
     id: 3,
     rating: 5,
-    text: "Perfect for turning my horizontal phone videos into vertical Reels. The simple cropping and resizing saved me so much time!",
-    author: "Taylor Wilson",
-    title: "Content Coordinator",
+    text: "We cut testimonial videos for 12 clients a month. Stitchly saves my team about 15 hours a week on footage review alone. That's not an exaggeration.",
+    author: "David Osei",
+    title: "Creative Director, Meridian Media",
   },
 ];
 
 const Landing = () => {
-  const navigate = useNavigate();
-  const { brandName, logoUrl, loading: loadingBrand } = useBrandName();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const handleStartDemo = () => {
-    navigate("/demo");
+  const scrollToHowItWorks = () => {
+    document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const nextTestimonial = () => {
