@@ -202,11 +202,15 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Feature Block 1 */}
-      <FadeUpSection id="features" className="relative overflow-hidden bg-stitchly-base">
+      <FadeUpSection id="features" className="relative overflow-hidden bg-section-feature1">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-1/2 -translate-y-1/2 left-[-150px] w-[600px] h-[600px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)" }}
+        />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="relative space-y-6 sm:space-y-8">
-              <DotPattern glow width={22} height={22} cr={1} className={cn("fill-primary/20 opacity-50 -z-0", "[mask-image:radial-gradient(ellipse_at_left,white,transparent_70%)]")} />
               <div className="relative">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Give It a Brief. Get a Cut.</h3>
                 <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
@@ -218,7 +222,12 @@ const Landing = () => {
                   { title: "Every word searchable", text: "Word-level timestamps. Speaker identification. Semantic categorization. Your footage becomes a database you can query." },
                 ].map((b) => (
                   <div key={b.title} className="flex gap-4">
-                    <div className="flex-shrink-0"><ArrowRight className="h-6 w-6 text-primary mt-1" /></div>
+                    <div className="flex-shrink-0 mt-1">
+                      <ArrowRight
+                        className="h-6 w-6"
+                        style={{ stroke: "url(#bp-gradient)" }}
+                      />
+                    </div>
                     <div>
                       <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
                       <p className="text-muted-foreground font-body">{b.text}</p>
@@ -228,7 +237,12 @@ const Landing = () => {
               </div>
             </div>
             <div className="w-full">
-              <img src={uploadDashboard} alt="Stitchly Workspace" className="w-full h-auto rounded-lg shadow-2xl" />
+              <img
+                src={uploadDashboard}
+                alt="Stitchly Workspace"
+                className="w-full h-auto rounded-lg"
+                style={{ boxShadow: "0 0 80px rgba(124, 58, 237, 0.2)" }}
+              />
             </div>
           </div>
         </div>
