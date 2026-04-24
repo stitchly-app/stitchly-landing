@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { cn } from "@/lib/utils";
