@@ -1,17 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Monitor, Upload as UploadIcon, Users, ChevronRight, ArrowRight, Star, ChevronLeft, Check } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { Sparkles, Monitor, Upload as UploadIcon, Users, ChevronRight, ArrowRight, Star, ChevronLeft, Check, Play } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { GridPattern } from "@/components/ui/grid-pattern";
+import { Particles } from "@/components/ui/particles";
+import { VideoLightbox } from "@/components/VideoLightbox";
+import { FadeUpSection } from "@/components/FadeUpSection";
 import { cn } from "@/lib/utils";
-import heroImage from "@/assets/hero-imac.png";
+import dashboardImage from "@/assets/stitchly-dashboard.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
 import adminDashboard from "@/assets/admin-dashboard.png";
+import stitchlyLogo from "@/assets/stitchly-logo.svg";
 
 const BRAND = "Stitchly";
 const SIGNUP_URL = "https://app.stitchly.ai/signup";
 const SIGNIN_URL = "https://app.stitchly.ai";
+const DEMO_VIDEO = "https://stream.mux.com/BV01yJr5s6VesvD7mJBtdaeqcj802hy1ltYBoWsmEbs4s.m3u8";
 
 const testimonials = [
   {
@@ -39,47 +44,34 @@ const testimonials = [
 
 const Landing = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const previousTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const nextTestimonial = () => setCurrentTestimonial((p) => (p + 1) % testimonials.length);
+  const previousTestimonial = () => setCurrentTestimonial((p) => (p - 1 + testimonials.length) % testimonials.length);
 
   return (
     <div className="min-h-screen bg-stitchly-base">
       {/* Header */}
       <header className="border-b border-border bg-stitchly-base/90 backdrop-blur sticky top-0 z-50">
         <div className="stitchly-container py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold font-heading">S</span>
-            </div>
-            <h1 className="text-base sm:text-lg font-bold font-heading">
-              <span className="text-foreground">Stitch</span><span className="text-primary">ly</span>
-            </h1>
-          </div>
+          <a href="/" className="flex items-center gap-2">
+            <img src={stitchlyLogo} alt="Stitchly" className="h-7 sm:h-8 w-auto" />
+          </a>
           <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground font-body">
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
           </nav>
           <div className="flex items-center gap-2 sm:gap-3">
-            <Button
-              variant="ghost"
-              asChild
-              className="text-muted-foreground hover:text-foreground hover:bg-muted text-sm sm:text-base px-2 sm:px-4"
-            >
+            <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground hover:bg-muted text-sm sm:text-base px-2 sm:px-4">
               <a href={SIGNIN_URL}>Sign In</a>
             </Button>
-            <Button asChild className="text-sm sm:text-base px-3 sm:px-4">
-              <a href={SIGNUP_URL}>Download for Mac →</a>
+            <Button asChild className="btn-gradient border-0 text-sm sm:text-base px-3 sm:px-4">
+              <a href={SIGNUP_URL}>Start Your Free Trial →</a>
             </Button>
           </div>
         </div>
@@ -87,106 +79,133 @@ const Landing = () => {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-stitchly-base">
-        <DotPattern
-          width={20}
-          height={20}
-          cx={1}
-          cy={1}
-          cr={1}
-          className={cn(
-            "fill-primary/15 opacity-40",
-            "[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]",
-          )}
+        <div className="hero-radial-glow" />
+        <Particles
+          className="absolute inset-0 z-0"
+          quantity={180}
+          ease={70}
+          size={0.5}
+          color="#7C3AED"
         />
-        <div className="stitchly-container relative py-12 sm:py-20 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="space-y-6 sm:space-y-8">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground font-heading">
-                Stop Watching. Start Editing.
-              </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-xl font-body leading-relaxed">
-                Six hours of interviews. One deadline. Stitchly reads every word, finds the best soundbites, and builds your assembly cut automatically. One click sends it straight to Premiere, Resolve, or Final Cut.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                <Button size="lg" asChild className="gap-2 px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-body w-full sm:w-auto">
-                  <a href={SIGNUP_URL}>Download for Mac →</a>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={scrollToHowItWorks}
-                  className="border-border text-foreground hover:text-foreground hover:bg-muted px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-body w-full sm:w-auto"
+        <div className="stitchly-container relative z-10 py-16 sm:py-24 lg:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-center text-center"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs sm:text-sm text-primary font-body mb-6">
+              <Sparkles className="h-3.5 w-3.5" /> AI Video Assembly for Editors
+            </span>
+
+            <h2
+              className="font-bold font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] leading-[1.1]"
+              style={{ letterSpacing: "-0.03em" }}
+            >
+              <span className="block text-foreground">Stop Watching.</span>
+              <span
+                className="block bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Start Editing.
+              </span>
+            </h2>
+
+            <p className="mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-[600px] font-body leading-relaxed">
+              Six hours of interviews. One deadline. Stitchly reads every word, finds the best soundbites, and builds your assembly cut automatically. One click sends it straight to Premiere, Resolve, or Final Cut.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
+              <Button size="lg" asChild className="btn-gradient border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
+                <a href={SIGNUP_URL}>Start Your Free Trial →</a>
+              </Button>
+              <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-white rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
+                See How It Works ↓
+              </Button>
+            </div>
+
+            {/* Product screenshot */}
+            <div className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto">
+              <div
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  border: "1px solid rgba(124, 58, 237, 0.2)",
+                  boxShadow: "0 0 60px rgba(124, 58, 237, 0.15)",
+                }}
+              >
+                <img src={dashboardImage} alt="Stitchly Dashboard" className="w-full h-auto block" />
+                <button
+                  onClick={() => setVideoOpen(true)}
+                  aria-label="Play product demo"
+                  className="absolute inset-0 flex items-center justify-center group"
                 >
-                  See How It Works ↓
-                </Button>
+                  <span
+                    className="animate-play-pulse flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white"
+                    style={{
+                      width: 80,
+                      height: 80,
+                      backgroundColor: "rgba(255,255,255,0.95)",
+                      boxShadow: "0 8px 30px rgba(124, 58, 237, 0.35)",
+                    }}
+                  >
+                    <Play className="h-8 w-8 ml-1" style={{ color: "#7C3AED", fill: "#7C3AED" }} />
+                  </span>
+                </button>
               </div>
             </div>
-            <div className="w-full">
-              <div className="relative">
-                <img src={heroImage} alt="Stitchly Editor Interface" className="w-full h-auto drop-shadow-2xl rounded-lg" />
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section
+      <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
+
+      {/* How It Works */}
+      <FadeUpSection
         id="how-it-works"
         className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom"
       >
         <GridPattern
           width={48}
           height={48}
-          className={cn(
-            "stroke-primary/10 opacity-30",
-            "[mask-image:radial-gradient(ellipse_at_top,white,transparent_60%)]",
-          )}
+          className={cn("stroke-primary/10 opacity-30", "[mask-image:radial-gradient(ellipse_at_top,white,transparent_60%)]")}
         />
         <div className="stitchly-container relative py-16 sm:py-24">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-14 text-foreground font-heading">
-            How It Works
-          </h3>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-14 text-foreground font-heading">How It Works</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
             {[
               { Icon: UploadIcon, title: "Import Your Footage", text: "Drop in your interview files. Stitchly generates proxies locally, transcribes with word-level timestamps, and identifies every speaker automatically." },
               { Icon: Sparkles, title: "AI Finds the Best Moments", text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage." },
               { Icon: Monitor, title: "One Click to Your NLE", text: "Hit \"Send to Premiere Pro\" and your sequence opens directly in your editor with all media linked. No XML hunting. No relinking. Premiere, Resolve, and Final Cut all supported." },
-            ].map(({ Icon, title, text }) => (
-              <div key={title} className="stitchly-card p-8 space-y-4">
+            ].map(({ Icon, title, text }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
+                className="stitchly-card p-8 space-y-4"
+              >
                 <div className="h-12 w-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
                   <Icon className="h-6 w-6 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold text-foreground font-heading">{title}</h4>
                 <p className="text-muted-foreground leading-relaxed font-body">{text}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </FadeUpSection>
 
       {/* Feature Block 1 */}
-      <section id="features" className="relative overflow-hidden bg-stitchly-base">
+      <FadeUpSection id="features" className="relative overflow-hidden bg-stitchly-base">
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="relative space-y-6 sm:space-y-8">
-              <DotPattern
-                glow
-                width={22}
-                height={22}
-                cr={1}
-                className={cn(
-                  "fill-primary/20 opacity-50 -z-0",
-                  "[mask-image:radial-gradient(ellipse_at_left,white,transparent_70%)]",
-                )}
-              />
+              <DotPattern glow width={22} height={22} cr={1} className={cn("fill-primary/20 opacity-50 -z-0", "[mask-image:radial-gradient(ellipse_at_left,white,transparent_70%)]")} />
               <div className="relative">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Give It a Brief. Get a Cut.</h3>
-                <p className="text-muted-foreground font-body">
-                  Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.
-                </p>
+                <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
               </div>
-
               <div className="relative space-y-6">
                 {[
                   { title: "Creative briefs in plain English", text: "Type what you want: \"Build a 90-second testimonial. Open with struggle, close with results.\" Stitchly finds the clips that match." },
@@ -194,9 +213,7 @@ const Landing = () => {
                   { title: "Every word searchable", text: "Word-level timestamps. Speaker identification. Semantic categorization. Your footage becomes a database you can query." },
                 ].map((b) => (
                   <div key={b.title} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <ArrowRight className="h-6 w-6 text-primary mt-1" />
-                    </div>
+                    <div className="flex-shrink-0"><ArrowRight className="h-6 w-6 text-primary mt-1" /></div>
                     <div>
                       <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
                       <p className="text-muted-foreground font-body">{b.text}</p>
@@ -205,38 +222,26 @@ const Landing = () => {
                 ))}
               </div>
             </div>
-
             <div className="w-full">
               <img src={uploadDashboard} alt="Stitchly Workspace" className="w-full h-auto rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
-      </section>
+      </FadeUpSection>
 
       {/* Feature Block 2 */}
-      <section className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom">
+      <FadeUpSection className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom">
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="w-full lg:order-1 order-2">
               <img src={adminDashboard} alt="Stitchly Sequence Editor" className="w-full h-auto rounded-lg shadow-2xl" />
             </div>
-
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
-              <DotPattern
-                glow
-                width={22}
-                height={22}
-                cr={1}
-                className={cn(
-                  "fill-primary/20 opacity-50 -z-0",
-                  "[mask-image:radial-gradient(ellipse_at_right,white,transparent_70%)]",
-                )}
-              />
+              <DotPattern glow width={22} height={22} cr={1} className={cn("fill-primary/20 opacity-50 -z-0", "[mask-image:radial-gradient(ellipse_at_right,white,transparent_70%)]")} />
               <div className="relative">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
                 <p className="text-muted-foreground font-body">Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</p>
               </div>
-
               <div className="relative space-y-6">
                 {[
                   { title: "Premiere, Resolve, and Final Cut", text: "Export a ready-to-edit XML for any major editing platform. One click opens your sequence directly in your editor with all media paths linked." },
@@ -244,9 +249,7 @@ const Landing = () => {
                   { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
                 ].map((b) => (
                   <div key={b.title} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <ArrowRight className="h-6 w-6 text-primary mt-1" />
-                    </div>
+                    <div className="flex-shrink-0"><ArrowRight className="h-6 w-6 text-primary mt-1" /></div>
                     <div>
                       <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
                       <p className="text-muted-foreground font-body">{b.text}</p>
@@ -257,93 +260,69 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </section>
+      </FadeUpSection>
 
-      {/* Testimonials Section */}
-      <section className="relative overflow-hidden bg-stitchly-base">
+      {/* Testimonials */}
+      <FadeUpSection className="relative overflow-hidden bg-stitchly-base">
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="text-center mb-10 sm:mb-14">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">What Editors Are Saying</h3>
             <p className="text-muted-foreground font-body">From editors who stopped scrubbing and started editing.</p>
           </div>
-
           <div className="relative">
             <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
-              >
-                {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                    <div className="stitchly-card p-8 max-w-2xl mx-auto">
+              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
+                {testimonials.map((t, i) => (
+                  <div key={t.id} className="w-full flex-shrink-0 px-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
+                      className="stitchly-card p-8 max-w-2xl mx-auto"
+                    >
                       <div className="flex gap-1 mb-4">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                        {[...Array(t.rating)].map((_, idx) => (
+                          <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
                         ))}
                       </div>
-                      <p className="text-foreground text-lg mb-6 leading-relaxed font-body">"{testimonial.text}"</p>
+                      <p className="text-foreground text-lg mb-6 leading-relaxed font-body">"{t.text}"</p>
                       <div className="flex items-center gap-3">
                         <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center">
                           <Users className="h-6 w-6 text-muted-foreground" />
                         </div>
                         <div>
-                          <p className="text-foreground font-semibold font-heading">{testimonial.author}</p>
-                          <p className="text-muted-foreground text-sm font-body">{testimonial.title}</p>
+                          <p className="text-foreground font-semibold font-heading">{t.author}</p>
+                          <p className="text-muted-foreground text-sm font-body">{t.title}</p>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
               </div>
             </div>
-
-            <button
-              onClick={previousTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-card hover:bg-muted text-foreground p-2 sm:p-3 rounded-full border border-border transition-colors"
-              aria-label="Previous testimonial"
-            >
+            <button onClick={previousTestimonial} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-card hover:bg-muted text-foreground p-2 sm:p-3 rounded-full border border-border transition-colors" aria-label="Previous testimonial">
               <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
-
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-card hover:bg-muted text-foreground p-2 sm:p-3 rounded-full border border-border transition-colors"
-              aria-label="Next testimonial"
-            >
+            <button onClick={nextTestimonial} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-card hover:bg-muted text-foreground p-2 sm:p-3 rounded-full border border-border transition-colors" aria-label="Next testimonial">
               <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
-
             <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`h-2 rounded-full transition-all ${
-                    index === currentTestimonial ? "w-8 bg-primary" : "w-2 bg-muted"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
+              {testimonials.map((_, idx) => (
+                <button key={idx} onClick={() => setCurrentTestimonial(idx)} className={`h-2 rounded-full transition-all ${idx === currentTestimonial ? "w-8 bg-primary" : "w-2 bg-muted"}`} aria-label={`Go to testimonial ${idx + 1}`} />
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </FadeUpSection>
 
       {/* Pricing */}
-      <section id="pricing" className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom">
-        <GridPattern
-          width={40}
-          height={40}
-          className={cn(
-            "stroke-primary/15 opacity-20",
-            "[mask-image:radial-gradient(ellipse_at_center,white,transparent_55%)]",
-          )}
-        />
+      <FadeUpSection id="pricing" className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom">
+        <GridPattern width={40} height={40} className={cn("stroke-primary/15 opacity-20", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_55%)]")} />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Simple Pricing. Start Free.</h3>
             <p className="text-muted-foreground font-body mb-10">One plan. Everything included.</p>
-
             <div className="stitchly-card p-8 sm:p-10 text-left max-w-md mx-auto">
               <div className="mb-6">
                 <h4 className="text-2xl font-bold text-foreground font-heading">Pro</h4>
@@ -354,7 +333,6 @@ const Landing = () => {
                 <p className="text-muted-foreground text-sm mt-1 font-body">or $290/year</p>
                 <p className="text-muted-foreground mt-4 font-body">Everything you need to stop scrubbing and start editing.</p>
               </div>
-
               <ul className="space-y-3 mb-8">
                 {[
                   "500 credits/month (1 credit per 2 min transcription, 5 credits per AI command)",
@@ -371,30 +349,18 @@ const Landing = () => {
                   </li>
                 ))}
               </ul>
-
-              <Button asChild size="lg" className="w-full">
-                <a href={SIGNUP_URL}>Start Free Trial →</a>
+              <Button asChild size="lg" className="btn-gradient border-0 rounded-lg w-full">
+                <a href={SIGNUP_URL}>Start Your Free Trial →</a>
               </Button>
             </div>
-
-            <p className="text-muted-foreground text-sm mt-6 font-body">
-              Start with a free trial. No credit card required. Download for Mac.
-            </p>
+            <p className="text-muted-foreground text-sm mt-6 font-body">Start with a free trial. No credit card required. Download for Mac.</p>
           </div>
         </div>
-      </section>
+      </FadeUpSection>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-stitchly-base">
-        <DotPattern
-          glow
-          width={20}
-          height={20}
-          className={cn(
-            "fill-primary/30 opacity-60",
-            "[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]",
-          )}
-        />
+      <FadeUpSection className="relative overflow-hidden bg-stitchly-base">
+        <DotPattern glow width={20} height={20} className={cn("fill-primary/30 opacity-60", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]")} />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="stitchly-card p-8 sm:p-14 text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-heading">Your Next Edit Starts Here.</h3>
@@ -402,30 +368,24 @@ const Landing = () => {
               Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
             </p>
             <div className="flex justify-center pt-2 sm:pt-4">
-              <Button size="lg" asChild className="px-8">
-                <a href={SIGNUP_URL}>Download for Mac →</a>
+              <Button size="lg" asChild className="btn-gradient border-0 rounded-lg px-8">
+                <a href={SIGNUP_URL}>Start Your Free Trial →</a>
               </Button>
             </div>
           </div>
         </div>
-      </section>
+      </FadeUpSection>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-stitchly-alt">
+      <FadeUpSection as="footer" className="border-t border-border bg-stitchly-alt">
         <div className="stitchly-container py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold font-heading">S</span>
-                </div>
-                <span className="font-bold text-lg font-heading">
-                  <span className="text-foreground">Stitch</span><span className="text-primary">ly</span>
-                </span>
+                <img src={stitchlyLogo} alt="Stitchly" className="h-8 w-auto" />
               </div>
               <p className="text-muted-foreground text-sm font-body">AI video assembly for professional editors.</p>
             </div>
-
             <div>
               <h4 className="text-foreground font-semibold mb-4 font-heading">Product</h4>
               <ul className="space-y-2">
@@ -434,7 +394,6 @@ const Landing = () => {
                 <li><a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Pricing</a></li>
               </ul>
             </div>
-
             <div>
               <h4 className="text-foreground font-semibold mb-4 font-heading">Company</h4>
               <ul className="space-y-2">
@@ -444,21 +403,19 @@ const Landing = () => {
                 <li><a href="/terms" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Terms</a></li>
               </ul>
             </div>
-
             <div>
               <h4 className="text-foreground font-semibold mb-4 font-heading">Account</h4>
               <ul className="space-y-2">
                 <li><a href={SIGNIN_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Sign In</a></li>
-                <li><a href={SIGNUP_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Download for Mac</a></li>
+                <li><a href={SIGNUP_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Start Your Free Trial</a></li>
               </ul>
             </div>
           </div>
-
           <div className="pt-8 border-t border-border">
             <p className="text-muted-foreground text-sm font-body text-center">© 2026 {BRAND}. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+      </FadeUpSection>
     </div>
   );
 };
