@@ -56,6 +56,16 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-stitchly-base">
+      {/* Shared SVG gradient for stroke="url(#bp-gradient)" */}
+      <svg width="0" height="0" className="absolute" aria-hidden>
+        <defs>
+          <linearGradient id="bp-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#3B82F6" />
+            <stop offset="100%" stopColor="#7C3AED" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* Header */}
       <header className="border-b border-border bg-stitchly-base/90 backdrop-blur sticky top-0 z-50">
         <div className="stitchly-container py-4 flex items-center justify-between">
