@@ -166,12 +166,13 @@ const Landing = () => {
       {/* How It Works */}
       <FadeUpSection
         id="how-it-works"
-        className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom"
+        className="relative overflow-hidden bg-section-howitworks"
       >
         <GridPattern
           width={48}
           height={48}
-          className={cn("stroke-primary/10 opacity-30", "[mask-image:radial-gradient(ellipse_at_top,white,transparent_60%)]")}
+          className={cn("stroke-primary/10 opacity-80", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]")}
+          strokeDasharray="0"
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-14 text-foreground font-heading">How It Works</h3>
@@ -189,7 +190,7 @@ const Landing = () => {
                 transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
                 className="stitchly-card p-8 space-y-4"
               >
-                <div className="h-12 w-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center icon-glow-purple">
                   <Icon className="h-6 w-6 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold text-foreground font-heading">{title}</h4>
