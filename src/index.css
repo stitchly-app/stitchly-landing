@@ -132,6 +132,46 @@
   .bg-stitchly-alt { background-color: hsl(var(--bg-alt)); }
   .bg-stitchly-card { background-color: hsl(var(--bg-card)); }
 
+  .btn-gradient {
+    background-image: linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%);
+    color: #fff;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .btn-gradient:hover {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+  }
+
+  .btn-outline-white {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+  .btn-outline-white:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .hero-radial-glow {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 800px;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 40%, transparent 70%);
+    z-index: 0;
+  }
+
+  @keyframes play-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  .animate-play-pulse {
+    animation: play-pulse 2s ease-in-out infinite;
+  }
+
   .section-fade-top::before {
     content: "";
     position: absolute;
