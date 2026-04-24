@@ -390,15 +390,27 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Pricing */}
-      <FadeUpSection id="pricing" className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom">
-        <GridPattern width={40} height={40} className={cn("stroke-primary/15 opacity-20", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_55%)]")} />
+      <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-pricing">
+        {/* Large radial purple spotlight behind the card */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 65%)" }}
+        />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Simple Pricing. Start Free.</h3>
             <p className="text-muted-foreground font-body mb-10">One plan. Everything included.</p>
-            <div className="stitchly-card p-8 sm:p-10 text-left max-w-md mx-auto">
+            <div
+              className="group relative p-8 sm:p-10 text-left max-w-md mx-auto rounded-2xl transition-all duration-200"
+              style={{
+                backgroundColor: "#141B2D",
+                border: "1px solid rgba(124, 58, 237, 0.3)",
+                boxShadow: "0 0 40px rgba(124, 58, 237, 0.15)",
+              }}
+            >
               <div className="mb-6">
-                <h4 className="text-2xl font-bold text-foreground font-heading">Pro</h4>
+                <h4 className="text-2xl font-bold font-heading text-gradient-bp inline-block">Pro</h4>
                 <div className="mt-2 flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-foreground font-heading">$29</span>
                   <span className="text-muted-foreground font-body">/ month</span>
@@ -422,8 +434,11 @@ const Landing = () => {
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" className="btn-gradient border-0 rounded-lg w-full">
-                <a href={SIGNUP_URL}>Start Your Free Trial →</a>
+              <Button asChild size="lg" className="btn-gradient border-0 rounded-lg w-full relative overflow-hidden">
+                <a href={SIGNUP_URL}>
+                  Start Your Free Trial →
+                  <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
+                </a>
               </Button>
             </div>
             <p className="text-muted-foreground text-sm mt-6 font-body">Start with a free trial. No credit card required. Download for Mac.</p>
