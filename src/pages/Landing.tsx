@@ -117,18 +117,21 @@ const Landing = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
-              <Button size="lg" asChild className="btn-gradient border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
-                <a href={SIGNUP_URL}>Start Your Free Trial →</a>
+              <Button size="lg" asChild className="btn-gradient border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
+                <a href={SIGNUP_URL}>
+                  Start Your Free Trial →
+                  <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
+                </a>
               </Button>
-              <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-white rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
-                See How It Works ↓
+              <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-gradient rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
+                <span className="gradient-text font-medium">See How It Works ↓</span>
               </Button>
             </div>
 
             {/* Product screenshot */}
             <div className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto">
               <div
-                className="relative rounded-2xl overflow-hidden"
+                className="relative rounded-2xl overflow-hidden image-fade-bottom"
                 style={{
                   border: "1px solid rgba(124, 58, 237, 0.2)",
                   boxShadow: "0 0 60px rgba(124, 58, 237, 0.15)",
