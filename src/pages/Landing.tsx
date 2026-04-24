@@ -249,14 +249,24 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Feature Block 2 */}
-      <FadeUpSection className="relative overflow-hidden bg-stitchly-alt section-fade-top section-fade-bottom">
+      <FadeUpSection className="relative overflow-hidden bg-section-feature2">
+        <GridPattern
+          width={48}
+          height={48}
+          className="opacity-50"
+          style={{ stroke: "rgba(59, 130, 246, 0.1)" }}
+        />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="w-full lg:order-1 order-2">
-              <img src={adminDashboard} alt="Stitchly Sequence Editor" className="w-full h-auto rounded-lg shadow-2xl" />
+              <img
+                src={adminDashboard}
+                alt="Stitchly Sequence Editor"
+                className="w-full h-auto rounded-lg"
+                style={{ boxShadow: "0 0 80px rgba(59, 130, 246, 0.2)" }}
+              />
             </div>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
-              <DotPattern glow width={22} height={22} cr={1} className={cn("fill-primary/20 opacity-50 -z-0", "[mask-image:radial-gradient(ellipse_at_right,white,transparent_70%)]")} />
               <div className="relative">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
                 <p className="text-muted-foreground font-body">Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</p>
@@ -268,7 +278,9 @@ const Landing = () => {
                   { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
                 ].map((b) => (
                   <div key={b.title} className="flex gap-4">
-                    <div className="flex-shrink-0"><ArrowRight className="h-6 w-6 text-primary mt-1" /></div>
+                    <div className="flex-shrink-0 mt-1">
+                      <ArrowRight className="h-6 w-6" style={{ stroke: "url(#bp-gradient)" }} />
+                    </div>
                     <div>
                       <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
                       <p className="text-muted-foreground font-body">{b.text}</p>
