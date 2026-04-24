@@ -152,6 +152,77 @@
     background-color: rgba(255, 255, 255, 0.05);
   }
 
+  /* Outline-only gradient border button (secondary CTA) */
+  .btn-outline-gradient {
+    position: relative;
+    background-color: transparent;
+    background-image: linear-gradient(hsl(var(--bg-base)), hsl(var(--bg-base))),
+      linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: 2px solid transparent;
+    transition: background-color 200ms ease;
+  }
+  .btn-outline-gradient:hover {
+    background-image: linear-gradient(rgba(124, 58, 237, 0.08), rgba(124, 58, 237, 0.08)),
+      linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%);
+  }
+  .btn-outline-gradient .gradient-text {
+    background-image: linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Reusable text gradient (blue → purple) */
+  .text-gradient-bp {
+    background-image: linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Section background colors */
+  .bg-section-howitworks { background-color: #0F1420; }
+  .bg-section-feature1 {
+    background-image: linear-gradient(135deg, #0F0A1F 0%, #0A1428 100%);
+  }
+  .bg-section-feature2 { background-color: #06080E; }
+  .bg-section-testimonials { background-color: #F5F0E8; }
+  .bg-section-pricing { background-color: #0A0E1A; }
+  .bg-section-cta {
+    background-image: linear-gradient(135deg, #1A0A2E 0%, #0A0A1F 50%, #0A1A3E 100%);
+  }
+  .bg-section-footer { background-color: #06080E; }
+
+  /* Image fade mask used on hero screenshot */
+  .image-fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+  }
+
+  /* How It Works icon glow */
+  .icon-glow-purple {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  }
+
+  /* Cinematic shimmer sweep for final CTA */
+  @keyframes shimmer-sweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .animate-shimmer-sweep {
+    animation: shimmer-sweep 18s linear infinite;
+  }
+
+  /* Border Beam animation */
+  @keyframes border-beam {
+    100% { offset-distance: 100%; }
+  }
+  .animate-border-beam {
+    animation: border-beam calc(var(--duration) * 1s) infinite linear;
+  }
+
   .hero-radial-glow {
     position: absolute;
     top: -200px;
