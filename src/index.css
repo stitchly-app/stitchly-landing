@@ -2,30 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 229 35% 10%;
+    --background: 222 39% 7%;
     --foreground: 0 0% 100%;
 
-    --card: 228 24% 17%;
+    --card: 223 35% 13%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 228 24% 17%;
+    --popover: 223 35% 13%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 262 83% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 228 24% 17%;
+    --secondary: 223 35% 13%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 228 24% 17%;
-    --muted-foreground: 220 9% 46%;
-    
+    --muted: 223 35% 13%;
+    --muted-foreground: 220 9% 65%;
+
     --label: 233 20% 69%;
     --label-foreground: 233 20% 69%;
 
@@ -35,60 +31,56 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 228 20% 25%;
-    --input: 228 20% 25%;
+    --border: 262 30% 22%;
+    --input: 262 30% 22%;
     --ring: 262 83% 58%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 228 24% 17%;
+    --sidebar-background: 223 35% 13%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 262 83% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 228 20% 25%;
+    --sidebar-accent: 223 30% 18%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 228 20% 25%;
+    --sidebar-border: 223 30% 18%;
     --sidebar-ring: 262 83% 58%;
+
+    /* Stitchly exact palette */
+    --bg-base: 222 39% 7%;     /* #0B0F1A */
+    --bg-alt: 223 33% 9%;       /* #0F1420 */
+    --bg-card: 223 35% 13%;     /* #141B2D */
   }
 
   .dark {
-    --background: 229 35% 10%;
+    --background: 222 39% 7%;
     --foreground: 0 0% 100%;
-
-    --card: 228 24% 17%;
+    --card: 223 35% 13%;
     --card-foreground: 0 0% 100%;
-
-    --popover: 228 24% 17%;
+    --popover: 223 35% 13%;
     --popover-foreground: 0 0% 100%;
-
     --primary: 262 83% 58%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 228 24% 17%;
+    --secondary: 223 35% 13%;
     --secondary-foreground: 0 0% 100%;
-
-    --muted: 228 24% 17%;
-    --muted-foreground: 220 9% 46%;
-    
+    --muted: 223 35% 13%;
+    --muted-foreground: 220 9% 65%;
     --label: 233 20% 69%;
     --label-foreground: 233 20% 69%;
-
     --accent: 262 83% 58%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 228 20% 25%;
-    --input: 228 20% 25%;
+    --border: 262 30% 22%;
+    --input: 262 30% 22%;
     --ring: 262 83% 58%;
-    --sidebar-background: 228 24% 17%;
+    --sidebar-background: 223 35% 13%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 262 83% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 228 20% 25%;
+    --sidebar-accent: 223 30% 18%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 228 20% 25%;
+    --sidebar-border: 223 30% 18%;
     --sidebar-ring: 262 83% 58%;
   }
 }
@@ -100,5 +92,60 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1, h2 {
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .stitchly-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .stitchly-container {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+
+  .stitchly-card {
+    background-color: hsl(var(--bg-card));
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    border-radius: 16px;
+    transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .stitchly-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  }
+
+  .bg-stitchly-base { background-color: hsl(var(--bg-base)); }
+  .bg-stitchly-alt { background-color: hsl(var(--bg-alt)); }
+  .bg-stitchly-card { background-color: hsl(var(--bg-card)); }
+
+  .section-fade-top::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 120px;
+    background: linear-gradient(to bottom, hsl(var(--bg-base)), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .section-fade-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 120px;
+    background: linear-gradient(to top, hsl(var(--bg-base)), transparent);
+    pointer-events: none;
+    z-index: 1;
   }
 }
