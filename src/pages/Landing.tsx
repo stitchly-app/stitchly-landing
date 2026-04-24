@@ -304,11 +304,23 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Testimonials */}
-      <FadeUpSection className="relative overflow-hidden bg-stitchly-base">
-        <div className="stitchly-container relative py-16 sm:py-24">
+      <FadeUpSection className="relative overflow-hidden bg-section-testimonials">
+        {/* Top fade from dark feature2 (#06080E) into light */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-0 left-0 right-0 h-[120px] z-[1]"
+          style={{ background: "linear-gradient(to bottom, #06080E 0%, transparent 100%)" }}
+        />
+        {/* Bottom fade from light into dark pricing (#0A0E1A) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 left-0 right-0 h-[120px] z-[1]"
+          style={{ background: "linear-gradient(to top, #0A0E1A 0%, transparent 100%)" }}
+        />
+        <div className="stitchly-container relative z-[2] py-20 sm:py-28">
           <div className="text-center mb-10 sm:mb-14">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">What Editors Are Saying</h3>
-            <p className="text-muted-foreground font-body">From editors who stopped scrubbing and started editing.</p>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 font-heading" style={{ color: "#1A1A2E" }}>What Editors Are Saying</h3>
+            <p className="font-body" style={{ color: "#5A5A6E" }}>From editors who stopped scrubbing and started editing.</p>
           </div>
           <div className="relative">
             <div className="overflow-hidden">
@@ -320,21 +332,25 @@ const Landing = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
                       transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
-                      className="stitchly-card p-8 max-w-2xl mx-auto"
+                      className="p-8 max-w-2xl mx-auto rounded-2xl"
+                      style={{
+                        backgroundColor: "#FFFFFF",
+                        border: "1px solid rgba(26, 26, 46, 0.08)",
+                      }}
                     >
                       <div className="flex gap-1 mb-4">
                         {[...Array(t.rating)].map((_, idx) => (
                           <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
                         ))}
                       </div>
-                      <p className="text-foreground text-lg mb-6 leading-relaxed font-body">"{t.text}"</p>
+                      <p className="text-lg mb-6 leading-relaxed font-body" style={{ color: "#1A1A2E" }}>"{t.text}"</p>
                       <div className="flex items-center gap-3">
-                        <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center">
-                          <Users className="h-6 w-6 text-muted-foreground" />
+                        <div className="h-12 w-12 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(26,26,46,0.08)" }}>
+                          <Users className="h-6 w-6" style={{ color: "#5A5A6E" }} />
                         </div>
                         <div>
-                          <p className="text-foreground font-semibold font-heading">{t.author}</p>
-                          <p className="text-muted-foreground text-sm font-body">{t.title}</p>
+                          <p className="font-semibold font-heading" style={{ color: "#1A1A2E" }}>{t.author}</p>
+                          <p className="text-sm font-body" style={{ color: "#5A5A6E" }}>{t.title}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -342,15 +358,31 @@ const Landing = () => {
                 ))}
               </div>
             </div>
-            <button onClick={previousTestimonial} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-card hover:bg-muted text-foreground p-2 sm:p-3 rounded-full border border-border transition-colors" aria-label="Previous testimonial">
+            <button
+              onClick={previousTestimonial}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 p-2 sm:p-3 rounded-full transition-colors"
+              style={{ backgroundColor: "rgba(26,26,46,0.08)", color: "#1A1A2E" }}
+              aria-label="Previous testimonial"
+            >
               <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
-            <button onClick={nextTestimonial} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-card hover:bg-muted text-foreground p-2 sm:p-3 rounded-full border border-border transition-colors" aria-label="Next testimonial">
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 p-2 sm:p-3 rounded-full transition-colors"
+              style={{ backgroundColor: "rgba(26,26,46,0.08)", color: "#1A1A2E" }}
+              aria-label="Next testimonial"
+            >
               <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
             <div className="flex justify-center gap-2 mt-8">
               {testimonials.map((_, idx) => (
-                <button key={idx} onClick={() => setCurrentTestimonial(idx)} className={`h-2 rounded-full transition-all ${idx === currentTestimonial ? "w-8 bg-primary" : "w-2 bg-muted"}`} aria-label={`Go to testimonial ${idx + 1}`} />
+                <button
+                  key={idx}
+                  onClick={() => setCurrentTestimonial(idx)}
+                  className={`h-2 rounded-full transition-all ${idx === currentTestimonial ? "w-8 bg-primary" : "w-2"}`}
+                  style={idx === currentTestimonial ? undefined : { backgroundColor: "rgba(26,26,46,0.2)" }}
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                />
               ))}
             </div>
           </div>
