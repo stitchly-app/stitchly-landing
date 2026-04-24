@@ -447,17 +447,45 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* CTA Section */}
-      <FadeUpSection className="relative overflow-hidden bg-stitchly-base">
-        <DotPattern glow width={20} height={20} className={cn("fill-primary/30 opacity-60", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]")} />
-        <div className="stitchly-container relative py-16 sm:py-24">
-          <div className="stitchly-card p-8 sm:p-14 text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-heading">Your Next Edit Starts Here.</h3>
+      <FadeUpSection className="relative overflow-hidden bg-section-cta">
+        {/* Animated cinematic shimmer sweep */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div
+            className="absolute inset-0 animate-shimmer-sweep"
+            style={{
+              background:
+                "linear-gradient(110deg, transparent 35%, rgba(124,58,237,0.08) 50%, transparent 65%)",
+            }}
+          />
+        </div>
+        <DotPattern
+          glow
+          width={22}
+          height={22}
+          className={cn(
+            "fill-primary/30 opacity-70",
+            "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]",
+          )}
+        />
+        <div className="stitchly-container relative py-20 sm:py-28">
+          <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
+            <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
+              Your Next Edit Starts Here.
+            </h3>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto font-body">
               Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
             </p>
-            <div className="flex justify-center pt-2 sm:pt-4">
-              <Button size="lg" asChild className="btn-gradient border-0 rounded-lg px-8">
-                <a href={SIGNUP_URL}>Start Your Free Trial →</a>
+            <div className="flex justify-center pt-4 sm:pt-6">
+              <Button
+                size="lg"
+                asChild
+                className="btn-gradient border-0 rounded-lg px-8 relative overflow-hidden"
+                style={{ boxShadow: "0 0 60px rgba(124, 58, 237, 0.4)" }}
+              >
+                <a href={SIGNUP_URL}>
+                  Start Your Free Trial →
+                  <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
+                </a>
               </Button>
             </div>
           </div>
@@ -465,7 +493,7 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Footer */}
-      <FadeUpSection as="footer" className="border-t border-border bg-stitchly-alt">
+      <FadeUpSection as="footer" className="bg-section-footer">
         <div className="stitchly-container py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-1">
