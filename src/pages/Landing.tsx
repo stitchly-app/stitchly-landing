@@ -305,17 +305,21 @@ const Landing = () => {
 
       {/* Testimonials */}
       <FadeUpSection className="relative overflow-hidden bg-section-testimonials">
-        {/* Top fade from dark feature2 (#06080E) into light */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-0 left-0 right-0 h-[120px] z-[1]"
-          style={{ background: "linear-gradient(to bottom, #06080E 0%, transparent 100%)" }}
+        {/* Subtle grid pattern for light section warmth */}
+        <GridPattern
+          width={56}
+          height={56}
+          className={cn(
+            "opacity-100",
+            "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]",
+          )}
+          style={{ stroke: "rgba(26, 26, 46, 0.06)" }}
         />
-        {/* Bottom fade from light into dark pricing (#0A0E1A) */}
+        {/* Soft warm radial accent */}
         <div
           aria-hidden
-          className="pointer-events-none absolute bottom-0 left-0 right-0 h-[120px] z-[1]"
-          style={{ background: "linear-gradient(to top, #0A0E1A 0%, transparent 100%)" }}
+          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full"
+          style={{ background: "radial-gradient(ellipse, rgba(124, 58, 237, 0.06) 0%, transparent 70%)" }}
         />
         <div className="stitchly-container relative z-[2] py-20 sm:py-28">
           <div className="text-center mb-10 sm:mb-14">
