@@ -269,11 +269,11 @@ const Landing = () => {
         id="how-it-works"
         className="relative overflow-hidden bg-section-howitworks"
       >
-        {/* Wave divider sits at top of How It Works; top half transparent so hero shows through */}
+        {/* Wave divider sits at top of How It Works; top half transparent so hero color shows through */}
         <WaveDivider
           topColor="transparent"
           bottomColor="#0F1420"
-          className="absolute top-[-119px] sm:top-[-119px] left-0 right-0 z-20 pointer-events-none"
+          className="absolute top-0 left-0 right-0 z-20 pointer-events-none"
         />
         <GridPattern
           width={48}
