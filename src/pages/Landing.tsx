@@ -206,6 +206,7 @@ const Landing = () => {
                     <Play className="h-8 w-8 ml-1" style={{ color: "#7C3AED", fill: "#7C3AED" }} />
                   </span>
                 </button>
+                <BorderBeam size={220} duration={10} colorFrom="#7C3AED" colorTo="#3B82F6" borderWidth={2} />
               </div>
             </ScreenshotReveal>
           </motion.div>
