@@ -13,6 +13,7 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
