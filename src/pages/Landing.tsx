@@ -474,7 +474,7 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Pricing */}
-      <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-pricing">
+      <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-feature1">
         {/* Large radial purple spotlight behind the card */}
         <div
           aria-hidden
@@ -482,23 +482,61 @@ const Landing = () => {
           style={{ background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 65%)" }}
         />
         <div className="stitchly-container relative py-16 sm:py-24">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <h3
               className="font-bold text-foreground mb-3 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
-              Simple Pricing. Start{" "}
+              <span className="block text-foreground">Simple Pricing.</span>
               <span
-                className="bg-clip-text text-transparent"
+                className="block bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
               >
-                Free
+                Start Free.
               </span>
-              .
             </h3>
-            <p className="text-muted-foreground font-body mb-10">One plan. Everything included.</p>
-            <div
-              className="group relative p-8 sm:p-10 text-left max-w-md mx-auto rounded-2xl transition-all duration-200 overflow-hidden"
+            <p className="text-muted-foreground font-body mb-10">Start with the desktop app — your files never leave your Mac.</p>
+
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-stretch">
+              {/* Free Trial card */}
+              <div
+                className="relative p-8 sm:p-10 text-left rounded-2xl overflow-hidden flex flex-col"
+                style={{
+                  backgroundColor: "#141B2D",
+                  border: "1px solid rgba(124, 58, 237, 0.18)",
+                }}
+              >
+                <div className="mb-6">
+                  <h4 className="text-2xl font-bold font-heading text-foreground inline-block">Free Trial</h4>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <span className="text-4xl font-bold text-foreground font-heading">$0</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mt-1 font-body">No credit card required. Download to start.</p>
+                  <p className="text-muted-foreground mt-4 font-body">Desktop app for Mac. All files stay local — no uploading required.</p>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {[
+                    "50 credits, one time",
+                    "Instant local transcriptions",
+                    "Unlimited projects",
+                    "AI-powered soundbite assembly",
+                    "One-click export to Premiere, Resolve & FCP",
+                    "Prompt Builder + Quick Actions",
+                  ].map((feature) => (
+                    <li key={feature} className="flex gap-3 items-start">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground/90 text-sm font-body">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild size="lg" variant="secondary" className="rounded-lg w-full">
+                  <a href={SIGNUP_URL}>Download Free Trial →</a>
+                </Button>
+              </div>
+
+              {/* Pro card (hero card) */}
+              <div
+                className="group relative p-8 sm:p-10 text-left rounded-2xl transition-all duration-200 overflow-hidden flex flex-col"
               style={{
                 backgroundColor: "#141B2D",
                 border: "1px solid rgba(124, 58, 237, 0.4)",
@@ -515,7 +553,7 @@ const Landing = () => {
                 <p className="text-muted-foreground text-sm mt-1 font-body">or $290/year</p>
                 <p className="text-muted-foreground mt-4 font-body">Everything you need to stop scrubbing and start editing.</p>
               </div>
-              <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "500 credits/month (1 credit per 2 min transcription, 5 credits per AI command)",
                   "Unlimited projects",
@@ -537,6 +575,7 @@ const Landing = () => {
                   <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
                 </a>
               </Button>
+            </div>
             </div>
             <p className="text-muted-foreground text-sm mt-6 font-body">Start with a free trial. No credit card required. Download for Mac.</p>
           </div>
