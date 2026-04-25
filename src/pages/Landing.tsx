@@ -241,25 +241,12 @@ const Landing = () => {
                   {/* Pulsating glow behind the play button */}
                   <span
                     aria-hidden
-                    className="absolute rounded-full animate-play-glow pointer-events-none"
-                    style={{
-                      width: 140,
-                      height: 140,
-                      background:
-                        "radial-gradient(circle, rgba(124,58,237,0.55) 0%, rgba(124,58,237,0.25) 45%, transparent 75%)",
-                      filter: "blur(12px)",
-                    }}
+                    className="hero-play-glow absolute rounded-full pointer-events-none"
                   />
                   <span
-                    className="animate-play-soft relative flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white"
-                    style={{
-                      width: 80,
-                      height: 80,
-                      backgroundColor: "rgba(255,255,255,0.95)",
-                      boxShadow: "0 8px 30px rgba(124, 58, 237, 0.35)",
-                    }}
+                    className="hero-play-button relative flex items-center justify-center rounded-full backdrop-blur-md"
                   >
-                    <Play className="h-8 w-8 ml-1" style={{ color: "#7C3AED", fill: "#7C3AED" }} />
+                    <Play className="h-8 w-8 ml-1 text-primary fill-primary" />
                   </span>
                 </button>
               </div>
