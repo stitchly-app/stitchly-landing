@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { DotPattern } from "@/components/ui/dot-pattern";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
 import { BorderBeam } from "@/components/ui/border-beam";
@@ -109,8 +108,8 @@ const Landing = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col items-center text-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs sm:text-sm text-primary font-body mb-6">
-              <Sparkles className="h-3.5 w-3.5" /> AI Video Assembly for Editors
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-primary/15 px-3 py-1 text-xs sm:text-sm font-body mb-6 text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)]">
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> AI Video Assembly for Editors
             </span>
 
             <h2
@@ -140,15 +139,29 @@ const Landing = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
-              <Button size="lg" asChild className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
-                <a href={SIGNUP_URL}>
-                  Start Your Free Trial →
-                  <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
-                </a>
-              </Button>
-              <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-gradient rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
-                <span className="gradient-text font-medium">See How It Works ↓</span>
-              </Button>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" asChild className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
+                  <a href={SIGNUP_URL}>
+                    Start Your Free Trial →
+                    <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
+                  </a>
+                </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-gradient rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
+                  <span className="gradient-text font-medium">See How It Works ↓</span>
+                </Button>
+              </motion.div>
             </div>
 
             {/* Product screenshot */}
@@ -583,26 +596,10 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* CTA Section */}
-      <FadeUpSection className="relative overflow-hidden bg-section-cta">
-        {/* Animated cinematic shimmer sweep */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div
-            className="absolute inset-0 animate-shimmer-sweep"
-            style={{
-              background:
-                "linear-gradient(110deg, transparent 35%, rgba(124,58,237,0.08) 50%, transparent 65%)",
-            }}
-          />
-        </div>
-        <DotPattern
-          glow
-          width={22}
-          height={22}
-          className={cn(
-            "fill-primary/30 opacity-70",
-            "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]",
-          )}
-        />
+      <FadeUpSection
+        className="relative overflow-hidden"
+        style={{ backgroundImage: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)" }}
+      >
         <div className="stitchly-container relative py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
             <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
