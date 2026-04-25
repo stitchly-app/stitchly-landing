@@ -264,17 +264,14 @@ const Landing = () => {
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
 
+      {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) */}
+      <WaveDivider topColor="#0B0F1A" bottomColor="#0F1420" />
+
       {/* How It Works */}
       <FadeUpSection
         id="how-it-works"
         className="relative overflow-hidden bg-section-howitworks"
       >
-        {/* Wave divider sits at top of How It Works; top half transparent so hero color shows through */}
-        <WaveDivider
-          topColor="transparent"
-          bottomColor="#0F1420"
-          className="absolute top-0 left-0 right-0 z-20 pointer-events-none"
-        />
         <GridPattern
           width={48}
           height={48}
