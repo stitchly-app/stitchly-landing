@@ -260,7 +260,7 @@ const Landing = () => {
                       key={img.src}
                       src={img.src}
                       alt={img.alt}
-                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ease-in-out"
+                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
                       style={{ opacity: heroImageIndex === i ? 1 : 0 }}
                     />
                   ))}
