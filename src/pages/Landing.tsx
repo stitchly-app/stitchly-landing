@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { DotPattern } from "@/components/ui/dot-pattern";
@@ -23,6 +23,7 @@ import { TypewriterLoop } from "@/components/TypewriterLoop";
 import { ScreenshotReveal } from "@/components/ScreenshotReveal";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard-product-shot.png";
+import dashboardImage2 from "@/assets/stitchly-project-area-product-shot.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
 import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
@@ -60,6 +61,17 @@ const loopingTestimonials = [...testimonials, ...testimonials];
 
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const heroImages = [
+    { src: dashboardImage, alt: "Stitchly Dashboard" },
+    { src: dashboardImage2, alt: "Stitchly Project Area" },
+  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroImageIndex((i) => (i + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
@@ -236,7 +248,30 @@ const Landing = () => {
                 className="glass-frame relative z-10 image-fade-bottom"
                 style={{ "--shimmer-delay": "0s" } as React.CSSProperties}
               >
-                <img src={dashboardImage} alt="Stitchly Dashboard" className="w-full h-auto block" />
+                <div className="relative w-full">
+                  {/* Sizer keeps frame height stable */}
+                  <img
+                    src={heroImages[0].src}
+                    alt=""
+                    aria-hidden
+                    className="w-full h-auto block invisible"
+                  />
+                  {heroImages.map((img, i) => (
+                    <img
+                      key={img.src}
+                      src={img.src}
+                      alt={img.alt}
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.65,0,0.35,1)]"
+                      style={{
+                        opacity: heroImageIndex === i ? 1 : 0,
+                        clipPath:
+                          heroImageIndex === i
+                            ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+                            : "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+                      }}
+                    />
+                  ))}
+                </div>
                 <button
                   onClick={() => setVideoOpen(true)}
                   aria-label="Play product demo"
