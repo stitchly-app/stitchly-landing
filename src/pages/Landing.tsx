@@ -393,31 +393,41 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
-      {/* Wave divider: features (#06080E) -> testimonials (#F5F0E8) */}
-      <WaveDivider topColor="#06080E" bottomColor="#F5F0E8" />
+      {/* Wave divider: features (#06080E) -> testimonials (dark) */}
+      <WaveDivider topColor="#06080E" bottomColor="#0A0E1A" />
 
       {/* Testimonials */}
-      <FadeUpSection className="relative overflow-hidden bg-section-testimonials">
-        {/* Subtle grid pattern for light section warmth */}
+      <FadeUpSection className="relative overflow-hidden" style={{ backgroundColor: "#0A0E1A" } as any}>
+        {/* Subtle grid pattern */}
         <GridPattern
           width={56}
           height={56}
           className={cn(
-            "opacity-100",
+            "opacity-100 stroke-primary/20",
             "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]",
           )}
-          style={{ stroke: "rgba(26, 26, 46, 0.06)" }}
         />
         {/* Soft warm radial accent */}
         <div
           aria-hidden
           className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, rgba(124, 58, 237, 0.06) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(124, 58, 237, 0.12) 0%, transparent 70%)" }}
         />
         <div className="stitchly-container relative z-[2] py-20 sm:py-28">
           <div className="text-center mb-10 sm:mb-14">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 font-heading" style={{ color: "#1A1A2E" }}>What Editors Are Saying</h3>
-            <p className="font-body" style={{ color: "#5A5A6E" }}>From editors who stopped scrubbing and started editing.</p>
+            <h3
+              className="font-bold mb-3 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              What Editors Are{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Saying
+              </span>
+            </h3>
+            <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
           <div className="relative">
             <Marquee pauseOnHover className="[--duration:50s]" repeat={3}>
@@ -426,9 +436,9 @@ const Landing = () => {
                   key={t.id}
                   className="mx-3 w-[340px] sm:w-[400px] flex-shrink-0 p-7 rounded-2xl"
                   style={{
-                    backgroundColor: "#FFFFFF",
-                    border: "1px solid rgba(26, 26, 46, 0.08)",
-                    boxShadow: "0 4px 20px rgba(26, 26, 46, 0.04)",
+                    backgroundColor: "#141B2D",
+                    border: "1px solid rgba(124, 58, 237, 0.2)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
                   }}
                 >
                   <div className="flex gap-1 mb-4">
@@ -436,22 +446,22 @@ const Landing = () => {
                       <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-base mb-6 leading-relaxed font-body" style={{ color: "#1A1A2E" }}>"{t.text}"</p>
+                  <p className="text-base mb-6 leading-relaxed font-body text-foreground/90">"{t.text}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(26,26,46,0.08)" }}>
-                      <Users className="h-5 w-5" style={{ color: "#5A5A6E" }} />
+                    <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(124, 58, 237, 0.15)" }}>
+                      <Users className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold font-heading text-sm" style={{ color: "#1A1A2E" }}>{t.author}</p>
-                      <p className="text-xs font-body" style={{ color: "#5A5A6E" }}>{t.title}</p>
+                      <p className="font-semibold font-heading text-sm text-foreground">{t.author}</p>
+                      <p className="text-xs font-body text-muted-foreground">{t.title}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </Marquee>
             {/* edge fade overlays */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #F5F0E8, transparent)" }} />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #F5F0E8, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #0A0E1A, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #0A0E1A, transparent)" }} />
           </div>
         </div>
       </FadeUpSection>
