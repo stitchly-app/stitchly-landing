@@ -302,7 +302,7 @@
     50% { transform: scale(1.35); }
   }
   .animate-play-soft {
-    animation: play-soft 2s ease-in-out infinite;
+    animation: play-soft 2.4s ease-in-out infinite;
   }
 
   /* Pulsating glow behind the play button */
