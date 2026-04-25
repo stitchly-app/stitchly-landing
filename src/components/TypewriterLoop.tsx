@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 
 interface TypewriterLoopProps {
   words: string[];
@@ -7,7 +7,7 @@ interface TypewriterLoopProps {
   holdMs?: number;
   className?: string;
   startDelay?: number;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 /**
