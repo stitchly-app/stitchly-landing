@@ -12,6 +12,8 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
+import { Typewriter } from "@/components/Typewriter";
+import { ScreenshotReveal } from "@/components/ScreenshotReveal";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
@@ -115,12 +117,21 @@ const Landing = () => {
               className="font-bold font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}
             >
-              <span className="block text-foreground">Stop Watching.</span>
+              <Typewriter
+                text="Stop Watching."
+                speed={70}
+                delay={200}
+                className="block text-foreground"
+              />
               <span
                 className="block bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
               >
-                Start Editing.
+                <Typewriter
+                  text="Start Editing."
+                  speed={70}
+                  delay={200 + 14 * 70 + 250}
+                />
               </span>
             </h2>
 
@@ -141,11 +152,9 @@ const Landing = () => {
             </div>
 
             {/* Product screenshot */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            <ScreenshotReveal
+              immediate
+              delay={0.4}
               className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
             >
               <div
@@ -174,7 +183,7 @@ const Landing = () => {
                   </span>
                 </button>
               </div>
-            </motion.div>
+            </ScreenshotReveal>
           </motion.div>
         </div>
       </section>
@@ -249,29 +258,27 @@ const Landing = () => {
                   )}
                 >
                   {/* Screenshot frame */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="relative rounded-2xl overflow-hidden"
-                    style={{
-                      backgroundColor: "#0B0F1A",
-                      border: "1px solid rgba(124, 58, 237, 0.25)",
-                      boxShadow:
-                        "0 20px 50px rgba(0,0,0,0.4), 0 0 60px rgba(124, 58, 237, 0.15)",
-                    }}
-                  >
-                    <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
-                      <img
-                        src={dashboardImage}
-                        alt={`${title} preview`}
-                        className="w-full h-full object-cover"
-                        style={imgStyle as React.CSSProperties}
-                      />
+                  <ScreenshotReveal>
+                    <div
+                      className="relative rounded-2xl overflow-hidden"
+                      style={{
+                        backgroundColor: "#0B0F1A",
+                        border: "1px solid rgba(124, 58, 237, 0.25)",
+                        boxShadow:
+                          "0 20px 50px rgba(0,0,0,0.4), 0 0 60px rgba(124, 58, 237, 0.15)",
+                      }}
+                    >
+                      <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
+                        <img
+                          src={dashboardImage}
+                          alt={`${title} preview`}
+                          className="w-full h-full object-cover"
+                          style={imgStyle as React.CSSProperties}
+                        />
+                      </div>
+                      <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
                     </div>
-                    <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
-                  </motion.div>
+                  </ScreenshotReveal>
                   {/* Text */}
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -336,14 +343,14 @@ const Landing = () => {
                 </div>
               </TracingBeam>
             </div>
-            <div className="w-full">
+            <ScreenshotReveal className="w-full">
               <img
                 src={uploadDashboard}
                 alt="Stitchly Workspace"
                 className="w-full h-auto rounded-lg"
                 style={{ boxShadow: "0 0 80px rgba(124, 58, 237, 0.2)" }}
               />
-            </div>
+            </ScreenshotReveal>
           </div>
         </div>
       </FadeUpSection>
@@ -358,14 +365,14 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
-            <div className="w-full lg:order-1 order-2">
+            <ScreenshotReveal className="w-full lg:order-1 order-2">
               <img
                 src={adminDashboard}
                 alt="Stitchly Sequence Editor"
                 className="w-full h-auto rounded-lg"
                 style={{ boxShadow: "0 0 80px rgba(59, 130, 246, 0.2)" }}
               />
-            </div>
+            </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
@@ -467,7 +474,7 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Pricing */}
-      <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-pricing">
+      <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-feature1">
         {/* Large radial purple spotlight behind the card */}
         <div
           aria-hidden
@@ -475,23 +482,61 @@ const Landing = () => {
           style={{ background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 65%)" }}
         />
         <div className="stitchly-container relative py-16 sm:py-24">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <h3
               className="font-bold text-foreground mb-3 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
-              Simple Pricing. Start{" "}
+              <span className="block text-foreground">Simple Pricing.</span>
               <span
-                className="bg-clip-text text-transparent"
+                className="block bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
               >
-                Free
+                Start Free.
               </span>
-              .
             </h3>
-            <p className="text-muted-foreground font-body mb-10">One plan. Everything included.</p>
-            <div
-              className="group relative p-8 sm:p-10 text-left max-w-md mx-auto rounded-2xl transition-all duration-200 overflow-hidden"
+            <p className="text-muted-foreground font-body mb-10">Start with the desktop app — your files never leave your Mac.</p>
+
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-stretch">
+              {/* Free Trial card */}
+              <div
+                className="relative p-8 sm:p-10 text-left rounded-2xl overflow-hidden flex flex-col"
+                style={{
+                  backgroundColor: "#141B2D",
+                  border: "1px solid rgba(124, 58, 237, 0.18)",
+                }}
+              >
+                <div className="mb-6">
+                  <h4 className="text-2xl font-bold font-heading text-foreground inline-block">Free Trial</h4>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <span className="text-4xl font-bold text-foreground font-heading">$0</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mt-1 font-body">No credit card required. Download to start.</p>
+                  <p className="text-muted-foreground mt-4 font-body">Desktop app for Mac. All files stay local — no uploading required.</p>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {[
+                    "50 credits, one time",
+                    "Instant local transcriptions",
+                    "Unlimited projects",
+                    "AI-powered soundbite assembly",
+                    "One-click export to Premiere, Resolve & FCP",
+                    "Prompt Builder + Quick Actions",
+                  ].map((feature) => (
+                    <li key={feature} className="flex gap-3 items-start">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground/90 text-sm font-body">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild size="lg" variant="secondary" className="rounded-lg w-full">
+                  <a href={SIGNUP_URL}>Download Free Trial →</a>
+                </Button>
+              </div>
+
+              {/* Pro card (hero card) */}
+              <div
+                className="group relative p-8 sm:p-10 text-left rounded-2xl transition-all duration-200 overflow-hidden flex flex-col"
               style={{
                 backgroundColor: "#141B2D",
                 border: "1px solid rgba(124, 58, 237, 0.4)",
@@ -508,7 +553,7 @@ const Landing = () => {
                 <p className="text-muted-foreground text-sm mt-1 font-body">or $290/year</p>
                 <p className="text-muted-foreground mt-4 font-body">Everything you need to stop scrubbing and start editing.</p>
               </div>
-              <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "500 credits/month (1 credit per 2 min transcription, 5 credits per AI command)",
                   "Unlimited projects",
@@ -530,6 +575,7 @@ const Landing = () => {
                   <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
                 </a>
               </Button>
+            </div>
             </div>
             <p className="text-muted-foreground text-sm mt-6 font-body">Start with a free trial. No credit card required. Download for Mac.</p>
           </div>

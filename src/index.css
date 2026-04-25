@@ -173,6 +173,31 @@
     background-clip: text;
     color: transparent;
   }
+  .btn-outline-gradient:hover .gradient-text {
+    background-image: none;
+    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
+  }
+
+  /* Screenshot scroll-in: fade + scale + persistent glow */
+  .screenshot-glow {
+    position: relative;
+    isolation: isolate;
+  }
+  .screenshot-glow::before {
+    content: "";
+    position: absolute;
+    inset: -8%;
+    z-index: -1;
+    background: radial-gradient(ellipse at center, rgba(124,58,237,0.35) 0%, rgba(59,130,246,0.18) 40%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0;
+    transition: opacity 900ms ease-out;
+    pointer-events: none;
+  }
+  .screenshot-glow.is-visible::before {
+    opacity: 1;
+  }
 
   /* Reusable text gradient (blue → purple) */
   .text-gradient-bp {
