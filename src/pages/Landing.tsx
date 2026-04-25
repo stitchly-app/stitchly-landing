@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Monitor, Upload as UploadIcon, Users, ChevronRight, ArrowRight, Star, ChevronLeft, Check, Play } from "lucide-react";
+import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Marquee } from "@/components/ui/marquee";
+import { TracingBeam } from "@/components/ui/tracing-beam";
+import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { cn } from "@/lib/utils";
@@ -44,15 +48,11 @@ const testimonials = [
 ];
 
 const Landing = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
   };
-
-  const nextTestimonial = () => setCurrentTestimonial((p) => (p + 1) % testimonials.length);
-  const previousTestimonial = () => setCurrentTestimonial((p) => (p - 1 + testimonials.length) % testimonials.length);
 
   return (
     <div className="min-h-screen bg-stitchly-base">
@@ -91,6 +91,8 @@ const Landing = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-stitchly-base">
         <div className="hero-radial-glow" />
+        <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#7C3AED" />
+        <div className="hero-aurora" aria-hidden />
         <Particles
           className="absolute inset-0 z-0"
           quantity={180}
@@ -139,7 +141,13 @@ const Landing = () => {
             </div>
 
             {/* Product screenshot */}
-            <div className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+              className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
+            >
               <div
                 className="relative rounded-2xl overflow-hidden image-fade-bottom"
                 style={{
@@ -166,12 +174,15 @@ const Landing = () => {
                   </span>
                 </button>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
+
+      {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) */}
+      <WaveDivider topColor="#0B0F1A" bottomColor="#0F1420" />
 
       {/* How It Works */}
       <FadeUpSection
@@ -186,27 +197,89 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-14 text-foreground font-heading">How It Works</h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
+          <div className="space-y-20 sm:space-y-28 max-w-6xl mx-auto">
             {[
-              { Icon: UploadIcon, title: "Import Your Footage", text: "Drop in your interview files. Stitchly generates proxies locally, transcribes with word-level timestamps, and identifies every speaker automatically." },
-              { Icon: Sparkles, title: "AI Finds the Best Moments", text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage." },
-              { Icon: Monitor, title: "One Click to Your NLE", text: "Hit \"Send to Premiere Pro\" and your sequence opens directly in your editor with all media linked. No XML hunting. No relinking. Premiere, Resolve, and Final Cut all supported." },
-            ].map(({ Icon, title, text }, i) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
-                className="stitchly-card p-8 space-y-4"
-              >
-                <div className="h-12 w-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center icon-glow-purple">
-                  <Icon className="h-6 w-6 text-primary" />
+              {
+                Icon: UploadIcon,
+                step: "01",
+                title: "Import Your Footage",
+                text: "Drop in your interview files. Stitchly generates proxies locally, transcribes with word-level timestamps, and identifies every speaker automatically.",
+                // Sidebar area (left side)
+                imgStyle: { objectPosition: "left center", transform: "scale(1.6)", transformOrigin: "left center" },
+              },
+              {
+                Icon: Sparkles,
+                step: "02",
+                title: "AI Finds the Best Moments",
+                text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage.",
+                // Main project grid (center)
+                imgStyle: { objectPosition: "center center", transform: "scale(1.3)", transformOrigin: "center center" },
+              },
+              {
+                Icon: Monitor,
+                step: "03",
+                title: "One Click to Your NLE",
+                text: "Hit \"Send to Premiere Pro\" and your sequence opens directly in your editor with all media linked. No XML hunting. No relinking. Premiere, Resolve, and Final Cut all supported.",
+                // Top right (right side, top)
+                imgStyle: { objectPosition: "right top", transform: "scale(1.6)", transformOrigin: "right top" },
+              },
+            ].map(({ Icon, step, title, text, imgStyle }, i) => {
+              const reversed = i % 2 === 1;
+              return (
+                <div
+                  key={title}
+                  className={cn(
+                    "grid lg:grid-cols-2 gap-8 sm:gap-12 items-center",
+                    reversed && "lg:[&>*:first-child]:order-2",
+                  )}
+                >
+                  {/* Screenshot frame */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="relative rounded-2xl overflow-hidden"
+                    style={{
+                      backgroundColor: "#0B0F1A",
+                      border: "1px solid rgba(124, 58, 237, 0.25)",
+                      boxShadow:
+                        "0 20px 50px rgba(0,0,0,0.4), 0 0 60px rgba(124, 58, 237, 0.15)",
+                    }}
+                  >
+                    <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
+                      <img
+                        src={dashboardImage}
+                        alt={`${title} preview`}
+                        className="w-full h-full object-cover"
+                        style={imgStyle as React.CSSProperties}
+                      />
+                    </div>
+                    <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
+                  </motion.div>
+                  {/* Text */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    className="space-y-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-mono text-primary/80 tracking-widest">STEP {step}</span>
+                      <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-12 w-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center icon-glow-purple">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <h4 className="text-2xl sm:text-3xl font-bold text-foreground font-heading">{title}</h4>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed font-body text-base sm:text-lg">{text}</p>
+                  </motion.div>
                 </div>
-                <h4 className="text-xl font-bold text-foreground font-heading">{title}</h4>
-                <p className="text-muted-foreground leading-relaxed font-body">{text}</p>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </FadeUpSection>
@@ -225,26 +298,28 @@ const Landing = () => {
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Give It a Brief. Get a Cut.</h3>
                 <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
               </div>
-              <div className="relative space-y-6">
-                {[
-                  { title: "Creative briefs in plain English", text: "Type what you want: \"Build a 90-second testimonial. Open with struggle, close with results.\" Stitchly finds the clips that match." },
-                  { title: "Multi-video intelligence", text: "Upload 8 interviews. Stitchly treats them as one searchable library. The best moment from interview 3 lands next to the perfect setup from interview 7." },
-                  { title: "Every word searchable", text: "Word-level timestamps. Speaker identification. Semantic categorization. Your footage becomes a database you can query." },
-                ].map((b) => (
-                  <div key={b.title} className="flex gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <ArrowRight
-                        className="h-6 w-6"
-                        style={{ stroke: "url(#bp-gradient)" }}
-                      />
+              <TracingBeam className="pl-8 sm:pl-10">
+                <div className="relative space-y-6">
+                  {[
+                    { title: "Creative briefs in plain English", text: "Type what you want: \"Build a 90-second testimonial. Open with struggle, close with results.\" Stitchly finds the clips that match." },
+                    { title: "Multi-video intelligence", text: "Upload 8 interviews. Stitchly treats them as one searchable library. The best moment from interview 3 lands next to the perfect setup from interview 7." },
+                    { title: "Every word searchable", text: "Word-level timestamps. Speaker identification. Semantic categorization. Your footage becomes a database you can query." },
+                  ].map((b) => (
+                    <div key={b.title} className="flex gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <ArrowRight
+                          className="h-6 w-6"
+                          style={{ stroke: "url(#bp-gradient)" }}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
+                        <p className="text-muted-foreground font-body">{b.text}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
-                      <p className="text-muted-foreground font-body">{b.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </TracingBeam>
             </div>
             <div className="w-full">
               <img
@@ -303,6 +378,9 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
+      {/* Wave divider: features (#06080E) -> testimonials (#F5F0E8) */}
+      <WaveDivider topColor="#06080E" bottomColor="#F5F0E8" />
+
       {/* Testimonials */}
       <FadeUpSection className="relative overflow-hidden bg-section-testimonials">
         {/* Subtle grid pattern for light section warmth */}
@@ -327,68 +405,38 @@ const Landing = () => {
             <p className="font-body" style={{ color: "#5A5A6E" }}>From editors who stopped scrubbing and started editing.</p>
           </div>
           <div className="relative">
-            <div className="overflow-hidden">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                {testimonials.map((t, i) => (
-                  <div key={t.id} className="w-full flex-shrink-0 px-4">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
-                      className="p-8 max-w-2xl mx-auto rounded-2xl"
-                      style={{
-                        backgroundColor: "#FFFFFF",
-                        border: "1px solid rgba(26, 26, 46, 0.08)",
-                      }}
-                    >
-                      <div className="flex gap-1 mb-4">
-                        {[...Array(t.rating)].map((_, idx) => (
-                          <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <p className="text-lg mb-6 leading-relaxed font-body" style={{ color: "#1A1A2E" }}>"{t.text}"</p>
-                      <div className="flex items-center gap-3">
-                        <div className="h-12 w-12 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(26,26,46,0.08)" }}>
-                          <Users className="h-6 w-6" style={{ color: "#5A5A6E" }} />
-                        </div>
-                        <div>
-                          <p className="font-semibold font-heading" style={{ color: "#1A1A2E" }}>{t.author}</p>
-                          <p className="text-sm font-body" style={{ color: "#5A5A6E" }}>{t.title}</p>
-                        </div>
-                      </div>
-                    </motion.div>
+            <Marquee pauseOnHover className="[--duration:50s]" repeat={3}>
+              {testimonials.map((t) => (
+                <div
+                  key={t.id}
+                  className="mx-3 w-[340px] sm:w-[400px] flex-shrink-0 p-7 rounded-2xl"
+                  style={{
+                    backgroundColor: "#FFFFFF",
+                    border: "1px solid rgba(26, 26, 46, 0.08)",
+                    boxShadow: "0 4px 20px rgba(26, 26, 46, 0.04)",
+                  }}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(t.rating)].map((_, idx) => (
+                      <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-            <button
-              onClick={previousTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 p-2 sm:p-3 rounded-full transition-colors"
-              style={{ backgroundColor: "rgba(26,26,46,0.08)", color: "#1A1A2E" }}
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 p-2 sm:p-3 rounded-full transition-colors"
-              style={{ backgroundColor: "rgba(26,26,46,0.08)", color: "#1A1A2E" }}
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
-            </button>
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentTestimonial(idx)}
-                  className={`h-2 rounded-full transition-all ${idx === currentTestimonial ? "w-8 bg-primary" : "w-2"}`}
-                  style={idx === currentTestimonial ? undefined : { backgroundColor: "rgba(26,26,46,0.2)" }}
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                />
+                  <p className="text-base mb-6 leading-relaxed font-body" style={{ color: "#1A1A2E" }}>"{t.text}"</p>
+                  <div className="flex items-center gap-3">
+                    <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(26,26,46,0.08)" }}>
+                      <Users className="h-5 w-5" style={{ color: "#5A5A6E" }} />
+                    </div>
+                    <div>
+                      <p className="font-semibold font-heading text-sm" style={{ color: "#1A1A2E" }}>{t.author}</p>
+                      <p className="text-xs font-body" style={{ color: "#5A5A6E" }}>{t.title}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </div>
+            </Marquee>
+            {/* edge fade overlays */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #F5F0E8, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #F5F0E8, transparent)" }} />
           </div>
         </div>
       </FadeUpSection>
