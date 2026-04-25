@@ -25,8 +25,8 @@ export function ScreenshotReveal({
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     if (!immediate) return;
-    // Trigger after a short timeout to guarantee initial styles paint first.
-    const t = window.setTimeout(() => setMounted(true), 50);
+    // Wait long enough for parent fade-ins to complete, then start a slow reveal.
+    const t = window.setTimeout(() => setMounted(true), 400);
     return () => window.clearTimeout(t);
   }, [immediate]);
   const visible = immediate ? mounted : inView;
