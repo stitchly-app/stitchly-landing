@@ -618,15 +618,15 @@ const Landing = () => {
 
       {/* CTA Section */}
       <FadeUpSection className="relative overflow-hidden cta-animated-gradient">
-        {/* Ambient glow orbs */}
+        {/* Ambient glow orbs - upper left & lower right */}
         <div
           className="cta-orb"
           style={{
-            top: "-120px",
-            left: "-100px",
-            width: 520,
-            height: 520,
-            background: "radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 70%)",
+            top: "-180px",
+            left: "-180px",
+            width: 700,
+            height: 700,
+            background: "radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.18) 35%, rgba(255,255,255,0) 70%)",
             animation: "cta-orb-drift-a 12s ease-in-out infinite",
           }}
           aria-hidden
@@ -634,20 +634,35 @@ const Landing = () => {
         <div
           className="cta-orb"
           style={{
-            bottom: "-160px",
-            right: "-120px",
-            width: 600,
-            height: 600,
-            background: "radial-gradient(circle, rgba(224,212,255,0.13) 0%, rgba(224,212,255,0) 70%)",
+            bottom: "-220px",
+            right: "-180px",
+            width: 780,
+            height: 780,
+            background: "radial-gradient(circle, rgba(224,212,255,0.42) 0%, rgba(224,212,255,0.16) 35%, rgba(224,212,255,0) 70%)",
             animation: "cta-orb-drift-b 14s ease-in-out infinite",
           }}
           aria-hidden
         />
-        {/* Faint dot pattern */}
-        <DotPattern
-          className="!fill-white/40 opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]"
+        <div
+          className="cta-orb"
+          style={{
+            top: "40%",
+            left: "55%",
+            width: 420,
+            height: 420,
+            background: "radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%)",
+            animation: "cta-orb-drift-a 16s ease-in-out infinite",
+          }}
+          aria-hidden
         />
-        {/* Subtle grain */}
+        {/* Visible dot pattern */}
+        <DotPattern
+          width={22}
+          height={22}
+          cr={1.2}
+          className="!fill-white/60 opacity-[0.22] [mask-image:radial-gradient(ellipse_at_center,white,transparent_80%)]"
+        />
+        {/* Grain texture */}
         <div className="cta-grain" aria-hidden />
         <div className="stitchly-container relative z-[1] py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
