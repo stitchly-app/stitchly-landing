@@ -264,8 +264,12 @@ const Landing = () => {
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
 
-      {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) */}
-      <WaveDivider topColor="#0B0F1A" bottomColor="#0F1420" />
+      {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) — pulled up to cover seam */}
+      <WaveDivider
+        topColor="#0B0F1A"
+        bottomColor="#0F1420"
+        className="relative z-10 -mt-[80px] sm:-mt-[120px]"
+      />
 
       {/* How It Works */}
       <FadeUpSection
