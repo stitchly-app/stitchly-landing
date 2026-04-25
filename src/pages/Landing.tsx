@@ -175,7 +175,9 @@ const Landing = () => {
             {/* Product screenshot */}
             <ScreenshotReveal
               immediate
-              delay={0.4}
+              delay={0.6}
+              duration={1.4}
+              yOffset={80}
               className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
             >
               <div
