@@ -354,6 +354,29 @@ const Landing = () => {
       {/* Wave divider: hero -> how it works */}
       <WaveDivider bottomColor="#0F1420" />
 
+      {/* What is Stitchly? */}
+      <FadeUpSection className="relative overflow-hidden bg-section-feature1">
+        <div className="stitchly-container relative py-16 sm:py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3
+              className="font-bold mb-6 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              What is{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Stitchly?
+              </span>
+            </h3>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
+              Stitchly is a Mac desktop app built for professional video editors. It transcribes your interviews locally, uses AI to find and categorize the best soundbites, and assembles a rough cut sequence you can open directly in your NLE with one click. No cloud uploads. No media leaving your drive.
+            </p>
+          </div>
+        </div>
+      </FadeUpSection>
+
       {/* How It Works */}
       <FadeUpSection
         id="how-it-works"
