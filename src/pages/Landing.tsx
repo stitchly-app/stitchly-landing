@@ -664,6 +664,8 @@ const Landing = () => {
         />
         {/* Grain texture */}
         <div className="cta-grain" aria-hidden />
+        {/* Sweeping sheen */}
+        <div className="cta-sheen" aria-hidden />
         <div className="stitchly-container relative z-[1] py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
             <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
