@@ -45,7 +45,7 @@ const testimonials = [
   {
     id: 2,
     rating: 5,
-    text: "We produce 40 client videos a month. Stitchly cut our assembly time by 60%. That's not a guess — I tracked it. We took on three new clients with the same team size.",
+    text: "We produce 40 client videos a month. Stitchly cut our assembly time by 60%. That's not a guess. I tracked it. We took on three new clients with the same team size.",
     author: "Marcus Webb",
     title: "Founder, Webb Creative Co.",
   },
@@ -59,7 +59,7 @@ const testimonials = [
   {
     id: 4,
     rating: 5,
-    text: "I do a lot of talking head content for B2B brands. The AI categorization tags every soundbite — story, key point, CTA. I can find the perfect clip in seconds instead of scrubbing for 20 minutes.",
+    text: "I do a lot of talking head content for B2B brands. The AI categorization tags every soundbite: story, key point, CTA. I can find the perfect clip in seconds instead of scrubbing for 20 minutes.",
     author: "Femke van der Berg",
     title: "Video Strategist, Amsterdam",
   },
