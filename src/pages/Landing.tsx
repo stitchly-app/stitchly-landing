@@ -129,7 +129,7 @@ const Landing = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
-              <Button size="lg" asChild className="btn-gradient border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
+              <Button size="lg" asChild className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
                 <a href={SIGNUP_URL}>
                   Start Your Free Trial →
                   <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
@@ -192,11 +192,26 @@ const Landing = () => {
         <GridPattern
           width={48}
           height={48}
-          className={cn("stroke-primary/10 opacity-80", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]")}
+          className={cn("stroke-primary/30 opacity-100", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]")}
           strokeDasharray="0"
         />
         <div className="stitchly-container relative py-16 sm:py-24">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-14 text-foreground font-heading">How It Works</h3>
+          <motion.h3
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="font-bold text-center mb-10 sm:mb-14 text-foreground font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+            style={{ letterSpacing: "-0.02em" }}
+          >
+            How It{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+            >
+              Works
+            </span>
+          </motion.h3>
           <div className="space-y-20 sm:space-y-28 max-w-6xl mx-auto">
             {[
               {
