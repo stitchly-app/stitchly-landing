@@ -476,16 +476,29 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Simple Pricing. Start Free.</h3>
+            <h3
+              className="font-bold text-foreground mb-3 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Simple Pricing. Start{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Free
+              </span>
+              .
+            </h3>
             <p className="text-muted-foreground font-body mb-10">One plan. Everything included.</p>
             <div
-              className="group relative p-8 sm:p-10 text-left max-w-md mx-auto rounded-2xl transition-all duration-200"
+              className="group relative p-8 sm:p-10 text-left max-w-md mx-auto rounded-2xl transition-all duration-200 overflow-hidden"
               style={{
                 backgroundColor: "#141B2D",
-                border: "1px solid rgba(124, 58, 237, 0.3)",
-                boxShadow: "0 0 40px rgba(124, 58, 237, 0.15)",
+                border: "1px solid rgba(124, 58, 237, 0.4)",
+                boxShadow: "0 0 80px rgba(124, 58, 237, 0.35), 0 0 30px rgba(124, 58, 237, 0.2)",
               }}
             >
+              <BorderBeam size={140} duration={9} colorFrom="#7C3AED" colorTo="#E0D4FF" />
               <div className="mb-6">
                 <h4 className="text-2xl font-bold font-heading text-gradient-bp inline-block">Pro</h4>
                 <div className="mt-2 flex items-baseline gap-2">
