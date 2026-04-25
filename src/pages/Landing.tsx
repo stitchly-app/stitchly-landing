@@ -158,11 +158,12 @@ const Landing = () => {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
                 className="w-full sm:w-auto group/cta relative"
                 whileHover={{ scale: 1.06 }}
+                transitionEnd={undefined}
               >
                 <span
                   aria-hidden
@@ -177,8 +178,8 @@ const Landing = () => {
                 </Button>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
                 className="w-full sm:w-auto group/cta2 relative"
                 whileHover={{ scale: 1.06 }}
