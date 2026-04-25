@@ -200,10 +200,21 @@ const Landing = () => {
               delay={0.6}
               duration={1.4}
               yOffset={80}
-              className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
+              className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto relative"
             >
+              {/* Soft pulsating purple glow behind the screenshot */}
               <div
-                className="relative rounded-2xl overflow-hidden image-fade-bottom"
+                aria-hidden
+                className="pointer-events-none absolute -inset-8 rounded-[2rem] animate-hero-glow"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(124,58,237,0.45) 0%, rgba(124,58,237,0.15) 40%, transparent 70%)",
+                  filter: "blur(40px)",
+                  zIndex: 0,
+                }}
+              />
+              <div
+                className="relative z-10 rounded-2xl overflow-hidden image-fade-bottom"
                 style={{
                   border: "1px solid rgba(124, 58, 237, 0.2)",
                   boxShadow: "0 0 60px rgba(124, 58, 237, 0.15)",
@@ -215,8 +226,20 @@ const Landing = () => {
                   aria-label="Play product demo"
                   className="absolute inset-0 flex items-center justify-center group"
                 >
+                  {/* Pulsating glow behind the play button */}
                   <span
-                    className="animate-play-pulse flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white"
+                    aria-hidden
+                    className="absolute rounded-full animate-play-glow pointer-events-none"
+                    style={{
+                      width: 140,
+                      height: 140,
+                      background:
+                        "radial-gradient(circle, rgba(124,58,237,0.55) 0%, rgba(124,58,237,0.25) 45%, transparent 75%)",
+                      filter: "blur(12px)",
+                    }}
+                  />
+                  <span
+                    className="animate-play-soft relative flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white"
                     style={{
                       width: 80,
                       height: 80,
@@ -227,7 +250,6 @@ const Landing = () => {
                     <Play className="h-8 w-8 ml-1" style={{ color: "#7C3AED", fill: "#7C3AED" }} />
                   </span>
                 </button>
-                <BorderBeam size={220} duration={10} colorFrom="#7C3AED" colorTo="#3B82F6" borderWidth={2} />
               </div>
             </ScreenshotReveal>
           </motion.div>
