@@ -455,41 +455,47 @@ const Landing = () => {
             </h3>
             <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
-          <div className="relative">
-            <DraggableMarquee>
-            <Marquee pauseOnHover className="[--duration:50s]" repeat={3}>
-              {testimonials.map((t) => (
-                <div
-                  key={t.id}
-                  className="mx-3 w-[340px] sm:w-[400px] flex-shrink-0 p-7 rounded-2xl"
-                  style={{
-                    backgroundColor: "#141B2D",
-                    border: "1px solid rgba(124, 58, 237, 0.2)",
-                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
-                  }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(t.rating)].map((_, idx) => (
-                      <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-base mb-6 leading-relaxed font-body text-foreground/90">"{t.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(124, 58, 237, 0.15)" }}>
-                      <Users className="h-5 w-5 text-primary" />
+          <div className="relative px-12 sm:px-16">
+            <Carousel
+              opts={{ loop: true, align: "start", dragFree: true }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4 py-4">
+                {testimonials.map((t) => (
+                  <CarouselItem
+                    key={t.id}
+                    className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                  >
+                    <div
+                      className="h-full p-7 rounded-2xl flex flex-col"
+                      style={{
+                        backgroundColor: "#141B2D",
+                        border: "1px solid rgba(124, 58, 237, 0.2)",
+                        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
+                      }}
+                    >
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(t.rating)].map((_, idx) => (
+                          <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-base mb-6 leading-relaxed font-body text-foreground/90 flex-1">"{t.text}"</p>
+                      <div className="flex items-center gap-3">
+                        <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(124, 58, 237, 0.15)" }}>
+                          <Users className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-semibold font-heading text-sm text-foreground">{t.author}</p>
+                          <p className="text-xs font-body text-muted-foreground">{t.title}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold font-heading text-sm text-foreground">{t.author}</p>
-                      <p className="text-xs font-body text-muted-foreground">{t.title}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </Marquee>
-            </DraggableMarquee>
-            {/* edge fade overlays */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #0A0E1A, transparent)" }} />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #0A0E1A, transparent)" }} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0 sm:-left-2 h-10 w-10 bg-card/80 hover:bg-card border-border text-foreground" />
+              <CarouselNext className="right-0 sm:-right-2 h-10 w-10 bg-card/80 hover:bg-card border-border text-foreground" />
+            </Carousel>
           </div>
         </div>
       </FadeUpSection>
