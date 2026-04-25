@@ -12,6 +12,8 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
+import { Typewriter } from "@/components/Typewriter";
+import { ScreenshotReveal } from "@/components/ScreenshotReveal";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
@@ -115,13 +117,19 @@ const Landing = () => {
               className="font-bold font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}
             >
-              <span className="block text-foreground">Stop Watching.</span>
-              <span
+              <Typewriter
+                text="Stop Watching."
+                speed={70}
+                delay={200}
+                className="block text-foreground"
+              />
+              <Typewriter
+                text="Start Editing."
+                speed={70}
+                delay={200 + 14 * 70 + 250}
                 className="block bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
-              >
-                Start Editing.
-              </span>
+                // gradient via inline style on parent span won't bg-clip without style; use style
+              />
             </h2>
 
             <p className="mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-[600px] font-body leading-relaxed">
@@ -141,11 +149,9 @@ const Landing = () => {
             </div>
 
             {/* Product screenshot */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            <ScreenshotReveal
+              immediate
+              delay={0.4}
               className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
             >
               <div
@@ -174,7 +180,7 @@ const Landing = () => {
                   </span>
                 </button>
               </div>
-            </motion.div>
+            </ScreenshotReveal>
           </motion.div>
         </div>
       </section>
