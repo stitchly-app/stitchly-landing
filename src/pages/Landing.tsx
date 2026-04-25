@@ -106,6 +106,7 @@ const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
+  const [testimonialPaused, setTestimonialPaused] = useState(false);
   const heroImages = [
     { src: dashboardImage, alt: "Stitchly Dashboard" },
     { src: dashboardImage2, alt: "Stitchly Project Area" },
@@ -119,6 +120,7 @@ const Landing = () => {
 
   useEffect(() => {
     if (!testimonialApi) return;
+    if (testimonialPaused) return;
     const interval = setInterval(() => {
       const slidesToScroll = 3;
       const total = testimonialApi.scrollSnapList().length;
@@ -126,7 +128,7 @@ const Landing = () => {
       testimonialApi.scrollTo(next);
     }, 4000);
     return () => clearInterval(interval);
-  }, [testimonialApi]);
+  }, [testimonialApi, testimonialPaused]);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
@@ -616,7 +618,11 @@ const Landing = () => {
             </h3>
             <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
-          <div className="relative px-12 sm:px-16">
+          <div
+            className="relative px-12 sm:px-16"
+            onMouseEnter={() => setTestimonialPaused(true)}
+            onMouseLeave={() => setTestimonialPaused(false)}
+          >
             <Carousel
               opts={{ loop: true, align: "start" }}
               setApi={setTestimonialApi}
