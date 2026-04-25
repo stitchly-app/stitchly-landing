@@ -129,7 +129,7 @@ const Landing = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
-              <Button size="lg" asChild className="btn-gradient border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
+              <Button size="lg" asChild className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
                 <a href={SIGNUP_URL}>
                   Start Your Free Trial →
                   <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
@@ -192,11 +192,26 @@ const Landing = () => {
         <GridPattern
           width={48}
           height={48}
-          className={cn("stroke-primary/10 opacity-80", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]")}
+          className={cn("stroke-primary/30 opacity-100", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]")}
           strokeDasharray="0"
         />
         <div className="stitchly-container relative py-16 sm:py-24">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-14 text-foreground font-heading">How It Works</h3>
+          <motion.h3
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="font-bold text-center mb-10 sm:mb-14 text-foreground font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+            style={{ letterSpacing: "-0.02em" }}
+          >
+            How It{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+            >
+              Works
+            </span>
+          </motion.h3>
           <div className="space-y-20 sm:space-y-28 max-w-6xl mx-auto">
             {[
               {
@@ -378,31 +393,41 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
-      {/* Wave divider: features (#06080E) -> testimonials (#F5F0E8) */}
-      <WaveDivider topColor="#06080E" bottomColor="#F5F0E8" />
+      {/* Wave divider: features (#06080E) -> testimonials (dark) */}
+      <WaveDivider topColor="#06080E" bottomColor="#0A0E1A" />
 
       {/* Testimonials */}
-      <FadeUpSection className="relative overflow-hidden bg-section-testimonials">
-        {/* Subtle grid pattern for light section warmth */}
+      <FadeUpSection className="relative overflow-hidden bg-[#0A0E1A]">
+        {/* Subtle grid pattern */}
         <GridPattern
           width={56}
           height={56}
           className={cn(
-            "opacity-100",
+            "opacity-100 stroke-primary/20",
             "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]",
           )}
-          style={{ stroke: "rgba(26, 26, 46, 0.06)" }}
         />
         {/* Soft warm radial accent */}
         <div
           aria-hidden
           className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, rgba(124, 58, 237, 0.06) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(124, 58, 237, 0.12) 0%, transparent 70%)" }}
         />
         <div className="stitchly-container relative z-[2] py-20 sm:py-28">
           <div className="text-center mb-10 sm:mb-14">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 font-heading" style={{ color: "#1A1A2E" }}>What Editors Are Saying</h3>
-            <p className="font-body" style={{ color: "#5A5A6E" }}>From editors who stopped scrubbing and started editing.</p>
+            <h3
+              className="font-bold mb-3 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              What Editors Are{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Saying
+              </span>
+            </h3>
+            <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
           <div className="relative">
             <Marquee pauseOnHover className="[--duration:50s]" repeat={3}>
@@ -411,9 +436,9 @@ const Landing = () => {
                   key={t.id}
                   className="mx-3 w-[340px] sm:w-[400px] flex-shrink-0 p-7 rounded-2xl"
                   style={{
-                    backgroundColor: "#FFFFFF",
-                    border: "1px solid rgba(26, 26, 46, 0.08)",
-                    boxShadow: "0 4px 20px rgba(26, 26, 46, 0.04)",
+                    backgroundColor: "#141B2D",
+                    border: "1px solid rgba(124, 58, 237, 0.2)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
                   }}
                 >
                   <div className="flex gap-1 mb-4">
@@ -421,22 +446,22 @@ const Landing = () => {
                       <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-base mb-6 leading-relaxed font-body" style={{ color: "#1A1A2E" }}>"{t.text}"</p>
+                  <p className="text-base mb-6 leading-relaxed font-body text-foreground/90">"{t.text}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(26,26,46,0.08)" }}>
-                      <Users className="h-5 w-5" style={{ color: "#5A5A6E" }} />
+                    <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(124, 58, 237, 0.15)" }}>
+                      <Users className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold font-heading text-sm" style={{ color: "#1A1A2E" }}>{t.author}</p>
-                      <p className="text-xs font-body" style={{ color: "#5A5A6E" }}>{t.title}</p>
+                      <p className="font-semibold font-heading text-sm text-foreground">{t.author}</p>
+                      <p className="text-xs font-body text-muted-foreground">{t.title}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </Marquee>
             {/* edge fade overlays */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #F5F0E8, transparent)" }} />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #F5F0E8, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #0A0E1A, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #0A0E1A, transparent)" }} />
           </div>
         </div>
       </FadeUpSection>
@@ -451,16 +476,29 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Simple Pricing. Start Free.</h3>
+            <h3
+              className="font-bold text-foreground mb-3 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Simple Pricing. Start{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Free
+              </span>
+              .
+            </h3>
             <p className="text-muted-foreground font-body mb-10">One plan. Everything included.</p>
             <div
-              className="group relative p-8 sm:p-10 text-left max-w-md mx-auto rounded-2xl transition-all duration-200"
+              className="group relative p-8 sm:p-10 text-left max-w-md mx-auto rounded-2xl transition-all duration-200 overflow-hidden"
               style={{
                 backgroundColor: "#141B2D",
-                border: "1px solid rgba(124, 58, 237, 0.3)",
-                boxShadow: "0 0 40px rgba(124, 58, 237, 0.15)",
+                border: "1px solid rgba(124, 58, 237, 0.4)",
+                boxShadow: "0 0 80px rgba(124, 58, 237, 0.35), 0 0 30px rgba(124, 58, 237, 0.2)",
               }}
             >
+              <BorderBeam size={140} duration={9} colorFrom="#7C3AED" colorTo="#E0D4FF" />
               <div className="mb-6">
                 <h4 className="text-2xl font-bold font-heading text-gradient-bp inline-block">Pro</h4>
                 <div className="mt-2 flex items-baseline gap-2">
@@ -545,8 +583,14 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Footer */}
-      <FadeUpSection as="footer" className="bg-section-footer">
-        <div className="stitchly-container py-12">
+      <FadeUpSection as="footer" className="relative overflow-hidden bg-section-footer">
+        <GridPattern
+          width={48}
+          height={48}
+          className={cn("stroke-primary/30 opacity-100", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]")}
+          strokeDasharray="0"
+        />
+        <div className="stitchly-container relative py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
