@@ -163,7 +163,6 @@ const Landing = () => {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
                 className="w-full sm:w-auto group/cta relative"
                 whileHover={{ scale: 1.06 }}
-                transitionEnd={undefined}
               >
                 <span
                   aria-hidden
