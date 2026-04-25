@@ -288,6 +288,15 @@
     z-index: 0;
   }
 
+  /* Mirrored hero glow for bottom-right corner */
+  .hero-radial-glow--br {
+    top: auto;
+    left: auto;
+    bottom: -200px;
+    right: -300px;
+    transform: none;
+  }
+
   @keyframes play-pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
