@@ -597,26 +597,10 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* CTA Section */}
-      <FadeUpSection className="relative overflow-hidden bg-section-cta">
-        {/* Animated cinematic shimmer sweep */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div
-            className="absolute inset-0 animate-shimmer-sweep"
-            style={{
-              background:
-                "linear-gradient(110deg, transparent 35%, rgba(124,58,237,0.08) 50%, transparent 65%)",
-            }}
-          />
-        </div>
-        <DotPattern
-          glow
-          width={22}
-          height={22}
-          className={cn(
-            "fill-primary/30 opacity-70",
-            "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]",
-          )}
-        />
+      <FadeUpSection
+        className="relative overflow-hidden"
+        style={{ backgroundImage: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)" }}
+      >
         <div className="stitchly-container relative py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
             <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
