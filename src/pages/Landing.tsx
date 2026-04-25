@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { DotPattern } from "@/components/ui/dot-pattern";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
 import { BorderBeam } from "@/components/ui/border-beam";
