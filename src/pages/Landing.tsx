@@ -13,6 +13,7 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
@@ -37,23 +38,65 @@ const testimonials = [
   {
     id: 1,
     rating: 5,
-    text: "I had a 6-interview project that normally takes two days of logging. Stitchly had an assembly cut ready in under an hour. I opened it in Premiere and the edit was already 80% there.",
-    author: "Jake Morrison",
-    title: "Freelance Video Editor",
+    text: "I was skeptical that AI could actually understand the nuance of a good interview soundbite. It does. My first project took 45 minutes instead of half a day. I haven't gone back to manual logging once.",
+    author: "Priya Nambiar",
+    title: "Post-Production Supervisor, Clearfield Media",
   },
   {
     id: 2,
     rating: 5,
-    text: "The one-click send to Premiere is what sold me. No more exporting XMLs, hunting for the file, importing, relinking. I click a button and my sequence is just there.",
-    author: "Rachel Torres",
-    title: "Senior Editor, BrandCraft Studios",
+    text: "We produce 40 client videos a month. Stitchly cut our assembly time by 60%. That's not a guess — I tracked it. We took on three new clients with the same team size.",
+    author: "Marcus Webb",
+    title: "Founder, Webb Creative Co.",
   },
   {
     id: 3,
     rating: 5,
-    text: "We cut testimonial videos for 12 clients a month. Stitchly saves my team about 15 hours a week on footage review alone. That's not an exaggeration.",
-    author: "David Osei",
-    title: "Creative Director, Meridian Media",
+    text: "The transcript view is what got me. I can read through the whole interview, star the best moments, and build a sequence in minutes. It's like having a logging assistant who never sleeps.",
+    author: "Yuki Tanaka",
+    title: "Freelance Documentary Editor, Tokyo",
+  },
+  {
+    id: 4,
+    rating: 5,
+    text: "I do a lot of talking head content for B2B brands. The AI categorization tags every soundbite — story, key point, CTA. I can find the perfect clip in seconds instead of scrubbing for 20 minutes.",
+    author: "Femke van der Berg",
+    title: "Video Strategist, Amsterdam",
+  },
+  {
+    id: 5,
+    rating: 5,
+    text: "My biggest objection was the learning curve. There wasn't one. I imported my first interview, got a transcript, built a sequence, and sent it to Premiere in about 12 minutes. That was day one.",
+    author: "Carlos Reyes",
+    title: "Editor and Director, Mexico City",
+  },
+  {
+    id: 6,
+    rating: 5,
+    text: "We charge clients for edit time. Stitchly basically gave us back two billable days per week. That's real money. We increased our monthly revenue without raising our rates or hiring anyone.",
+    author: "Dominique Achebe",
+    title: "Executive Producer, Pulse Content Studio",
+  },
+  {
+    id: 7,
+    rating: 5,
+    text: "I've tried every AI video tool out there. Most of them are gimmicks. Stitchly is the only one that actually fits into a professional editing workflow. The XML goes straight into Premiere with the original files already linked. That alone is worth the subscription.",
+    author: "Shane O'Callaghan",
+    title: "Senior Editor, Dublin",
+  },
+  {
+    id: 8,
+    rating: 5,
+    text: "We were spending $3,000 a month on an offshore logging team. We cancelled that contract three weeks after starting Stitchly. The quality is better and it's instant.",
+    author: "Aisha Mwangi",
+    title: "Head of Production, Nairobi Digital Agency",
+  },
+  {
+    id: 9,
+    rating: 5,
+    text: "The Send to Premiere button made my jaw drop the first time I used it. I built a sequence, hit the button, and it just appeared on my timeline with everything connected. I actually laughed out loud.",
+    author: "Brett Holloway",
+    title: "Commercial Editor, Brisbane",
   },
 ];
 
@@ -62,6 +105,7 @@ const loopingTestimonials = [...testimonials, ...testimonials];
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
   const heroImages = [
     { src: dashboardImage, alt: "Stitchly Dashboard" },
     { src: dashboardImage2, alt: "Stitchly Project Area" },
@@ -72,6 +116,17 @@ const Landing = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  useEffect(() => {
+    if (!testimonialApi) return;
+    const interval = setInterval(() => {
+      const slidesToScroll = 3;
+      const total = testimonialApi.scrollSnapList().length;
+      const next = (testimonialApi.selectedScrollSnap() + slidesToScroll) % total;
+      testimonialApi.scrollTo(next);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [testimonialApi]);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
@@ -564,6 +619,7 @@ const Landing = () => {
           <div className="relative px-12 sm:px-16">
             <Carousel
               opts={{ loop: true, align: "start" }}
+              setApi={setTestimonialApi}
               className="w-full"
             >
               <CarouselContent className="-ml-4 py-4">
