@@ -54,6 +54,8 @@ const testimonials = [
   },
 ];
 
+const loopingTestimonials = [...testimonials, ...testimonials];
+
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
 
@@ -397,23 +399,25 @@ const Landing = () => {
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
                 <p className="text-muted-foreground font-body">Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</p>
               </div>
-              <div className="relative space-y-6">
-                {[
-                  { title: "Premiere, Resolve, and Final Cut", text: "Export a ready-to-edit XML for any major editing platform. One click opens your sequence directly in your editor with all media paths linked." },
-                  { title: "Proxy-based workflow", text: "Stitchly generates lightweight proxies locally so your machine stays fast. Original media paths are preserved in every export." },
-                  { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
-                ].map((b) => (
-                  <div key={b.title} className="flex gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <ArrowRight className="h-6 w-6" style={{ stroke: "url(#bp-gradient)" }} />
+              <TracingBeam className="pl-8 sm:pl-10">
+                <div className="relative space-y-6">
+                  {[
+                    { title: "Premiere, Resolve, and Final Cut", text: "Export a ready-to-edit XML for any major editing platform. One click opens your sequence directly in your editor with all media paths linked." },
+                    { title: "Proxy-based workflow", text: "Stitchly generates lightweight proxies locally so your machine stays fast. Original media paths are preserved in every export." },
+                    { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
+                  ].map((b) => (
+                    <div key={b.title} className="flex gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <ArrowRight className="h-6 w-6" style={{ stroke: "url(#bp-gradient)" }} />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
+                        <p className="text-muted-foreground font-body">{b.text}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
-                      <p className="text-muted-foreground font-body">{b.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </TracingBeam>
             </div>
           </div>
         </div>
@@ -457,13 +461,13 @@ const Landing = () => {
           </div>
           <div className="relative px-12 sm:px-16">
             <Carousel
-              opts={{ loop: true, align: "start", dragFree: true }}
+              opts={{ loop: true, align: "start" }}
               className="w-full"
             >
               <CarouselContent className="-ml-4 py-4">
-                {testimonials.map((t) => (
+                {loopingTestimonials.map((t, index) => (
                   <CarouselItem
-                    key={t.id}
+                    key={`${t.id}-${index}`}
                     className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
                   >
                     <div
