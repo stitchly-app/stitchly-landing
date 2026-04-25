@@ -330,10 +330,20 @@ const Landing = () => {
                 >
                   {/* Screenshot frame */}
                   <ScreenshotReveal>
-                    <div
-                      className="glass-frame relative"
-                      style={{ "--shimmer-delay": `${(i + 1) * 1.5}s` } as React.CSSProperties}
-                    >
+                    <div className="relative">
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute -inset-10 rounded-[2rem] -z-10"
+                        style={{
+                          background:
+                            "radial-gradient(ellipse at center, rgba(60,128,245,0.45) 0%, rgba(124,58,237,0.25) 40%, transparent 75%)",
+                          filter: "blur(40px)",
+                        }}
+                      />
+                      <div
+                        className="glass-frame relative"
+                        style={{ "--shimmer-delay": `${(i + 1) * 1.5}s` } as React.CSSProperties}
+                      >
                       <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
                         <img
                           src={dashboardImage}
@@ -343,6 +353,7 @@ const Landing = () => {
                         />
                       </div>
                       <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
+                      </div>
                     </div>
                   </ScreenshotReveal>
                   {/* Text */}
@@ -354,7 +365,7 @@ const Landing = () => {
                     className="space-y-4"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-mono text-primary/80 tracking-widest">STEP {step}</span>
+                      <span className="text-sm font-mono tracking-widest" style={{ color: "#3C80F5" }}>STEP {step}</span>
                       <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
                     </div>
                     <div className="flex items-center gap-3">
