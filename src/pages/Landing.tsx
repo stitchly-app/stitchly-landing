@@ -143,7 +143,7 @@ const Landing = () => {
                 <TypewriterLoop
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
-                  words={["Editing", "Saving time", "Exporting", "Delivering", "Earning"]}
+                  words={["Editing.", "Saving Time.", "Exporting.", "Delivering.", "Earning."]}
                   startDelay={200 + 14 * 70 + 250 + 6 * 70 + 200}
                   typeSpeed={90}
                   deleteSpeed={55}
