@@ -258,29 +258,27 @@ const Landing = () => {
                   )}
                 >
                   {/* Screenshot frame */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="relative rounded-2xl overflow-hidden"
-                    style={{
-                      backgroundColor: "#0B0F1A",
-                      border: "1px solid rgba(124, 58, 237, 0.25)",
-                      boxShadow:
-                        "0 20px 50px rgba(0,0,0,0.4), 0 0 60px rgba(124, 58, 237, 0.15)",
-                    }}
-                  >
-                    <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
-                      <img
-                        src={dashboardImage}
-                        alt={`${title} preview`}
-                        className="w-full h-full object-cover"
-                        style={imgStyle as React.CSSProperties}
-                      />
+                  <ScreenshotReveal>
+                    <div
+                      className="relative rounded-2xl overflow-hidden"
+                      style={{
+                        backgroundColor: "#0B0F1A",
+                        border: "1px solid rgba(124, 58, 237, 0.25)",
+                        boxShadow:
+                          "0 20px 50px rgba(0,0,0,0.4), 0 0 60px rgba(124, 58, 237, 0.15)",
+                      }}
+                    >
+                      <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
+                        <img
+                          src={dashboardImage}
+                          alt={`${title} preview`}
+                          className="w-full h-full object-cover"
+                          style={imgStyle as React.CSSProperties}
+                        />
+                      </div>
+                      <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
                     </div>
-                    <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
-                  </motion.div>
+                  </ScreenshotReveal>
                   {/* Text */}
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -345,14 +343,14 @@ const Landing = () => {
                 </div>
               </TracingBeam>
             </div>
-            <div className="w-full">
+            <ScreenshotReveal className="w-full">
               <img
                 src={uploadDashboard}
                 alt="Stitchly Workspace"
                 className="w-full h-auto rounded-lg"
                 style={{ boxShadow: "0 0 80px rgba(124, 58, 237, 0.2)" }}
               />
-            </div>
+            </ScreenshotReveal>
           </div>
         </div>
       </FadeUpSection>
@@ -367,14 +365,14 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
-            <div className="w-full lg:order-1 order-2">
+            <ScreenshotReveal className="w-full lg:order-1 order-2">
               <img
                 src={adminDashboard}
                 alt="Stitchly Sequence Editor"
                 className="w-full h-auto rounded-lg"
                 style={{ boxShadow: "0 0 80px rgba(59, 130, 246, 0.2)" }}
               />
-            </div>
+            </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
