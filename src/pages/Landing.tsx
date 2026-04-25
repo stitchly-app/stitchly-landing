@@ -175,7 +175,9 @@ const Landing = () => {
             {/* Product screenshot */}
             <ScreenshotReveal
               immediate
-              delay={0.4}
+              delay={0.6}
+              duration={1.4}
+              yOffset={80}
               className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
             >
               <div
@@ -399,7 +401,7 @@ const Landing = () => {
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
                 <p className="text-muted-foreground font-body">Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</p>
               </div>
-              <TracingBeam className="pl-8 sm:pl-10">
+              <TracingBeam className="pl-8 sm:pl-10 z-[2]">
                 <div className="relative space-y-6">
                   {[
                     { title: "Premiere, Resolve, and Final Cut", text: "Export a ready-to-edit XML for any major editing platform. One click opens your sequence directly in your editor with all media paths linked." },
