@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
+import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play, Apple } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GridPattern } from "@/components/ui/grid-pattern";
@@ -198,6 +198,11 @@ const Landing = () => {
               <Sparkles className="h-3.5 w-3.5 text-primary" /> AI Video Assembly for Editors
             </span>
 
+            <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-body mb-4 text-foreground/80 tracking-wide uppercase">
+              AI-Powered Desktop App for Mac
+              <Apple className="h-3.5 w-3.5 text-white fill-white" />
+            </span>
+
             <h2
               className="font-bold font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}
@@ -229,7 +234,7 @@ const Landing = () => {
             </h2>
 
             <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[600px] font-body leading-relaxed">
-              Six hours of interviews. One deadline. Stitchly reads every word, finds the best soundbites, and builds your assembly cut automatically. One click sends it straight to Premiere, Resolve, or Final Cut.
+              Drop in your interview footage. Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
@@ -349,6 +354,29 @@ const Landing = () => {
       {/* Wave divider: hero -> how it works */}
       <WaveDivider bottomColor="#0F1420" />
 
+      {/* What is Stitchly? */}
+      <FadeUpSection className="relative overflow-hidden bg-section-feature1">
+        <div className="stitchly-container relative py-16 sm:py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3
+              className="font-bold mb-6 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              What is{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Stitchly?
+              </span>
+            </h3>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
+              Stitchly is a Mac desktop app built for professional video editors. It transcribes your interviews locally, uses AI to find and categorize the best soundbites, and assembles a rough cut sequence you can open directly in your NLE with one click. No cloud uploads. No media leaving your drive.
+            </p>
+          </div>
+        </div>
+      </FadeUpSection>
+
       {/* How It Works */}
       <FadeUpSection
         id="how-it-works"
@@ -391,7 +419,7 @@ const Landing = () => {
                 Icon: Sparkles,
                 step: "02",
                 title: "AI Finds the Best Moments",
-                text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage.",
+                text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage. AI reads every word of your transcript and tags each soundbite by type, emotion, story, key point, and CTA, so the best moments are always one click away.",
                 // Main project grid (center)
                 imgStyle: { objectPosition: "center center", transform: "scale(1.3)", transformOrigin: "center center" },
               },
@@ -485,10 +513,10 @@ const Landing = () => {
                     className="bg-clip-text text-transparent"
                     style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
                   >
-                    Get a Cut.
+                    Get a Rough Cut.
                   </span>
                 </h3>
-                <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
+                <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
                 <div className="relative space-y-6">
@@ -564,6 +592,7 @@ const Landing = () => {
                     { title: "Premiere, Resolve, and Final Cut", text: "Export a ready-to-edit XML for any major editing platform. One click opens your sequence directly in your editor with all media paths linked." },
                     { title: "Proxy-based workflow", text: "Stitchly generates lightweight proxies locally so your machine stays fast. Original media paths are preserved in every export." },
                     { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
+                    { title: "Runs entirely on your Mac", text: "Your footage never leaves your drive." },
                   ].map((b) => (
                     <div key={b.title} className="flex gap-4">
                       <div className="flex-shrink-0 mt-1">
@@ -668,6 +697,29 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
+      {/* Founder credibility */}
+      <FadeUpSection className="relative overflow-hidden bg-section-feature2">
+        <div className="stitchly-container relative py-16 sm:py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3
+              className="font-bold mb-6 font-heading text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Built by an{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Editor
+              </span>
+            </h3>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
+              Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for some of the biggest names in business. Kevin has taught video production workflows and marketing to tens of thousands of entrepreneurs and content creators. He didn't build this as an outsider looking in. He built it because he lived the problem every single day.
+            </p>
+          </div>
+        </div>
+      </FadeUpSection>
+
       {/* Pricing */}
       <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-feature1">
         {/* Large radial purple spotlight behind the card */}
@@ -711,6 +763,7 @@ const Landing = () => {
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
+                    "Mac desktop app",
                     "50 credits, one time",
                     "Instant local transcriptions",
                     "Unlimited projects",
