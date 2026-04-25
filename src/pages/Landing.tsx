@@ -385,7 +385,7 @@ const Landing = () => {
             <div className="relative space-y-6 sm:space-y-8">
               <div className="relative">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">
-                  Give It a Brief.{" "}
+                  Give it a Prompt.{" "}
                   <span
                     className="bg-clip-text text-transparent"
                     style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
