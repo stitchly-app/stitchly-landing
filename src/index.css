@@ -296,22 +296,28 @@
     animation: play-pulse 2s ease-in-out infinite;
   }
 
-  /* Slow, subtle scale for the hero play button */
-  @keyframes play-soft {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.35); }
+  /* Hero play button: static icon with slow, strong pulsing glow */
+  @keyframes hero-play-glow-pulse {
+    0%, 100% { opacity: 0.55; box-shadow: 0 0 42px 18px hsl(var(--primary) / 0.34); }
+    50%      { opacity: 1; box-shadow: 0 0 92px 34px hsl(var(--primary) / 0.62); }
   }
-  .animate-play-soft {
-    animation: play-soft 2.4s ease-in-out infinite;
+  .hero-play-glow {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.62) 0%, hsl(var(--primary) / 0.24) 48%, transparent 74%);
+    filter: blur(14px);
+    animation: hero-play-glow-pulse 3.8s ease-in-out infinite;
   }
-
-  /* Pulsating glow behind the play button */
-  @keyframes play-glow {
-    0%, 100% { opacity: 0.55; transform: scale(1); }
-    50%      { opacity: 0.95; transform: scale(1.18); }
+  .hero-play-button {
+    width: 80px;
+    height: 80px;
+    background-color: hsl(var(--foreground) / 0.95);
+    box-shadow: 0 10px 34px hsl(var(--primary) / 0.42);
+    transition: background-color 180ms ease, box-shadow 180ms ease;
   }
-  .animate-play-glow {
-    animation: play-glow 3.2s ease-in-out infinite;
+  .hero-play-button:hover {
+    background-color: hsl(var(--foreground));
+    box-shadow: 0 12px 44px hsl(var(--primary) / 0.58);
   }
 
   /* Subtle pulsating purple glow behind the hero screenshot */
