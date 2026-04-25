@@ -618,7 +618,11 @@ const Landing = () => {
             </h3>
             <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
-          <div className="relative px-12 sm:px-16">
+          <div
+            className="relative px-12 sm:px-16"
+            onMouseEnter={() => setTestimonialPaused(true)}
+            onMouseLeave={() => setTestimonialPaused(false)}
+          >
             <Carousel
               opts={{ loop: true, align: "start" }}
               setApi={setTestimonialApi}
