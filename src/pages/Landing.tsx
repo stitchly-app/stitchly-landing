@@ -233,11 +233,8 @@ const Landing = () => {
                 }}
               />
               <div
-                className="relative z-10 rounded-2xl overflow-hidden image-fade-bottom"
-                style={{
-                  border: "1px solid rgba(124, 58, 237, 0.2)",
-                  boxShadow: "0 0 60px rgba(124, 58, 237, 0.15)",
-                }}
+                className="glass-frame relative z-10 image-fade-bottom"
+                style={{ "--shimmer-delay": "0s" } as React.CSSProperties}
               >
                 <img src={dashboardImage} alt="Stitchly Dashboard" className="w-full h-auto block" />
                 <button
@@ -264,8 +261,8 @@ const Landing = () => {
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
 
-      {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) */}
-      <WaveDivider topColor="#0B0F1A" bottomColor="#0F1420" />
+      {/* Wave divider: hero -> how it works */}
+      <WaveDivider bottomColor="#0F1420" />
 
       {/* How It Works */}
       <FadeUpSection
@@ -334,13 +331,8 @@ const Landing = () => {
                   {/* Screenshot frame */}
                   <ScreenshotReveal>
                     <div
-                      className="relative rounded-2xl overflow-hidden"
-                      style={{
-                        backgroundColor: "#0B0F1A",
-                        border: "1px solid rgba(124, 58, 237, 0.25)",
-                        boxShadow:
-                          "0 20px 50px rgba(0,0,0,0.4), 0 0 60px rgba(124, 58, 237, 0.15)",
-                      }}
+                      className="glass-frame relative"
+                      style={{ "--shimmer-delay": `${(i + 1) * 1.5}s` } as React.CSSProperties}
                     >
                       <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
                         <img
@@ -426,12 +418,13 @@ const Landing = () => {
               </TracingBeam>
             </div>
             <ScreenshotReveal className="w-full">
-              <img
-                src={uploadDashboard}
-                alt="Stitchly Workspace"
-                className="w-full h-auto rounded-lg"
-                style={{ boxShadow: "0 0 80px rgba(124, 58, 237, 0.2)" }}
-              />
+              <div className="glass-frame" style={{ "--shimmer-delay": "6s" } as React.CSSProperties}>
+                <img
+                  src={uploadDashboard}
+                  alt="Stitchly Workspace"
+                  className="w-full h-auto"
+                />
+              </div>
             </ScreenshotReveal>
           </div>
         </div>
@@ -448,12 +441,13 @@ const Landing = () => {
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <ScreenshotReveal className="w-full lg:order-1 order-2">
-              <img
-                src={adminDashboard}
-                alt="Stitchly Sequence Editor"
-                className="w-full h-auto rounded-lg"
-                style={{ boxShadow: "0 0 80px rgba(59, 130, 246, 0.2)" }}
-              />
+              <div className="glass-frame" style={{ "--shimmer-delay": "7.5s" } as React.CSSProperties}>
+                <img
+                  src={adminDashboard}
+                  alt="Stitchly Sequence Editor"
+                  className="w-full h-auto"
+                />
+              </div>
             </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
@@ -492,8 +486,8 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
-      {/* Wave divider: features (#06080E) -> testimonials (dark) */}
-      <WaveDivider topColor="#06080E" bottomColor="#0A0E1A" />
+      {/* Wave divider: features -> testimonials */}
+      <WaveDivider bottomColor="#0A0E1A" />
 
       {/* Testimonials */}
       <FadeUpSection className="relative overflow-hidden bg-[#0A0E1A]">
