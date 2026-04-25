@@ -740,6 +740,7 @@ const Landing = () => {
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
+                    "Mac desktop app",
                     "50 credits, one time",
                     "Instant local transcriptions",
                     "Unlimited projects",
