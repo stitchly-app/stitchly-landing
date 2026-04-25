@@ -215,6 +215,25 @@
     animation: shimmer-sweep 18s linear infinite;
   }
 
+  /* CTA button gentle shimmer overlay */
+  @keyframes btn-shimmer {
+    0% { transform: translateX(-150%); }
+    100% { transform: translateX(150%); }
+  }
+  .btn-shimmer {
+    position: relative;
+  }
+  .btn-shimmer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.35) 50%, transparent 65%);
+    transform: translateX(-150%);
+    animation: btn-shimmer 3.5s ease-in-out infinite;
+    mix-blend-mode: overlay;
+  }
+
   /* Border Beam animation */
   @keyframes border-beam {
     100% { offset-distance: 100%; }
