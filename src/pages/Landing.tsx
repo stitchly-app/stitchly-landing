@@ -636,18 +636,19 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* CTA Section */}
-      <FadeUpSection className="relative overflow-hidden cta-animated-gradient">
-        {/* 75% black overlay to darken the animated gradient */}
-        <div className="absolute inset-0 bg-black/75 pointer-events-none" aria-hidden />
-        {/* Floating white dot particles */}
+      <FadeUpSection className="relative overflow-hidden bg-stitchly-base">
+        {/* Replicated hero background */}
+        <div className="hero-radial-glow" />
+        <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#7C3AED" />
+        <div className="hero-aurora" aria-hidden />
         <Particles
-          className="absolute inset-0"
-          quantity={120}
-          staticity={30}
-          ease={50}
-          color="#ffffff"
+          className="absolute inset-0 z-0"
+          quantity={180}
+          ease={70}
+          size={0.5}
+          color="#7C3AED"
         />
-        <div className="stitchly-container relative z-[1] py-20 sm:py-28">
+        <div className="stitchly-container relative z-10 py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
             <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
               Your Next Edit Starts Here.
@@ -656,17 +657,27 @@ const Landing = () => {
               Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
             </p>
             <div className="flex justify-center pt-4 sm:pt-6">
-              <Button
-                size="lg"
-                asChild
-                className="border-0 rounded-lg px-8 relative overflow-hidden text-white hover:bg-[#0A1226]"
-                style={{ backgroundColor: "#0A1226", boxShadow: "0 0 60px rgba(124, 58, 237, 0.4)" }}
+              <motion.div
+                whileHover={{ scale: 1.06 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="relative group/ctab"
               >
-                <a href={SIGNUP_URL}>
-                  Start Your Free Trial →
-                  <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
-                </a>
-              </Button>
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover/ctab:opacity-100 transition-opacity duration-300 blur-2xl"
+                  style={{ background: "linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%)", transform: "scale(1.2)" }}
+                />
+                <Button
+                  size="lg"
+                  asChild
+                  className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body relative overflow-hidden text-white"
+                >
+                  <a href={SIGNUP_URL}>
+                    Start Your Free Trial →
+                    <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
+                  </a>
+                </Button>
+              </motion.div>
             </div>
           </div>
         </div>
