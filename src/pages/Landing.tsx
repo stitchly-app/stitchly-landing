@@ -61,6 +61,17 @@ const loopingTestimonials = [...testimonials, ...testimonials];
 
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const heroImages = [
+    { src: dashboardImage, alt: "Stitchly Dashboard" },
+    { src: dashboardImage2, alt: "Stitchly Project Area" },
+  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroImageIndex((i) => (i + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
