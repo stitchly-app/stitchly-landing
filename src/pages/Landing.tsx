@@ -248,7 +248,30 @@ const Landing = () => {
                 className="glass-frame relative z-10 image-fade-bottom"
                 style={{ "--shimmer-delay": "0s" } as React.CSSProperties}
               >
-                <img src={dashboardImage} alt="Stitchly Dashboard" className="w-full h-auto block" />
+                <div className="relative w-full">
+                  {/* Sizer keeps frame height stable */}
+                  <img
+                    src={heroImages[0].src}
+                    alt=""
+                    aria-hidden
+                    className="w-full h-auto block invisible"
+                  />
+                  {heroImages.map((img, i) => (
+                    <img
+                      key={img.src}
+                      src={img.src}
+                      alt={img.alt}
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.65,0,0.35,1)]"
+                      style={{
+                        opacity: heroImageIndex === i ? 1 : 0,
+                        clipPath:
+                          heroImageIndex === i
+                            ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+                            : "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+                      }}
+                    />
+                  ))}
+                </div>
                 <button
                   onClick={() => setVideoOpen(true)}
                   aria-label="Play product demo"
