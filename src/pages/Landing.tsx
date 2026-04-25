@@ -397,7 +397,7 @@ const Landing = () => {
       <WaveDivider topColor="#06080E" bottomColor="#0A0E1A" />
 
       {/* Testimonials */}
-      <FadeUpSection className="relative overflow-hidden" style={{ backgroundColor: "#0A0E1A" } as any}>
+      <FadeUpSection className="relative overflow-hidden bg-[#0A0E1A]">
         {/* Subtle grid pattern */}
         <GridPattern
           width={56}
