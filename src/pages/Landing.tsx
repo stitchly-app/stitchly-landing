@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
@@ -450,6 +450,7 @@ const Landing = () => {
             <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
           <div className="relative">
+            <DraggableMarquee>
             <Marquee pauseOnHover className="[--duration:50s]" repeat={3}>
               {testimonials.map((t) => (
                 <div
@@ -479,6 +480,7 @@ const Landing = () => {
                 </div>
               ))}
             </Marquee>
+            </DraggableMarquee>
             {/* edge fade overlays */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #0A0E1A, transparent)" }} />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #0A0E1A, transparent)" }} />
