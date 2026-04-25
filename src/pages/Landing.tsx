@@ -419,7 +419,7 @@ const Landing = () => {
                 Icon: Sparkles,
                 step: "02",
                 title: "AI Finds the Best Moments",
-                text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage.",
+                text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage. AI reads every word of your transcript and tags each soundbite by type, emotion, story, key point, and CTA, so the best moments are always one click away.",
                 // Main project grid (center)
                 imgStyle: { objectPosition: "center center", transform: "scale(1.3)", transformOrigin: "center center" },
               },
@@ -513,10 +513,10 @@ const Landing = () => {
                     className="bg-clip-text text-transparent"
                     style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
                   >
-                    Get a Cut.
+                    Get a Rough Cut.
                   </span>
                 </h3>
-                <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
+                <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
                 <div className="relative space-y-6">
@@ -592,6 +592,7 @@ const Landing = () => {
                     { title: "Premiere, Resolve, and Final Cut", text: "Export a ready-to-edit XML for any major editing platform. One click opens your sequence directly in your editor with all media paths linked." },
                     { title: "Proxy-based workflow", text: "Stitchly generates lightweight proxies locally so your machine stays fast. Original media paths are preserved in every export." },
                     { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
+                    { title: "Runs entirely on your Mac", text: "Your footage never leaves your drive." },
                   ].map((b) => (
                     <div key={b.title} className="flex gap-4">
                       <div className="flex-shrink-0 mt-1">
