@@ -54,17 +54,36 @@ export function TypewriterLoop({
   const current = words[index].slice(0, count);
 
   return (
-    <span className={className} style={{ position: "relative", display: "inline-block" }}>
-      <span aria-hidden style={{ visibility: "hidden", whiteSpace: "pre" }}>{longest}</span>
+    <span style={{ position: "relative", display: "inline-block" }}>
+      {/* Spacer reserves layout width using the longest word so nothing reflows */}
+      <span aria-hidden className={className} style={{ visibility: "hidden", whiteSpace: "pre" }}>
+        {longest}
+      </span>
+      {/* Visible animated word — gradient/className applied here so bg-clip-text works */}
       <span
         aria-hidden
+        className={className}
         style={{ position: "absolute", left: 0, top: 0, whiteSpace: "pre" }}
       >
         {current}
+      </span>
+      {/* Cursor — sits after the typed word, positioned via absolute + width measurement is hard,
+          so we render it inline at the right edge of the visible word */}
+      <span
+        aria-hidden
+        className="inline-block align-baseline animate-pulse"
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          whiteSpace: "pre",
+          color: "transparent",
+        }}
+      >
+        {current}
         <span
-          aria-hidden
-          className="inline-block align-baseline animate-pulse"
           style={{
+            display: "inline-block",
             width: "0.06em",
             height: "0.85em",
             marginLeft: "0.05em",
