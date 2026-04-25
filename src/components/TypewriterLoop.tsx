@@ -7,6 +7,7 @@ interface TypewriterLoopProps {
   holdMs?: number;
   className?: string;
   startDelay?: number;
+  style?: React.CSSProperties;
 }
 
 /**
@@ -20,6 +21,7 @@ export function TypewriterLoop({
   holdMs = 1400,
   className,
   startDelay = 0,
+  style,
 }: TypewriterLoopProps) {
   const [index, setIndex] = useState(0);
   const [count, setCount] = useState(0);
@@ -56,14 +58,14 @@ export function TypewriterLoop({
   return (
     <span style={{ position: "relative", display: "inline-block" }}>
       {/* Spacer reserves layout width using the longest word so nothing reflows */}
-      <span aria-hidden className={className} style={{ visibility: "hidden", whiteSpace: "pre" }}>
+      <span aria-hidden className={className} style={{ ...style, visibility: "hidden", whiteSpace: "pre" }}>
         {longest}
       </span>
       {/* Visible animated word — gradient/className applied here so bg-clip-text works */}
       <span
         aria-hidden
         className={className}
-        style={{ position: "absolute", left: 0, top: 0, whiteSpace: "pre" }}
+        style={{ ...style, position: "absolute", left: 0, top: 0, whiteSpace: "pre" }}
       >
         {current}
       </span>
