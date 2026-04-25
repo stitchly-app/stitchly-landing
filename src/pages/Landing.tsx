@@ -133,19 +133,22 @@ const Landing = () => {
                 className="block text-foreground"
               />
               <span className="block">
-                <span className="text-foreground">Start </span>
-                <span
+                <Typewriter
+                  text="Start "
+                  speed={70}
+                  delay={200 + 14 * 70 + 250}
+                  cursor={false}
+                  className="text-foreground"
+                />
+                <TypewriterLoop
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
-                >
-                  <TypewriterLoop
-                    words={["Editing", "Creating", "Scaling", "Winning", "Shipping"]}
-                    startDelay={200 + 14 * 70 + 250}
-                    typeSpeed={90}
-                    deleteSpeed={55}
-                    holdMs={1500}
-                  />
-                </span>
+                  words={["Editing", "Creating", "Scaling", "Winning", "Shipping"]}
+                  startDelay={200 + 14 * 70 + 250 + 6 * 70 + 200}
+                  typeSpeed={90}
+                  deleteSpeed={55}
+                  holdMs={1500}
+                />
               </span>
             </h2>
 
@@ -155,8 +158,8 @@ const Landing = () => {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
                 className="w-full sm:w-auto group/cta relative"
                 whileHover={{ scale: 1.06 }}
@@ -174,8 +177,8 @@ const Landing = () => {
                 </Button>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
                 className="w-full sm:w-auto group/cta2 relative"
                 whileHover={{ scale: 1.06 }}
@@ -197,10 +200,21 @@ const Landing = () => {
               delay={0.6}
               duration={1.4}
               yOffset={80}
-              className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
+              className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto relative"
             >
+              {/* Soft pulsating purple glow behind the screenshot */}
               <div
-                className="relative rounded-2xl overflow-hidden image-fade-bottom"
+                aria-hidden
+                className="pointer-events-none absolute -inset-8 rounded-[2rem] animate-hero-glow"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(124,58,237,0.45) 0%, rgba(124,58,237,0.15) 40%, transparent 70%)",
+                  filter: "blur(40px)",
+                  zIndex: 0,
+                }}
+              />
+              <div
+                className="relative z-10 rounded-2xl overflow-hidden image-fade-bottom"
                 style={{
                   border: "1px solid rgba(124, 58, 237, 0.2)",
                   boxShadow: "0 0 60px rgba(124, 58, 237, 0.15)",
@@ -212,8 +226,20 @@ const Landing = () => {
                   aria-label="Play product demo"
                   className="absolute inset-0 flex items-center justify-center group"
                 >
+                  {/* Pulsating glow behind the play button */}
                   <span
-                    className="animate-play-pulse flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white"
+                    aria-hidden
+                    className="absolute rounded-full animate-play-glow pointer-events-none"
+                    style={{
+                      width: 140,
+                      height: 140,
+                      background:
+                        "radial-gradient(circle, rgba(124,58,237,0.55) 0%, rgba(124,58,237,0.25) 45%, transparent 75%)",
+                      filter: "blur(12px)",
+                    }}
+                  />
+                  <span
+                    className="animate-play-soft relative flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white"
                     style={{
                       width: 80,
                       height: 80,
@@ -224,7 +250,6 @@ const Landing = () => {
                     <Play className="h-8 w-8 ml-1" style={{ color: "#7C3AED", fill: "#7C3AED" }} />
                   </span>
                 </button>
-                <BorderBeam size={220} duration={10} colorFrom="#7C3AED" colorTo="#3B82F6" borderWidth={2} />
               </div>
             </ScreenshotReveal>
           </motion.div>
@@ -360,7 +385,15 @@ const Landing = () => {
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="relative space-y-6 sm:space-y-8">
               <div className="relative">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Give It a Brief. Get a Cut.</h3>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">
+                  Give It a Brief.{" "}
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+                  >
+                    Get a Cut.
+                  </span>
+                </h3>
                 <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
@@ -418,7 +451,15 @@ const Landing = () => {
             </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">
+                  Built for{" "}
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+                  >
+                    Professional Editors
+                  </span>
+                </h3>
                 <p className="text-muted-foreground font-body">Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10 z-[2]">
@@ -542,7 +583,7 @@ const Landing = () => {
             >
               <span className="block text-foreground">Simple Pricing.</span>
               <span
-                className="block bg-clip-text text-transparent"
+                className="inline-block bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
               >
                 Start Free.
