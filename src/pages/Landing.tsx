@@ -104,6 +104,7 @@ const loopingTestimonials = [...testimonials, ...testimonials];
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
   const heroImages = [
     { src: dashboardImage, alt: "Stitchly Dashboard" },
     { src: dashboardImage2, alt: "Stitchly Project Area" },
@@ -114,6 +115,17 @@ const Landing = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  useEffect(() => {
+    if (!testimonialApi) return;
+    const interval = setInterval(() => {
+      const slidesToScroll = 3;
+      const total = testimonialApi.scrollSnapList().length;
+      const next = (testimonialApi.selectedScrollSnap() + slidesToScroll) % total;
+      testimonialApi.scrollTo(next);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [testimonialApi]);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
@@ -606,6 +618,7 @@ const Landing = () => {
           <div className="relative px-12 sm:px-16">
             <Carousel
               opts={{ loop: true, align: "start" }}
+              setApi={setTestimonialApi}
               className="w-full"
             >
               <CarouselContent className="-ml-4 py-4">
