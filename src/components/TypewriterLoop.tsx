@@ -8,6 +8,7 @@ interface TypewriterLoopProps {
   className?: string;
   startDelay?: number;
   style?: CSSProperties;
+  cursorDelay?: number;
 }
 
 /**
@@ -22,10 +23,17 @@ export function TypewriterLoop({
   className,
   startDelay = 0,
   style,
+  cursorDelay = 1000,
 }: TypewriterLoopProps) {
   const [index, setIndex] = useState(0);
   const [count, setCount] = useState(0);
   const [phase, setPhase] = useState<"idle" | "typing" | "holding" | "deleting">("idle");
+  const [cursorVisible, setCursorVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setCursorVisible(true), cursorDelay);
+    return () => clearTimeout(t);
+  }, [cursorDelay]);
 
   useEffect(() => {
     const t = setTimeout(() => setPhase("typing"), startDelay);
@@ -89,8 +97,10 @@ export function TypewriterLoop({
             width: "0.06em",
             height: "0.85em",
             marginLeft: "0.05em",
-            background: "linear-gradient(180deg, #3B82F6 0%, #7C3AED 100%)",
+            background: "#ffffff",
             verticalAlign: "-0.08em",
+            opacity: cursorVisible ? 1 : 0,
+            transition: "opacity 200ms ease",
           }}
         />
       </span>

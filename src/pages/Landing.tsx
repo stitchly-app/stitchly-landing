@@ -143,7 +143,7 @@ const Landing = () => {
                 <TypewriterLoop
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
-                  words={["Editing", "Creating", "Scaling", "Winning", "Shipping"]}
+                  words={["Editing", "Saving time", "Finishing", "Exporting", "Earning"]}
                   startDelay={200 + 14 * 70 + 250 + 6 * 70 + 200}
                   typeSpeed={90}
                   deleteSpeed={55}
@@ -160,9 +160,15 @@ const Landing = () => {
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
+                transition={{
+                  opacity: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 },
+                  y: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 },
+                  scale: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+                }}
                 className="w-full sm:w-auto group/cta relative"
                 whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 1.02 }}
+                style={{ transformOrigin: "center" }}
               >
                 <span
                   aria-hidden
@@ -179,9 +185,15 @@ const Landing = () => {
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
+                transition={{
+                  opacity: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 },
+                  y: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 },
+                  scale: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+                }}
                 className="w-full sm:w-auto group/cta2 relative"
                 whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 1.02 }}
+                style={{ transformOrigin: "center" }}
               >
                 <span
                   aria-hidden
