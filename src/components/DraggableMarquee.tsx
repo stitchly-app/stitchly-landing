@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Children, cloneElement, isValidElement, useEffect, useRef, useState, type ReactElement, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface DraggableMarqueeProps {
@@ -7,25 +7,27 @@ interface DraggableMarqueeProps {
 }
 
 /**
- * Wraps a Marquee so the user can click-and-drag (or touch-swipe) to
- * pan the strip horizontally. The underlying CSS marquee animation keeps
- * running; the drag offset is applied as an additional translateX on the
- * wrapper.
+ * Wraps a single Marquee child and lets the user click-drag (or swipe)
+ * to pan the strip horizontally. The outer div stays put (it's the
+ * clipping viewport) and we translate the inner marquee track instead.
+ * The CSS marquee animation keeps running underneath.
  */
 export function DraggableMarquee({ children, className }: DraggableMarqueeProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
-  const stateRef = useRef({ dragging: false, startX: 0, startOffset: 0 });
+  const stateRef = useRef({ dragging: false, startX: 0, startOffset: 0, moved: false });
 
   useEffect(() => {
     const onMove = (e: PointerEvent) => {
       const s = stateRef.current;
       if (!s.dragging) return;
-      setOffset(s.startOffset + (e.clientX - s.startX));
+      const dx = e.clientX - s.startX;
+      if (Math.abs(dx) > 3) s.moved = true;
+      setOffset(s.startOffset + dx);
     };
     const onUp = () => {
       stateRef.current.dragging = false;
-      if (ref.current) ref.current.style.cursor = "grab";
+      if (wrapperRef.current) wrapperRef.current.style.cursor = "grab";
     };
     window.addEventListener("pointermove", onMove);
     window.addEventListener("pointerup", onUp);
@@ -42,21 +44,30 @@ export function DraggableMarquee({ children, className }: DraggableMarqueeProps)
       dragging: true,
       startX: e.clientX,
       startOffset: offset,
+      moved: false,
     };
-    if (ref.current) ref.current.style.cursor = "grabbing";
+    if (wrapperRef.current) wrapperRef.current.style.cursor = "grabbing";
   };
+
+  // Inject our drag offset into the single Marquee child via inline style.
+  const child = Children.only(children) as ReactElement<{ style?: React.CSSProperties }>;
+  const dragged = isValidElement(child)
+    ? cloneElement(child, {
+        style: {
+          ...(child.props.style || {}),
+          transform: `translateX(${offset}px)`,
+        },
+      })
+    : child;
 
   return (
     <div
-      ref={ref}
+      ref={wrapperRef}
       onPointerDown={onPointerDown}
-      className={cn("select-none touch-pan-y", className)}
-      style={{
-        cursor: "grab",
-        transform: `translateX(${offset}px)`,
-      }}
+      className={cn("relative overflow-hidden select-none touch-pan-y", className)}
+      style={{ cursor: "grab" }}
     >
-      {children}
+      {dragged}
     </div>
   );
 }
