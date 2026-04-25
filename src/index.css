@@ -352,4 +352,38 @@
     filter: blur(20px);
     z-index: 0;
   }
+
+  /* CTA section: animated gradient + ambient orbs + grain */
+  @keyframes cta-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .cta-animated-gradient {
+    background-image: linear-gradient(135deg, #3B82F6 0%, #6366F1 50%, #7C3AED 100%);
+    background-size: 200% 200%;
+    animation: cta-gradient-shift 10s ease-in-out infinite;
+  }
+  @keyframes cta-orb-drift-a {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(30px, 20px, 0) scale(1.08); }
+  }
+  @keyframes cta-orb-drift-b {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-25px, -20px, 0) scale(1.06); }
+  }
+  .cta-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    pointer-events: none;
+    will-change: transform;
+  }
+  .cta-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
 }
