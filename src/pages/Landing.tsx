@@ -158,8 +158,14 @@ const Landing = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto group/cta relative"
+                whileHover={{ scale: 1.06 }}
               >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 blur-2xl"
+                  style={{ background: "linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%)", transform: "scale(1.15)" }}
+                />
                 <Button size="lg" asChild className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
                   <a href={SIGNUP_URL}>
                     Start Your Free Trial →
@@ -171,8 +177,14 @@ const Landing = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto group/cta2 relative"
+                whileHover={{ scale: 1.06 }}
               >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover/cta2:opacity-100 transition-opacity duration-300 blur-2xl"
+                  style={{ background: "linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%)", transform: "scale(1.15)" }}
+                />
                 <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-gradient rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
                   <span className="gradient-text font-medium">See How It Works ↓</span>
                 </Button>
