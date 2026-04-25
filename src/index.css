@@ -386,4 +386,32 @@
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
+
+  /* CTA sweeping sheen */
+  @keyframes cta-sheen {
+    0%   { transform: translateX(-60%) skewX(-12deg); opacity: 0; }
+    15%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { transform: translateX(160%) skewX(-12deg); opacity: 0; }
+  }
+  .cta-sheen {
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    left: 0;
+    width: 35%;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.18) 45%,
+      rgba(224, 212, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0.18) 55%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    filter: blur(40px);
+    mix-blend-mode: screen;
+    animation: cta-sheen 7s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
 }
