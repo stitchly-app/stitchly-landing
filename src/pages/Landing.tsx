@@ -645,7 +645,7 @@ const Landing = () => {
         />
         {/* Faint dot pattern */}
         <DotPattern
-          className="absolute inset-0 h-full w-full text-white/30 opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]"
+          className="!fill-white/40 opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]"
         />
         {/* Subtle grain */}
         <div className="cta-grain" aria-hidden />
