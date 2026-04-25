@@ -260,12 +260,16 @@ const Landing = () => {
             </ScreenshotReveal>
           </motion.div>
         </div>
+
+        {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) */}
+        <WaveDivider
+          topColor="#0B0F1A"
+          bottomColor="#0F1420"
+          className="absolute bottom-[-1px] left-0 right-0 z-20"
+        />
       </section>
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
-
-      {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) */}
-      <WaveDivider topColor="#0B0F1A" bottomColor="#0F1420" />
 
       {/* How It Works */}
       <FadeUpSection
