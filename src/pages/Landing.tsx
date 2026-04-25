@@ -3,6 +3,7 @@ import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { GridPattern } from "@/components/ui/grid-pattern";
+import { DotPattern } from "@/components/ui/dot-pattern";
 import { Particles } from "@/components/ui/particles";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -616,11 +617,39 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* CTA Section */}
-      <FadeUpSection
-        className="relative overflow-hidden"
-        style={{ backgroundImage: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)" }}
-      >
-        <div className="stitchly-container relative py-20 sm:py-28">
+      <FadeUpSection className="relative overflow-hidden cta-animated-gradient">
+        {/* Ambient glow orbs */}
+        <div
+          className="cta-orb"
+          style={{
+            top: "-120px",
+            left: "-100px",
+            width: 520,
+            height: 520,
+            background: "radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 70%)",
+            animation: "cta-orb-drift-a 12s ease-in-out infinite",
+          }}
+          aria-hidden
+        />
+        <div
+          className="cta-orb"
+          style={{
+            bottom: "-160px",
+            right: "-120px",
+            width: 600,
+            height: 600,
+            background: "radial-gradient(circle, rgba(224,212,255,0.13) 0%, rgba(224,212,255,0) 70%)",
+            animation: "cta-orb-drift-b 14s ease-in-out infinite",
+          }}
+          aria-hidden
+        />
+        {/* Faint dot pattern */}
+        <DotPattern
+          className="!fill-white/40 opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]"
+        />
+        {/* Subtle grain */}
+        <div className="cta-grain" aria-hidden />
+        <div className="stitchly-container relative z-[1] py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
             <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
               Your Next Edit Starts Here.
