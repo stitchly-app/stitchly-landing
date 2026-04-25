@@ -102,7 +102,12 @@ const Landing = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-stitchly-base">
         <div className="hero-radial-glow" />
+        <div className="hero-radial-glow hero-radial-glow--br" aria-hidden />
         <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#7C3AED" />
+        <Spotlight
+          className="bottom-[-10rem] right-0 md:bottom-[-6rem] md:right-60 rotate-180"
+          fill="#7C3AED"
+        />
         <div className="hero-aurora" aria-hidden />
         <Particles
           className="absolute inset-0 z-0"
