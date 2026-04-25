@@ -19,6 +19,7 @@ import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
+import { TypewriterLoop } from "@/components/TypewriterLoop";
 import { ScreenshotReveal } from "@/components/ScreenshotReveal";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard.png";
