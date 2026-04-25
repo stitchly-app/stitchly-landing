@@ -6,14 +6,19 @@ import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Spotlight } from "@/components/ui/spotlight";
-import { Marquee } from "@/components/ui/marquee";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
 import { ScreenshotReveal } from "@/components/ScreenshotReveal";
-import { DraggableMarquee } from "@/components/DraggableMarquee";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
