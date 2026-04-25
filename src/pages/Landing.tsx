@@ -91,6 +91,8 @@ const Landing = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-stitchly-base">
         <div className="hero-radial-glow" />
+        <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#7C3AED" />
+        <div className="hero-aurora" aria-hidden />
         <Particles
           className="absolute inset-0 z-0"
           quantity={180}
@@ -139,7 +141,13 @@ const Landing = () => {
             </div>
 
             {/* Product screenshot */}
-            <div className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+              className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto"
+            >
               <div
                 className="relative rounded-2xl overflow-hidden image-fade-bottom"
                 style={{
@@ -166,12 +174,15 @@ const Landing = () => {
                   </span>
                 </button>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
+
+      {/* Wave divider: hero (#0B0F1A) -> how it works (#0F1420) */}
+      <WaveDivider topColor="#0B0F1A" bottomColor="#0F1420" />
 
       {/* How It Works */}
       <FadeUpSection
@@ -186,27 +197,89 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-14 text-foreground font-heading">How It Works</h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
+          <div className="space-y-20 sm:space-y-28 max-w-6xl mx-auto">
             {[
-              { Icon: UploadIcon, title: "Import Your Footage", text: "Drop in your interview files. Stitchly generates proxies locally, transcribes with word-level timestamps, and identifies every speaker automatically." },
-              { Icon: Sparkles, title: "AI Finds the Best Moments", text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage." },
-              { Icon: Monitor, title: "One Click to Your NLE", text: "Hit \"Send to Premiere Pro\" and your sequence opens directly in your editor with all media linked. No XML hunting. No relinking. Premiere, Resolve, and Final Cut all supported." },
-            ].map(({ Icon, title, text }, i) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
-                className="stitchly-card p-8 space-y-4"
-              >
-                <div className="h-12 w-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center icon-glow-purple">
-                  <Icon className="h-6 w-6 text-primary" />
+              {
+                Icon: UploadIcon,
+                step: "01",
+                title: "Import Your Footage",
+                text: "Drop in your interview files. Stitchly generates proxies locally, transcribes with word-level timestamps, and identifies every speaker automatically.",
+                // Sidebar area (left side)
+                imgStyle: { objectPosition: "left center", transform: "scale(1.6)", transformOrigin: "left center" },
+              },
+              {
+                Icon: Sparkles,
+                step: "02",
+                title: "AI Finds the Best Moments",
+                text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage.",
+                // Main project grid (center)
+                imgStyle: { objectPosition: "center center", transform: "scale(1.3)", transformOrigin: "center center" },
+              },
+              {
+                Icon: Monitor,
+                step: "03",
+                title: "One Click to Your NLE",
+                text: "Hit \"Send to Premiere Pro\" and your sequence opens directly in your editor with all media linked. No XML hunting. No relinking. Premiere, Resolve, and Final Cut all supported.",
+                // Top right (right side, top)
+                imgStyle: { objectPosition: "right top", transform: "scale(1.6)", transformOrigin: "right top" },
+              },
+            ].map(({ Icon, step, title, text, imgStyle }, i) => {
+              const reversed = i % 2 === 1;
+              return (
+                <div
+                  key={title}
+                  className={cn(
+                    "grid lg:grid-cols-2 gap-8 sm:gap-12 items-center",
+                    reversed && "lg:[&>*:first-child]:order-2",
+                  )}
+                >
+                  {/* Screenshot frame */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="relative rounded-2xl overflow-hidden"
+                    style={{
+                      backgroundColor: "#0B0F1A",
+                      border: "1px solid rgba(124, 58, 237, 0.25)",
+                      boxShadow:
+                        "0 20px 50px rgba(0,0,0,0.4), 0 0 60px rgba(124, 58, 237, 0.15)",
+                    }}
+                  >
+                    <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
+                      <img
+                        src={dashboardImage}
+                        alt={`${title} preview`}
+                        className="w-full h-full object-cover"
+                        style={imgStyle as React.CSSProperties}
+                      />
+                    </div>
+                    <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
+                  </motion.div>
+                  {/* Text */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    className="space-y-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-mono text-primary/80 tracking-widest">STEP {step}</span>
+                      <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-12 w-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center icon-glow-purple">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <h4 className="text-2xl sm:text-3xl font-bold text-foreground font-heading">{title}</h4>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed font-body text-base sm:text-lg">{text}</p>
+                  </motion.div>
                 </div>
-                <h4 className="text-xl font-bold text-foreground font-heading">{title}</h4>
-                <p className="text-muted-foreground leading-relaxed font-body">{text}</p>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </FadeUpSection>
