@@ -132,15 +132,20 @@ const Landing = () => {
                 delay={200}
                 className="block text-foreground"
               />
-              <span
-                className="block bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
-              >
-                <Typewriter
-                  text="Start Editing."
-                  speed={70}
-                  delay={200 + 14 * 70 + 250}
-                />
+              <span className="block">
+                <span className="text-foreground">Start </span>
+                <span
+                  className="bg-clip-text text-transparent"
+                  style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+                >
+                  <TypewriterLoop
+                    words={["Editing", "Creating", "Scaling", "Winning", "Shipping"]}
+                    startDelay={200 + 14 * 70 + 250}
+                    typeSpeed={90}
+                    deleteSpeed={55}
+                    holdMs={1500}
+                  />
+                </span>
               </span>
             </h2>
 
