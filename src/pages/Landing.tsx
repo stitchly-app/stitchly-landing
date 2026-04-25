@@ -22,7 +22,7 @@ import { Typewriter } from "@/components/Typewriter";
 import { TypewriterLoop } from "@/components/TypewriterLoop";
 import { ScreenshotReveal } from "@/components/ScreenshotReveal";
 import { cn } from "@/lib/utils";
-import dashboardImage from "@/assets/stitchly-dashboard.png";
+import dashboardImage from "@/assets/stitchly-dashboard-product-shot.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
 import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
