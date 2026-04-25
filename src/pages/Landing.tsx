@@ -134,7 +134,7 @@ const Landing = () => {
               </span>
             </h2>
 
-            <p className="mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-[600px] font-body leading-relaxed">
+            <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[600px] font-body leading-relaxed">
               Six hours of interviews. One deadline. Stitchly reads every word, finds the best soundbites, and builds your assembly cut automatically. One click sends it straight to Premiere, Resolve, or Final Cut.
             </p>
 
@@ -605,15 +605,15 @@ const Landing = () => {
             <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
               Your Next Edit Starts Here.
             </h3>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto font-body">
+            <p className="text-[18.4px] sm:text-[20.7px] text-white max-w-2xl mx-auto font-body">
               Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
             </p>
             <div className="flex justify-center pt-4 sm:pt-6">
               <Button
                 size="lg"
                 asChild
-                className="btn-gradient border-0 rounded-lg px-8 relative overflow-hidden"
-                style={{ boxShadow: "0 0 60px rgba(124, 58, 237, 0.4)" }}
+                className="border-0 rounded-lg px-8 relative overflow-hidden text-white hover:bg-[#0A1226]"
+                style={{ backgroundColor: "#0A1226", boxShadow: "0 0 60px rgba(124, 58, 237, 0.4)" }}
               >
                 <a href={SIGNUP_URL}>
                   Start Your Free Trial →

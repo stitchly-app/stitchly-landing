@@ -17,16 +17,13 @@ export function ScreenshotReveal({
   immediate = false,
 }: ScreenshotRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     if (!immediate) return;
-    // Force a microtask + paint before flipping state so the initial
-    // (hidden) styles are committed first, guaranteeing the transition runs.
-    const id = requestAnimationFrame(() => {
-      requestAnimationFrame(() => setMounted(true));
-    });
-    return () => cancelAnimationFrame(id);
+    // Trigger after a short timeout to guarantee initial styles paint first.
+    const t = window.setTimeout(() => setMounted(true), 50);
+    return () => window.clearTimeout(t);
   }, [immediate]);
   const visible = immediate ? mounted : inView;
 
