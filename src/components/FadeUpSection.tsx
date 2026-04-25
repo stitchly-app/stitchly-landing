@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, type CSSProperties, type ReactNode, type ElementType } from "react";
+import { useMemo, useRef, type CSSProperties, type ReactNode, type ElementType } from "react";
 
 interface FadeUpSectionProps {
   children: ReactNode;
@@ -20,7 +20,7 @@ export function FadeUpSection({
 }: FadeUpSectionProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
-  const MotionTag = motion(as as any);
+  const MotionTag = useMemo(() => motion(as as any), [as]);
 
   return (
     <MotionTag
