@@ -692,7 +692,13 @@ const Landing = () => {
         <div className="stitchly-container relative z-10 py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
             <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
-              Your Next Edit Starts Here.
+              Your Next Edit{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Starts Here.
+              </span>
             </h3>
             <p className="text-[18.4px] sm:text-[20.7px] text-white max-w-2xl mx-auto font-body">
               Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
