@@ -583,8 +583,14 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Footer */}
-      <FadeUpSection as="footer" className="bg-section-footer">
-        <div className="stitchly-container py-12">
+      <FadeUpSection as="footer" className="relative overflow-hidden bg-section-footer">
+        <GridPattern
+          width={48}
+          height={48}
+          className={cn("stroke-primary/30 opacity-100", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]")}
+          strokeDasharray="0"
+        />
+        <div className="stitchly-container relative py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
