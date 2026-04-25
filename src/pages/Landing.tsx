@@ -298,26 +298,28 @@ const Landing = () => {
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Give It a Brief. Get a Cut.</h3>
                 <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
               </div>
-              <div className="relative space-y-6">
-                {[
-                  { title: "Creative briefs in plain English", text: "Type what you want: \"Build a 90-second testimonial. Open with struggle, close with results.\" Stitchly finds the clips that match." },
-                  { title: "Multi-video intelligence", text: "Upload 8 interviews. Stitchly treats them as one searchable library. The best moment from interview 3 lands next to the perfect setup from interview 7." },
-                  { title: "Every word searchable", text: "Word-level timestamps. Speaker identification. Semantic categorization. Your footage becomes a database you can query." },
-                ].map((b) => (
-                  <div key={b.title} className="flex gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <ArrowRight
-                        className="h-6 w-6"
-                        style={{ stroke: "url(#bp-gradient)" }}
-                      />
+              <TracingBeam className="pl-8 sm:pl-10">
+                <div className="relative space-y-6">
+                  {[
+                    { title: "Creative briefs in plain English", text: "Type what you want: \"Build a 90-second testimonial. Open with struggle, close with results.\" Stitchly finds the clips that match." },
+                    { title: "Multi-video intelligence", text: "Upload 8 interviews. Stitchly treats them as one searchable library. The best moment from interview 3 lands next to the perfect setup from interview 7." },
+                    { title: "Every word searchable", text: "Word-level timestamps. Speaker identification. Semantic categorization. Your footage becomes a database you can query." },
+                  ].map((b) => (
+                    <div key={b.title} className="flex gap-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <ArrowRight
+                          className="h-6 w-6"
+                          style={{ stroke: "url(#bp-gradient)" }}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
+                        <p className="text-muted-foreground font-body">{b.text}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
-                      <p className="text-muted-foreground font-body">{b.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </TracingBeam>
             </div>
             <div className="w-full">
               <img
@@ -376,6 +378,9 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
+      {/* Wave divider: features (#06080E) -> testimonials (#F5F0E8) */}
+      <WaveDivider topColor="#06080E" bottomColor="#F5F0E8" />
+
       {/* Testimonials */}
       <FadeUpSection className="relative overflow-hidden bg-section-testimonials">
         {/* Subtle grid pattern for light section warmth */}
@@ -400,68 +405,38 @@ const Landing = () => {
             <p className="font-body" style={{ color: "#5A5A6E" }}>From editors who stopped scrubbing and started editing.</p>
           </div>
           <div className="relative">
-            <div className="overflow-hidden">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                {testimonials.map((t, i) => (
-                  <div key={t.id} className="w-full flex-shrink-0 px-4">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
-                      className="p-8 max-w-2xl mx-auto rounded-2xl"
-                      style={{
-                        backgroundColor: "#FFFFFF",
-                        border: "1px solid rgba(26, 26, 46, 0.08)",
-                      }}
-                    >
-                      <div className="flex gap-1 mb-4">
-                        {[...Array(t.rating)].map((_, idx) => (
-                          <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <p className="text-lg mb-6 leading-relaxed font-body" style={{ color: "#1A1A2E" }}>"{t.text}"</p>
-                      <div className="flex items-center gap-3">
-                        <div className="h-12 w-12 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(26,26,46,0.08)" }}>
-                          <Users className="h-6 w-6" style={{ color: "#5A5A6E" }} />
-                        </div>
-                        <div>
-                          <p className="font-semibold font-heading" style={{ color: "#1A1A2E" }}>{t.author}</p>
-                          <p className="text-sm font-body" style={{ color: "#5A5A6E" }}>{t.title}</p>
-                        </div>
-                      </div>
-                    </motion.div>
+            <Marquee pauseOnHover className="[--duration:50s]" repeat={3}>
+              {testimonials.map((t) => (
+                <div
+                  key={t.id}
+                  className="mx-3 w-[340px] sm:w-[400px] flex-shrink-0 p-7 rounded-2xl"
+                  style={{
+                    backgroundColor: "#FFFFFF",
+                    border: "1px solid rgba(26, 26, 46, 0.08)",
+                    boxShadow: "0 4px 20px rgba(26, 26, 46, 0.04)",
+                  }}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(t.rating)].map((_, idx) => (
+                      <Star key={idx} className="h-5 w-5 fill-primary text-primary" />
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-            <button
-              onClick={previousTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 p-2 sm:p-3 rounded-full transition-colors"
-              style={{ backgroundColor: "rgba(26,26,46,0.08)", color: "#1A1A2E" }}
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 p-2 sm:p-3 rounded-full transition-colors"
-              style={{ backgroundColor: "rgba(26,26,46,0.08)", color: "#1A1A2E" }}
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
-            </button>
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentTestimonial(idx)}
-                  className={`h-2 rounded-full transition-all ${idx === currentTestimonial ? "w-8 bg-primary" : "w-2"}`}
-                  style={idx === currentTestimonial ? undefined : { backgroundColor: "rgba(26,26,46,0.2)" }}
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                />
+                  <p className="text-base mb-6 leading-relaxed font-body" style={{ color: "#1A1A2E" }}>"{t.text}"</p>
+                  <div className="flex items-center gap-3">
+                    <div className="h-11 w-11 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(26,26,46,0.08)" }}>
+                      <Users className="h-5 w-5" style={{ color: "#5A5A6E" }} />
+                    </div>
+                    <div>
+                      <p className="font-semibold font-heading text-sm" style={{ color: "#1A1A2E" }}>{t.author}</p>
+                      <p className="text-xs font-body" style={{ color: "#5A5A6E" }}>{t.title}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </div>
+            </Marquee>
+            {/* edge fade overlays */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24" style={{ background: "linear-gradient(to right, #F5F0E8, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24" style={{ background: "linear-gradient(to left, #F5F0E8, transparent)" }} />
           </div>
         </div>
       </FadeUpSection>
