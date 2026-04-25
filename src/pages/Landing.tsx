@@ -6,6 +6,10 @@ import { DotPattern } from "@/components/ui/dot-pattern";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Marquee } from "@/components/ui/marquee";
+import { TracingBeam } from "@/components/ui/tracing-beam";
+import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { cn } from "@/lib/utils";
@@ -44,15 +48,11 @@ const testimonials = [
 ];
 
 const Landing = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
 
   const scrollToHowItWorks = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
   };
-
-  const nextTestimonial = () => setCurrentTestimonial((p) => (p + 1) % testimonials.length);
-  const previousTestimonial = () => setCurrentTestimonial((p) => (p - 1 + testimonials.length) % testimonials.length);
 
   return (
     <div className="min-h-screen bg-stitchly-base">
