@@ -461,6 +461,10 @@
     animation-delay: var(--shimmer-delay, 0s);
   }
 
+  .glass-frame.no-shimmer::after {
+    display: none;
+  }
+
   /* CTA sweeping sheen */
   @keyframes cta-sheen {
     0%   { transform: translateX(-60%) skewX(-12deg); opacity: 0; }

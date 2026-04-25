@@ -69,7 +69,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroImageIndex((i) => (i + 1) % heroImages.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
@@ -245,8 +245,7 @@ const Landing = () => {
                 }}
               />
               <div
-                className="glass-frame relative z-10 image-fade-bottom"
-                style={{ "--shimmer-delay": "0s" } as React.CSSProperties}
+                className="glass-frame no-shimmer relative z-10 image-fade-bottom"
               >
                 <div className="relative w-full">
                   {/* Sizer keeps frame height stable */}
@@ -261,14 +260,8 @@ const Landing = () => {
                       key={img.src}
                       src={img.src}
                       alt={img.alt}
-                      className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.65,0,0.35,1)]"
-                      style={{
-                        opacity: heroImageIndex === i ? 1 : 0,
-                        clipPath:
-                          heroImageIndex === i
-                            ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
-                            : "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
-                      }}
+                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ease-in-out"
+                      style={{ opacity: heroImageIndex === i ? 1 : 0 }}
                     />
                   ))}
                 </div>
