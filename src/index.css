@@ -284,7 +284,7 @@
     width: 1200px;
     height: 800px;
     pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 40%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.08) 0%, rgba(124, 58, 237, 0.025) 40%, transparent 70%);
     z-index: 0;
   }
 
@@ -344,9 +344,9 @@
     inset: -10% 0 auto 0;
     height: 60%;
     pointer-events: none;
-    background: radial-gradient(60% 80% at 30% 50%, rgba(124,58,237,0.18), transparent 60%),
-                radial-gradient(50% 80% at 70% 40%, rgba(59,130,246,0.16), transparent 60%),
-                radial-gradient(40% 60% at 50% 60%, rgba(168,85,247,0.12), transparent 60%);
+    background: radial-gradient(60% 80% at 30% 50%, rgba(124,58,237,0.09), transparent 60%),
+                radial-gradient(50% 80% at 70% 40%, rgba(59,130,246,0.08), transparent 60%),
+                radial-gradient(40% 60% at 50% 60%, rgba(168,85,247,0.06), transparent 60%);
     background-size: 200% 200%;
     animation: aurora 14s ease-in-out infinite;
     filter: blur(20px);
