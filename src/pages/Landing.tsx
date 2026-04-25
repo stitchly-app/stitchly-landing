@@ -385,7 +385,15 @@ const Landing = () => {
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="relative space-y-6 sm:space-y-8">
               <div className="relative">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Give It a Brief. Get a Cut.</h3>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">
+                  Give It a Brief.{" "}
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+                  >
+                    Get a Cut.
+                  </span>
+                </h3>
                 <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic.</p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
@@ -443,7 +451,15 @@ const Landing = () => {
             </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">Built for Professional Editors</h3>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">
+                  Built for{" "}
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+                  >
+                    Professional Editors
+                  </span>
+                </h3>
                 <p className="text-muted-foreground font-body">Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10 z-[2]">
@@ -567,7 +583,7 @@ const Landing = () => {
             >
               <span className="block text-foreground">Simple Pricing.</span>
               <span
-                className="block bg-clip-text text-transparent"
+                className="inline-block bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
               >
                 Start Free.
