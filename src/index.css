@@ -299,10 +299,10 @@
   /* Slow, subtle scale for the hero play button */
   @keyframes play-soft {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
+    50% { transform: scale(1.35); }
   }
   .animate-play-soft {
-    animation: play-soft 4.5s ease-in-out infinite;
+    animation: play-soft 2s ease-in-out infinite;
   }
 
   /* Pulsating glow behind the play button */
