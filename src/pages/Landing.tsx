@@ -697,6 +697,29 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
+      {/* Founder credibility */}
+      <FadeUpSection className="relative overflow-hidden bg-section-feature2">
+        <div className="stitchly-container relative py-16 sm:py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3
+              className="font-bold mb-6 font-heading text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Built by an{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Editor
+              </span>
+            </h3>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
+              Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for some of the biggest names in business. Kevin has taught video production workflows and marketing to tens of thousands of entrepreneurs and content creators. He didn't build this as an outsider looking in. He built it because he lived the problem every single day.
+            </p>
+          </div>
+        </div>
+      </FadeUpSection>
+
       {/* Pricing */}
       <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-feature1">
         {/* Large radial purple spotlight behind the card */}
