@@ -109,8 +109,8 @@ const Landing = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col items-center text-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs sm:text-sm text-primary font-body mb-6">
-              <Sparkles className="h-3.5 w-3.5" /> AI Video Assembly for Editors
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-primary/15 px-3 py-1 text-xs sm:text-sm font-body mb-6 text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)]">
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> AI Video Assembly for Editors
             </span>
 
             <h2
@@ -140,15 +140,29 @@ const Landing = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
-              <Button size="lg" asChild className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
-                <a href={SIGNUP_URL}>
-                  Start Your Free Trial →
-                  <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
-                </a>
-              </Button>
-              <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-gradient rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
-                <span className="gradient-text font-medium">See How It Works ↓</span>
-              </Button>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" asChild className="btn-gradient btn-shimmer border-0 rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto relative overflow-hidden">
+                  <a href={SIGNUP_URL}>
+                    Start Your Free Trial →
+                    <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
+                  </a>
+                </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" onClick={scrollToHowItWorks} className="btn-outline-gradient rounded-lg px-6 py-3 text-base font-body w-full sm:w-auto">
+                  <span className="gradient-text font-medium">See How It Works ↓</span>
+                </Button>
+              </motion.div>
             </div>
 
             {/* Product screenshot */}
