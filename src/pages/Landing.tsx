@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { Particles } from "@/components/ui/particles";
@@ -13,6 +13,7 @@ import { VideoLightbox } from "@/components/VideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
 import { ScreenshotReveal } from "@/components/ScreenshotReveal";
+import { DraggableMarquee } from "@/components/DraggableMarquee";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
