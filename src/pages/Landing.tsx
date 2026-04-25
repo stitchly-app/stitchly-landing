@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play } from "lucide-react";
+import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play, Apple } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GridPattern } from "@/components/ui/grid-pattern";
@@ -198,6 +198,11 @@ const Landing = () => {
               <Sparkles className="h-3.5 w-3.5 text-primary" /> AI Video Assembly for Editors
             </span>
 
+            <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-body mb-4 text-foreground/80 tracking-wide uppercase">
+              AI-Powered Desktop App for Mac
+              <Apple className="h-3.5 w-3.5 text-white fill-white" />
+            </span>
+
             <h2
               className="font-bold font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}
@@ -229,7 +234,7 @@ const Landing = () => {
             </h2>
 
             <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[600px] font-body leading-relaxed">
-              Six hours of interviews. One deadline. Stitchly reads every word, finds the best soundbites, and builds your assembly cut automatically. One click sends it straight to Premiere, Resolve, or Final Cut.
+              Drop in your interview footage. Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
