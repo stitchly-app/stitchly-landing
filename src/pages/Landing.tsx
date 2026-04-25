@@ -128,7 +128,6 @@ const Landing = () => {
                 speed={70}
                 delay={200 + 14 * 70 + 250}
                 className="block bg-clip-text text-transparent"
-                // gradient via inline style on parent span won't bg-clip without style; use style
               />
             </h2>
 
