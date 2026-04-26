@@ -243,8 +243,8 @@ const Landing = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  opacity: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 },
-                  y: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.0 },
+                  opacity: { duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 1.0 },
+                  y: { duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 1.0 },
                   scale: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
                 }}
                 className="w-full sm:w-auto group/cta relative"
@@ -268,8 +268,8 @@ const Landing = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  opacity: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 },
-                  y: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.2 },
+                  opacity: { duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 1.2 },
+                  y: { duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 1.2 },
                   scale: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
                 }}
                 className="w-full sm:w-auto group/cta2 relative"
@@ -446,7 +446,11 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-20">
           <div className="max-w-3xl mx-auto text-center">
-            <h3
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="font-bold mb-6 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
@@ -457,13 +461,19 @@ const Landing = () => {
               >
                 Stitchly?
               </span>
-            </h3>
-            <div className="text-base sm:text-lg text-muted-foreground font-body leading-relaxed space-y-4 text-left">
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+              className="text-base sm:text-lg text-muted-foreground font-body leading-relaxed space-y-4 text-left"
+            >
               <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right clips.</p>
               <p>Import your interviews and everything stays local on your machine. Proxies are generated, transcripts are created with speaker detection, and your footage becomes fully searchable in minutes. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
               <p>Then you take over. Drag, drop, trim, cut, and reorganize every soundbite to build your sequence exactly how you want it.</p>
               <p>When you are ready, send it straight into Premiere, Resolve, or Final Cut with one click.</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </FadeUpSection>
@@ -590,7 +600,13 @@ const Landing = () => {
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="relative space-y-6 sm:space-y-8">
               <div className="relative">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">
+                <motion.h3
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
+                >
                   Give it a Prompt.{" "}
                   <span
                     className="bg-clip-text text-transparent"
@@ -598,7 +614,7 @@ const Landing = () => {
                   >
                     Get a Rough Cut.
                   </span>
-                </h3>
+                </motion.h3>
                 <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
@@ -658,7 +674,13 @@ const Landing = () => {
             </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading">
+                <motion.h3
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
+                >
                   Built for{" "}
                   <span
                     className="bg-clip-text text-transparent"
@@ -666,8 +688,14 @@ const Landing = () => {
                   >
                     Professional Editors
                   </span>
-                </h3>
-                <p className="text-muted-foreground font-body">Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</p>
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+                  className="text-muted-foreground font-body"
+                >Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</motion.p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10 z-[2]">
                 <div className="relative space-y-6">
@@ -676,8 +704,15 @@ const Landing = () => {
                     { title: "Proxy-based workflow", text: "Stitchly generates lightweight proxies locally so your machine stays fast. Original media paths are preserved in every export." },
                     { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
                     { title: "Runs entirely on your Mac", text: "Your footage never leaves your drive." },
-                  ].map((b) => (
-                    <div key={b.title} className="flex gap-4">
+                  ].map((b, i) => (
+                    <motion.div
+                      key={b.title}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + i * 0.15 }}
+                      className="flex gap-4"
+                    >
                       <div className="flex-shrink-0 mt-1">
                         <ArrowRight className="h-6 w-6" style={{ stroke: "url(#bp-gradient)" }} />
                       </div>
@@ -685,7 +720,7 @@ const Landing = () => {
                         <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
                         <p className="text-muted-foreground font-body">{b.text}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </TracingBeam>
@@ -716,7 +751,11 @@ const Landing = () => {
         />
         <div className="stitchly-container relative z-[2] py-20 sm:py-28">
           <div className="text-center mb-10 sm:mb-14">
-            <h3
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="font-bold mb-3 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
@@ -727,7 +766,7 @@ const Landing = () => {
               >
                 Saying
               </span>
-            </h3>
+            </motion.h3>
             <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
           <div
@@ -746,7 +785,11 @@ const Landing = () => {
                     key={`${t.id}-${index}`}
                     className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
                   >
-                    <div
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: (index % 3) * 0.15 }}
                       className="h-full p-7 rounded-2xl flex flex-col"
                       style={{
                         backgroundColor: "#141B2D",
@@ -769,7 +812,7 @@ const Landing = () => {
                           <p className="text-xs font-body text-muted-foreground">{t.title}</p>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -813,7 +856,11 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-20">
           <div className="max-w-3xl mx-auto text-center">
-            <h3
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="font-bold mb-6 font-heading text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
@@ -824,7 +871,7 @@ const Landing = () => {
               >
                 Editor
               </span>
-            </h3>
+            </motion.h3>
             <p className="text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white">
               Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for some of the biggest names in business. Kevin has taught video production workflows and marketing to tens of thousands of entrepreneurs and content creators. He didn't build this as an outsider looking in. He built it because he lived the problem every single day.
             </p>
@@ -842,7 +889,11 @@ const Landing = () => {
         />
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="max-w-5xl mx-auto text-center">
-            <h3
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="font-bold text-foreground mb-3 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
@@ -853,12 +904,16 @@ const Landing = () => {
               >
                 Start Free.
               </span>
-            </h3>
+            </motion.h3>
             <p className="text-muted-foreground font-body mb-10">Start with the desktop app — your files never leave your Mac.</p>
 
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-stretch">
               {/* Free Trial card */}
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
                 className="relative p-8 sm:p-10 text-left rounded-2xl overflow-hidden flex flex-col"
                 style={{
                   backgroundColor: "#141B2D",
@@ -892,10 +947,14 @@ const Landing = () => {
                 <Button asChild size="lg" variant="secondary" className="rounded-lg w-full">
                   <a href={SIGNUP_URL}>Download Free Trial →</a>
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Pro card (hero card) */}
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                 className="group relative p-8 sm:p-10 text-left rounded-2xl transition-all duration-200 overflow-hidden flex flex-col"
               style={{
                 backgroundColor: "#141B2D",
@@ -935,7 +994,7 @@ const Landing = () => {
                   <BorderBeam size={80} duration={8} colorFrom="#ffffff" colorTo="#E0D4FF" />
                 </a>
               </Button>
-            </div>
+            </motion.div>
             </div>
             <p className="text-muted-foreground text-sm mt-6 font-body">Start with a free trial. No credit card required. Download for Mac.</p>
           </div>
@@ -966,7 +1025,13 @@ const Landing = () => {
         />
         <div className="stitchly-container relative z-10 py-20 sm:py-28">
           <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto">
-            <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading">
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading"
+            >
               Your Next Edit{" "}
               <span
                 className="bg-clip-text text-transparent"
@@ -974,11 +1039,23 @@ const Landing = () => {
               >
                 Starts Here.
               </span>
-            </h3>
-            <p className="text-[18.4px] sm:text-[20.7px] text-white max-w-2xl mx-auto font-body">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+              className="text-[18.4px] sm:text-[20.7px] text-white max-w-2xl mx-auto font-body"
+            >
               Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
-            </p>
-            <div className="flex justify-center pt-4 sm:pt-6">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+              className="flex justify-center pt-4 sm:pt-6"
+            >
               <motion.div
                 whileHover={{ scale: 1.06 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -1000,7 +1077,7 @@ const Landing = () => {
                   </a>
                 </Button>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </FadeUpSection>
