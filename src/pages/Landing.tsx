@@ -827,10 +827,12 @@ const Landing = () => {
       <FadeUpSection className="relative overflow-hidden bg-section-feature2">
         <div
           aria-hidden
-          className="absolute inset-0 w-full h-full bg-no-repeat bg-top"
+          className="absolute inset-0 w-full h-full"
           style={{
             backgroundImage: `url(${premiereBg})`,
-            backgroundSize: "100% auto",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
           }}
         />
         {/* Blue animated light sheen */}
@@ -1006,10 +1008,12 @@ const Landing = () => {
         {/* Background image */}
         <div
           aria-hidden
-          className="absolute inset-0 w-full h-full bg-no-repeat bg-top"
+          className="absolute inset-0 w-full h-full"
           style={{
             backgroundImage: `url(${finalCtaBg})`,
-            backgroundSize: "100% auto",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
           }}
         />
         {/* Replicated hero background */}
