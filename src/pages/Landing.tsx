@@ -383,6 +383,13 @@ const Landing = () => {
         </div>
       </FadeUpSection>
 
+      {/* Section divider */}
+      <div className="relative bg-section-howitworks">
+        <div className="stitchly-container py-2">
+          <div className="relative h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        </div>
+      </div>
+
       {/* How It Works */}
       <FadeUpSection
         id="how-it-works"
