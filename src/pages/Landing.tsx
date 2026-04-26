@@ -331,11 +331,11 @@ const Landing = () => {
                 <div aria-hidden className="glass-drift rounded-2xl" style={{ zIndex: 1 }} />
                 {/* Slow clockwise traveling purple glow border */}
                 <BorderBeam
-                  size={220}
+                  size={320}
                   duration={30}
-                  borderWidth={1.5}
-                  colorFrom="#7C3AED"
-                  colorTo="rgba(124,58,237,0)"
+                  borderWidth={2}
+                  colorFrom="#A855F7"
+                  colorTo="rgba(168,85,247,0)"
                   className="rounded-2xl"
                 />
                 {/* Edge highlights — left bright, right dark */}
