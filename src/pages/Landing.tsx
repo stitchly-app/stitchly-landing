@@ -194,8 +194,9 @@ const Landing = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col items-center text-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-primary/15 px-3 py-1 text-xs sm:text-sm font-body mb-6 text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)]">
-              <Sparkles className="h-3.5 w-3.5 text-primary" /> AI-Powered Desktop App for Mac
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-primary/15 px-[15px] py-[5px] text-sm sm:text-base font-bold font-body mb-6 text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)]">
+              AI-Powered Desktop App for Mac
+              <img src={appleMacLogo} alt="Mac" className="h-4 w-auto" />
             </span>
 
             <h2
