@@ -389,6 +389,7 @@ const Landing = () => {
                     className="relative w-full rounded-xl overflow-hidden"
                     style={{
                       boxShadow: "0 10px 30px -10px rgba(0,0,0,0.55)",
+                      aspectRatio: "1920 / 1313",
                     }}
                   >
                   {/* Sizer keeps frame height stable */}
