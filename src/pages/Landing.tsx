@@ -291,7 +291,7 @@ const Landing = () => {
             {/* Product screenshot */}
             <ScreenshotReveal
               immediate
-              delay={0.6}
+              delay={0}
               duration={1.4}
               yOffset={80}
               className="mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto relative"
@@ -452,7 +452,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-bold mb-6 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              className="scroll-fade-in font-bold mb-6 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
               What is{" "}
@@ -468,7 +468,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-              className="text-base sm:text-lg text-muted-foreground font-body leading-relaxed space-y-4 text-left"
+              className="scroll-fade-in text-base sm:text-lg text-muted-foreground font-body leading-relaxed space-y-4 text-left"
             >
               <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right clips.</p>
               <p>Import your interviews and everything stays local on your machine. Proxies are generated, transcripts are created with speaker detection, and your footage becomes fully searchable in minutes. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
@@ -503,7 +503,7 @@ const Landing = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="font-bold text-center mb-10 sm:mb-14 text-foreground font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+            className="scroll-fade-in font-bold text-center mb-10 sm:mb-14 text-foreground font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
             style={{ letterSpacing: "-0.02em" }}
           >
             How It{" "}
@@ -581,7 +581,7 @@ const Landing = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="space-y-4"
+                    className="scroll-fade-in space-y-4"
                   >
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-mono tracking-widest" style={{ color: "#3C80F5" }}>STEP {step}</span>
@@ -618,7 +618,7 @@ const Landing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
+                  className="scroll-fade-in text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
                 >
                   Give it a Prompt.{" "}
                   <span
@@ -633,7 +633,7 @@ const Landing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-                  className="text-muted-foreground font-body"
+                  className="scroll-fade-in text-muted-foreground font-body"
                 >Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</motion.p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
@@ -649,7 +649,7 @@ const Landing = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
                       transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + i * 0.12 }}
-                      className="flex gap-4"
+                      className="scroll-fade-in flex gap-4"
                     >
                       <div className="flex-shrink-0 mt-1">
                         <ArrowRight
@@ -705,7 +705,7 @@ const Landing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
+                  className="scroll-fade-in text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
                 >
                   Built for{" "}
                   <span
@@ -720,7 +720,7 @@ const Landing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-                  className="text-muted-foreground font-body"
+                  className="scroll-fade-in text-muted-foreground font-body"
                 >Stitchly doesn't replace your NLE. It eliminates the hours you spend scrubbing footage before the real edit starts.</motion.p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10 z-[2]">
@@ -737,7 +737,7 @@ const Landing = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
                       transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + i * 0.15 }}
-                      className="flex gap-4"
+                      className="scroll-fade-in flex gap-4"
                     >
                       <div className="flex-shrink-0 mt-1">
                         <ArrowRight className="h-6 w-6" style={{ stroke: "url(#bp-gradient)" }} />
@@ -782,7 +782,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-bold mb-3 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              className="scroll-fade-in font-bold mb-3 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
               What Editors Are{" "}
@@ -816,7 +816,7 @@ const Landing = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
                       transition={{ duration: 0.6, ease: "easeOut", delay: (index % 3) * 0.15 }}
-                      className="h-full p-7 rounded-2xl flex flex-col"
+                      className="scroll-fade-in h-full p-7 rounded-2xl flex flex-col"
                       style={{
                         backgroundColor: "#141B2D",
                         border: "1px solid rgba(124, 58, 237, 0.2)",
@@ -889,7 +889,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-bold mb-6 font-heading text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1]"
+              className="scroll-fade-in font-bold mb-6 font-heading text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
               Built by an{" "}
@@ -900,9 +900,15 @@ const Landing = () => {
                 Editor
               </span>
             </motion.h3>
-            <p className="text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+              className="scroll-fade-in text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white"
+            >
               Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for some of the biggest names in business. Kevin has taught video production workflows and marketing to tens of thousands of entrepreneurs and content creators. He didn't build this as an outsider looking in. He built it because he lived the problem every single day.
-            </p>
+            </motion.p>
           </div>
         </div>
       </FadeUpSection>
@@ -922,7 +928,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-bold text-foreground mb-3 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              className="scroll-fade-in font-bold text-foreground mb-3 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
               <span className="block text-foreground">Simple Pricing.</span>
@@ -942,7 +948,7 @@ const Landing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-                className="relative p-8 sm:p-10 text-left rounded-2xl overflow-hidden flex flex-col"
+                className="scroll-fade-in relative p-8 sm:p-10 text-left rounded-2xl overflow-hidden flex flex-col"
                 style={{
                   backgroundColor: "#141B2D",
                   border: "1px solid rgba(124, 58, 237, 0.18)",
@@ -983,7 +989,7 @@ const Landing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                className="group relative p-8 sm:p-10 text-left rounded-2xl transition-all duration-200 overflow-hidden flex flex-col"
+                className="scroll-fade-in group relative p-8 sm:p-10 text-left rounded-2xl transition-all duration-200 overflow-hidden flex flex-col"
               style={{
                 backgroundColor: "#141B2D",
                 border: "1px solid rgba(124, 58, 237, 0.4)",
@@ -1060,7 +1066,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading"
+              className="scroll-fade-in text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading"
             >
               Your Next Edit{" "}
               <span
@@ -1075,7 +1081,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-              className="text-[18.4px] sm:text-[20.7px] text-white max-w-2xl mx-auto font-body"
+              className="scroll-fade-in text-[18.4px] sm:text-[20.7px] text-white max-w-2xl mx-auto font-body"
             >
               Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
             </motion.p>
@@ -1084,7 +1090,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-              className="flex justify-center pt-4 sm:pt-6"
+              className="scroll-fade-in flex justify-center pt-4 sm:pt-6"
             >
               <motion.div
                 whileHover={{ scale: 1.06 }}
