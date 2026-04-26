@@ -30,6 +30,7 @@ import uploadDashboard from "@/assets/upload-dashboard.png";
 import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
 import builtByEditorBg from "@/assets/built-by-editor-bg.png";
+import finalCtaBg from "@/assets/final-cta-bg.png";
 
 const BRAND = "Stitchly";
 const SIGNUP_URL = "https://app.stitchly.ai/signup";
@@ -854,6 +855,15 @@ const Landing = () => {
 
       {/* CTA Section */}
       <FadeUpSection className="relative overflow-hidden bg-stitchly-base">
+        {/* Background image */}
+        <div
+          aria-hidden
+          className="absolute inset-0 w-full h-full bg-no-repeat bg-top"
+          style={{
+            backgroundImage: `url(${finalCtaBg})`,
+            backgroundSize: "100% auto",
+          }}
+        />
         {/* Replicated hero background */}
         <div className="hero-radial-glow" />
         <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#7C3AED" />
