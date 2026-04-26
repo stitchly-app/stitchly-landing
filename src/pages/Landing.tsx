@@ -23,6 +23,7 @@ import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
 import { TypewriterLoop } from "@/components/TypewriterLoop";
 import { ScreenshotReveal } from "@/components/ScreenshotReveal";
+import { GlassScreenshotFrame } from "@/components/GlassScreenshotFrame";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard-product-shot.png";
 import dashboardImage2 from "@/assets/stitchly-project-area-product-shot.png";
