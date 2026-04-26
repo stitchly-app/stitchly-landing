@@ -31,6 +31,7 @@ import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
 import builtByEditorBg from "@/assets/built-by-editor-bg.png";
 import finalCtaBg from "@/assets/final-cta-bg.png";
+import premiereBg from "@/assets/premiere-bg.jpg";
 
 const BRAND = "Stitchly";
 const SIGNUP_URL = "https://app.stitchly.ai/signup";
@@ -718,9 +719,30 @@ const Landing = () => {
           aria-hidden
           className="absolute inset-0 w-full h-full bg-no-repeat bg-top"
           style={{
-            backgroundImage: `url(${builtByEditorBg})`,
+            backgroundImage: `url(${premiereBg})`,
             backgroundSize: "100% auto",
           }}
+        />
+        {/* Blue animated light sheen */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+        >
+          <div
+            className="absolute -inset-[20%] opacity-60 animate-[sheen_8s_ease-in-out_infinite]"
+            style={{
+              background:
+                "radial-gradient(ellipse at 30% 40%, rgba(59,130,246,0.25) 0%, transparent 55%), radial-gradient(ellipse at 70% 60%, rgba(37,99,235,0.18) 0%, transparent 60%)",
+            }}
+          />
+        </div>
+        {/* Floating particles */}
+        <Particles
+          className="absolute inset-0"
+          quantity={80}
+          ease={70}
+          color="#3B82F6"
+          size={0.6}
         />
         <div className="stitchly-container relative py-16 sm:py-20">
           <div className="max-w-3xl mx-auto text-center">
