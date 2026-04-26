@@ -29,6 +29,7 @@ import dashboardImage2 from "@/assets/stitchly-project-area-product-shot.png";
 import uploadDashboard from "@/assets/upload-dashboard.png";
 import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
+import builtByEditorBg from "@/assets/built-by-editor-bg.png";
 
 const BRAND = "Stitchly";
 const SIGNUP_URL = "https://app.stitchly.ai/signup";
@@ -712,6 +713,14 @@ const Landing = () => {
 
       {/* Founder credibility */}
       <FadeUpSection className="relative overflow-hidden bg-section-feature2">
+        <div
+          aria-hidden
+          className="absolute inset-0 w-full h-full bg-no-repeat bg-top"
+          style={{
+            backgroundImage: `url(${builtByEditorBg})`,
+            backgroundSize: "100% auto",
+          }}
+        />
         <div className="stitchly-container relative py-16 sm:py-20">
           <div className="max-w-3xl mx-auto text-center">
             <h3
