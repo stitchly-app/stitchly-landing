@@ -23,6 +23,7 @@ import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
 import { TypewriterLoop } from "@/components/TypewriterLoop";
 import { ScreenshotReveal } from "@/components/ScreenshotReveal";
+import { GlassScreenshotFrame } from "@/components/GlassScreenshotFrame";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard-product-shot.png";
 import dashboardImage2 from "@/assets/stitchly-project-area-product-shot.png";
@@ -540,20 +541,7 @@ const Landing = () => {
                 >
                   {/* Screenshot frame */}
                   <ScreenshotReveal>
-                    <div className="relative">
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute -inset-10 rounded-[2rem] -z-10"
-                        style={{
-                          background:
-                            "radial-gradient(ellipse at center, rgba(60,128,245,0.45) 0%, rgba(124,58,237,0.25) 40%, transparent 75%)",
-                          filter: "blur(40px)",
-                        }}
-                      />
-                      <div
-                        className="glass-frame relative"
-                        style={{ "--shimmer-delay": `${(i + 1) * 1.5}s` } as React.CSSProperties}
-                      >
+                    <GlassScreenshotFrame beamDelay={i * 4}>
                       <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
                         <img
                           src={dashboardImage}
@@ -562,9 +550,7 @@ const Landing = () => {
                           style={imgStyle as React.CSSProperties}
                         />
                       </div>
-                      <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
-                      </div>
-                    </div>
+                    </GlassScreenshotFrame>
                   </ScreenshotReveal>
                   {/* Text */}
                   <motion.div
@@ -639,13 +625,13 @@ const Landing = () => {
               </TracingBeam>
             </div>
             <ScreenshotReveal className="w-full">
-              <div className="glass-frame" style={{ "--shimmer-delay": "6s" } as React.CSSProperties}>
+              <GlassScreenshotFrame beamDelay={10}>
                 <img
                   src={uploadDashboard}
                   alt="Stitchly Workspace"
-                  className="w-full h-auto"
+                  className="w-full h-auto block"
                 />
-              </div>
+              </GlassScreenshotFrame>
             </ScreenshotReveal>
           </div>
         </div>
@@ -662,13 +648,13 @@ const Landing = () => {
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <ScreenshotReveal className="w-full lg:order-1 order-2">
-              <div className="glass-frame" style={{ "--shimmer-delay": "7.5s" } as React.CSSProperties}>
+              <GlassScreenshotFrame beamDelay={20}>
                 <img
                   src={adminDashboard}
                   alt="Stitchly Sequence Editor"
-                  className="w-full h-auto"
+                  className="w-full h-auto block"
                 />
-              </div>
+              </GlassScreenshotFrame>
             </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
