@@ -406,7 +406,7 @@ const Landing = () => {
                 Icon: UploadIcon,
                 step: "01",
                 title: "Import Your Footage",
-                text: "Drop in your interview files. Stitchly generates proxies locally, transcribes with word-level timestamps, and identifies every speaker automatically.",
+                text: "Drop in your footage and Stitchly gets to work immediately. Proxies are generated for smooth playback and your interviews are transcribed with speaker detection in minutes. Rename speakers, group clips into folders, favorite key moments, and filter transcripts by category.",
                 // Sidebar area (left side)
                 imgStyle: { objectPosition: "left center", transform: "scale(1.6)", transformOrigin: "left center" },
               },
@@ -414,7 +414,7 @@ const Landing = () => {
                 Icon: Sparkles,
                 step: "02",
                 title: "AI Finds the Best Moments",
-                text: "Stitchly categorizes every soundbite by type — emotion, story, key point, CTA, and more. Search, filter, and build your sequence from the strongest clips across all your footage. AI reads every word of your transcript and tags each soundbite by type, emotion, story, key point, and CTA, so the best moments are always one click away.",
+                text: "AI automatically tags every soundbite by type: emotion, story, key point, CTA, and more so the strongest clips rise to the top fast. Then you take over. Drag and drop clips into your sequence, reorder anything instantly, and trim each moment with precision. Speed from AI, control from you.",
                 // Main project grid (center)
                 imgStyle: { objectPosition: "center center", transform: "scale(1.3)", transformOrigin: "center center" },
               },
@@ -422,7 +422,7 @@ const Landing = () => {
                 Icon: Monitor,
                 step: "03",
                 title: "One Click to Your NLE",
-                text: "Hit \"Send to Premiere Pro\" and your sequence opens directly in your editor with all media linked. No XML hunting. No relinking. Premiere, Resolve, and Final Cut all supported.",
+                text: "Hit Send to Premiere Pro, Resolve, or Final Cut and your sequence opens directly in your editor with all media already linked. No XML hunting. No relinking. No extra steps. Need the transcript instead? Export as docx, pdf, txt, srt, and more.",
                 // Top right (right side, top)
                 imgStyle: { objectPosition: "right top", transform: "scale(1.6)", transformOrigin: "right top" },
               },
