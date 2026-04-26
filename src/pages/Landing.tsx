@@ -541,20 +541,7 @@ const Landing = () => {
                 >
                   {/* Screenshot frame */}
                   <ScreenshotReveal>
-                    <div className="relative">
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute -inset-10 rounded-[2rem] -z-10"
-                        style={{
-                          background:
-                            "radial-gradient(ellipse at center, rgba(60,128,245,0.45) 0%, rgba(124,58,237,0.25) 40%, transparent 75%)",
-                          filter: "blur(40px)",
-                        }}
-                      />
-                      <div
-                        className="glass-frame relative"
-                        style={{ "--shimmer-delay": `${(i + 1) * 1.5}s` } as React.CSSProperties}
-                      >
+                    <GlassScreenshotFrame beamDelay={i * 4}>
                       <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
                         <img
                           src={dashboardImage}
@@ -563,9 +550,7 @@ const Landing = () => {
                           style={imgStyle as React.CSSProperties}
                         />
                       </div>
-                      <BorderBeam size={120} duration={10} delay={i * 2} colorFrom="#7C3AED" colorTo="#3B82F6" />
-                      </div>
-                    </div>
+                    </GlassScreenshotFrame>
                   </ScreenshotReveal>
                   {/* Text */}
                   <motion.div
