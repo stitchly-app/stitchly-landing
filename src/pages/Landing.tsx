@@ -712,16 +712,6 @@ const Landing = () => {
 
       {/* Founder credibility */}
       <FadeUpSection className="relative overflow-hidden bg-section-feature2">
-        {/* Darkened, blurred screenshot background */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-          <img
-            src={dashboardImage}
-            alt=""
-            className="w-full h-auto object-cover blur-md scale-105 select-none"
-            draggable={false}
-          />
-          <div className="absolute inset-0 bg-background/80" />
-        </div>
         <div className="stitchly-container relative py-16 sm:py-20">
           <div className="max-w-3xl mx-auto text-center">
             <h3
