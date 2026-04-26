@@ -7,6 +7,7 @@ import { DotPattern } from "@/components/ui/dot-pattern";
 import { Particles } from "@/components/ui/particles";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Spotlight } from "@/components/ui/spotlight";
+import appleMacLogo from "@/assets/apple-mac-logo.svg";
 import {
   Carousel,
   CarouselContent,
