@@ -371,6 +371,15 @@ const Landing = () => {
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,95,86,0.55)" }} />
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,189,46,0.55)" }} />
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(39,201,63,0.55)" }} />
+                  <span
+                    className="ml-2 text-sm font-medium"
+                    style={{
+                      fontFamily: 'Helvetica, "Helvetica Neue", Arial, sans-serif',
+                      color: "#1a1a1a",
+                    }}
+                  >
+                    Stitchly
+                  </span>
                 </div>
                 {/* Top-edge glass highlight */}
                 <div
