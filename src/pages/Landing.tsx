@@ -552,7 +552,7 @@ const Landing = () => {
                   {/* Screenshot frame */}
                   <ScreenshotReveal>
                     <GlassScreenshotFrame beamDelay={i * 4}>
-                      <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
+                      <div className={cn("w-full overflow-hidden bg-stitchly-alt", i === 0 ? "aspect-video" : "aspect-[16/10]")}>
                         {i === 0 ? (
                           <video
                             autoPlay
@@ -562,7 +562,6 @@ const Landing = () => {
                             poster={dashboardImage}
                             src="/videos/Stitchly - How it Works - Step 1.mp4"
                             className="w-full h-full object-cover"
-                            style={imgStyle as React.CSSProperties}
                           />
                         ) : (
                           <img
