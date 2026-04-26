@@ -309,16 +309,56 @@ const Landing = () => {
               <div
                 className="no-shimmer relative z-10 rounded-2xl overflow-hidden p-3 sm:p-4"
                 style={{
-                  background: "rgba(10, 12, 22, 0.55)",
+                  background: "rgba(8, 10, 20, 0.62)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(255, 255, 255, 0.08)",
                   boxShadow:
-                    "0 30px 80px -20px rgba(0,0,0,0.6), 0 10px 40px -10px rgba(124,58,237,0.25), inset 0 1px 0 0 rgba(255,255,255,0.08)",
+                    "0 30px 80px -20px rgba(0,0,0,0.6), 0 10px 40px -10px rgba(124,58,237,0.25), inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.35)",
                 }}
               >
+                {/* Static light gradients — top-left brighter, bottom-right darker, faint center glow */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-2xl"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 70% 60% at 12% 8%, rgba(255,255,255,0.08) 0%, transparent 55%), radial-gradient(ellipse 70% 60% at 90% 95%, rgba(0,0,0,0.35) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%)",
+                    zIndex: 1,
+                  }}
+                />
+                {/* Slow drifting ambient light */}
+                <div aria-hidden className="glass-drift rounded-2xl" style={{ zIndex: 1 }} />
+                {/* Edge highlights — left bright, right dark */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 left-0 w-px"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%)",
+                    zIndex: 2,
+                  }}
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 right-0 w-px"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
+                    zIndex: 2,
+                  }}
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.45) 50%, transparent 100%)",
+                    zIndex: 2,
+                  }}
+                />
                 {/* Mac-style header */}
-                <div className="flex items-center gap-1.5 px-2 pb-3">
+                <div className="relative flex items-center gap-1.5 px-2 pb-3" style={{ zIndex: 3 }}>
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,95,86,0.55)" }} />
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,189,46,0.55)" }} />
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(39,201,63,0.55)" }} />
@@ -330,9 +370,10 @@ const Landing = () => {
                   style={{
                     background:
                       "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%)",
+                    zIndex: 3,
                   }}
                 />
-                <div className="relative w-full">
+                <div className="relative w-full" style={{ zIndex: 2 }}>
                   <div
                     className="relative w-full rounded-xl overflow-hidden"
                     style={{
