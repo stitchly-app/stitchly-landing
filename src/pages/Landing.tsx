@@ -758,7 +758,7 @@ const Landing = () => {
                 Editor
               </span>
             </h3>
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white">
               Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for some of the biggest names in business. Kevin has taught video production workflows and marketing to tens of thousands of entrepreneurs and content creators. He didn't build this as an outsider looking in. He built it because he lived the problem every single day.
             </p>
           </div>
