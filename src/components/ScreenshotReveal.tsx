@@ -31,13 +31,17 @@ export function ScreenshotReveal({
   }, [immediate]);
   const visible = immediate ? mounted : inView;
 
+  const initialState = immediate
+    ? { opacity: 1, y: yOffset, scale: 0.96 }
+    : { opacity: 0, y: yOffset, scale: 0.96 };
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: yOffset, scale: 0.96 }}
-      animate={visible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: yOffset, scale: 0.96 }}
+      initial={initialState}
+      animate={visible ? { opacity: 1, y: 0, scale: 1 } : initialState}
       transition={{ duration, ease: [0.22, 1, 0.36, 1], delay }}
-      className={cn("screenshot-glow screenshot-hover", visible && "is-visible", className)}
+      className={cn("screenshot-glow screenshot-hover", (visible || immediate) && "is-visible", className)}
     >
       {children}
     </motion.div>
