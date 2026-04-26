@@ -195,7 +195,7 @@ const Landing = () => {
             className="flex flex-col items-center text-center"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-primary/15 px-3 py-1 text-xs sm:text-sm font-body mb-6 text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)]">
-              <Sparkles className="h-3.5 w-3.5 text-primary" /> AI Video Assembly for Editors
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> AI-Powered Desktop App for Mac
             </span>
 
             <h2
