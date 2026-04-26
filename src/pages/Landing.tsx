@@ -625,13 +625,13 @@ const Landing = () => {
               </TracingBeam>
             </div>
             <ScreenshotReveal className="w-full">
-              <div className="glass-frame" style={{ "--shimmer-delay": "6s" } as React.CSSProperties}>
+              <GlassScreenshotFrame beamDelay={10}>
                 <img
                   src={uploadDashboard}
                   alt="Stitchly Workspace"
-                  className="w-full h-auto"
+                  className="w-full h-auto block"
                 />
-              </div>
+              </GlassScreenshotFrame>
             </ScreenshotReveal>
           </div>
         </div>
@@ -648,13 +648,13 @@ const Landing = () => {
         <div className="stitchly-container relative py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <ScreenshotReveal className="w-full lg:order-1 order-2">
-              <div className="glass-frame" style={{ "--shimmer-delay": "7.5s" } as React.CSSProperties}>
+              <GlassScreenshotFrame beamDelay={20}>
                 <img
                   src={adminDashboard}
                   alt="Stitchly Sequence Editor"
-                  className="w-full h-auto"
+                  className="w-full h-auto block"
                 />
-              </div>
+              </GlassScreenshotFrame>
             </ScreenshotReveal>
             <div className="relative space-y-6 sm:space-y-8 lg:order-2 order-1">
               <div className="relative">
