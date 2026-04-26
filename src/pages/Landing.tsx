@@ -561,7 +561,7 @@ const Landing = () => {
                             muted
                             playsInline
                             poster={dashboardImage}
-                            src="/videos/Stitchly - How it Works - Step 1.mp4"
+                            src="/stitchly-how-it-works-step-1.mp4"
                             className="w-full h-full object-cover"
                           />
                         ) : (
