@@ -192,6 +192,10 @@
     position: relative;
     isolation: isolate;
     opacity: 0;
+    visibility: hidden;
+  }
+  .screenshot-glow.is-visible {
+    visibility: visible;
   }
   .screenshot-glow::before {
     content: "";
