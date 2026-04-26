@@ -338,6 +338,26 @@
     animation: hero-glow 6s ease-in-out infinite;
   }
 
+  /* Slow drifting ambient light across the hero glass card */
+  @keyframes glass-drift {
+    0%   { transform: translate3d(-25%, -25%, 0) rotate(0deg); }
+    50%  { transform: translate3d(25%, 25%, 0) rotate(8deg); }
+    100% { transform: translate3d(-25%, -25%, 0) rotate(0deg); }
+  }
+  .glass-drift {
+    position: absolute;
+    inset: -40%;
+    pointer-events: none;
+    background: radial-gradient(ellipse 50% 40% at 50% 50%,
+      rgba(255,255,255,0.07) 0%,
+      rgba(224,212,255,0.05) 35%,
+      transparent 70%);
+    filter: blur(60px);
+    mix-blend-mode: screen;
+    animation: glass-drift 18s ease-in-out infinite;
+    will-change: transform;
+  }
+
   .section-fade-top::before {
     content: "";
     position: absolute;
