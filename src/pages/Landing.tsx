@@ -235,7 +235,7 @@ const Landing = () => {
             </h2>
 
             <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[600px] font-body leading-relaxed">
-              Drop in your interview footage. Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.
+              A professional tool for professional editors. Drop in your interview footage. Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
