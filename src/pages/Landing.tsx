@@ -411,6 +411,7 @@ const Landing = () => {
                   onClick={() => setVideoOpen(true)}
                   aria-label="Play product demo"
                   className="absolute inset-0 flex items-center justify-center group"
+                  style={{ zIndex: 10 }}
                 >
                   {/* Pulsating glow behind the play button */}
                   <span
