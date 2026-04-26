@@ -553,12 +553,25 @@ const Landing = () => {
                   <ScreenshotReveal>
                     <GlassScreenshotFrame beamDelay={i * 4}>
                       <div className="aspect-[16/10] w-full overflow-hidden bg-stitchly-alt">
-                        <img
-                          src={dashboardImage}
-                          alt={`${title} preview`}
-                          className="w-full h-full object-cover"
-                          style={imgStyle as React.CSSProperties}
-                        />
+                        {i === 0 ? (
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            poster={dashboardImage}
+                            src="/videos/Stitchly - How it Works - Step 1.mp4"
+                            className="w-full h-full object-cover"
+                            style={imgStyle as React.CSSProperties}
+                          />
+                        ) : (
+                          <img
+                            src={dashboardImage}
+                            alt={`${title} preview`}
+                            className="w-full h-full object-cover"
+                            style={imgStyle as React.CSSProperties}
+                          />
+                        )}
                       </div>
                     </GlassScreenshotFrame>
                   </ScreenshotReveal>
