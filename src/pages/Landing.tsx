@@ -352,7 +352,13 @@ const Landing = () => {
       <WaveDivider bottomColor="#0F1420" />
 
       {/* What is Stitchly? */}
-      <FadeUpSection className="relative overflow-hidden bg-section-feature1">
+      <FadeUpSection className="relative overflow-hidden bg-section-howitworks">
+        <GridPattern
+          width={48}
+          height={48}
+          className={cn("stroke-primary/30 opacity-100", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]")}
+          strokeDasharray="0"
+        />
         <div className="stitchly-container relative py-16 sm:py-20">
           <div className="max-w-3xl mx-auto text-center">
             <h3
