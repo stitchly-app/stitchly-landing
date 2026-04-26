@@ -194,6 +194,7 @@
     opacity: 0;
     transition: opacity 900ms ease-out;
     pointer-events: none;
+    will-change: opacity;
   }
   .screenshot-glow.is-visible::before {
     opacity: 1;
@@ -307,8 +308,8 @@
 
   /* Hero play button: static icon with slow, strong pulsing glow */
   @keyframes hero-play-glow-pulse {
-    0%, 100% { opacity: 0.55; box-shadow: 0 0 42px 18px hsl(var(--primary) / 0.34); }
-    50%      { opacity: 1; box-shadow: 0 0 92px 34px hsl(var(--primary) / 0.62); }
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50%      { opacity: 1;    transform: scale(1.5); }
   }
   .hero-play-glow {
     width: 150px;
@@ -316,6 +317,7 @@
     background: radial-gradient(circle, hsl(var(--primary) / 0.62) 0%, hsl(var(--primary) / 0.24) 48%, transparent 74%);
     filter: blur(14px);
     animation: hero-play-glow-pulse 3.8s ease-in-out infinite;
+    will-change: transform, opacity;
   }
   .hero-play-button {
     width: 80px;
@@ -336,6 +338,7 @@
   }
   .animate-hero-glow {
     animation: hero-glow 6s ease-in-out infinite;
+    will-change: transform, opacity;
   }
 
   /* Slow drifting ambient light across the hero glass card */
@@ -413,6 +416,7 @@
     animation: aurora 14s ease-in-out infinite;
     filter: blur(20px);
     z-index: 0;
+    will-change: transform;
   }
 
   /* CTA section: animated gradient + ambient orbs + grain */

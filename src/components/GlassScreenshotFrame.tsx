@@ -51,6 +51,7 @@ export function GlassScreenshotFrame({
           border: "1px solid rgba(255, 255, 255, 0.08)",
           boxShadow:
             "0 30px 80px -20px rgba(0,0,0,0.6), 0 10px 40px -10px rgba(124,58,237,0.25), inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.35)",
+          willChange: "transform",
         }}
       >
         {/* Static light gradients */}

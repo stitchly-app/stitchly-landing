@@ -316,6 +316,7 @@ const Landing = () => {
                   border: "1px solid rgba(255, 255, 255, 0.08)",
                   boxShadow:
                     "0 30px 80px -20px rgba(0,0,0,0.6), 0 10px 40px -10px rgba(124,58,237,0.25), inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.35)",
+                  willChange: "transform",
                 }}
               >
                 {/* Static light gradients — top-left brighter, bottom-right darker, faint center glow */}
@@ -627,7 +628,13 @@ const Landing = () => {
                     Get a Rough Cut.
                   </span>
                 </motion.h3>
-                <p className="text-muted-foreground font-body">Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</p>
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+                  className="text-muted-foreground font-body"
+                >Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</motion.p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
                 <div className="relative space-y-6">
@@ -635,8 +642,15 @@ const Landing = () => {
                     { title: "Creative briefs in plain English", text: "Type what you want: \"Build a 90-second testimonial. Open with struggle, close with results.\" Stitchly finds the clips that match." },
                     { title: "Multi-video intelligence", text: "Upload 8 interviews. Stitchly treats them as one searchable library. The best moment from interview 3 lands next to the perfect setup from interview 7." },
                     { title: "Every word searchable", text: "Word-level timestamps. Speaker identification. Semantic categorization. Your footage becomes a database you can query." },
-                  ].map((b) => (
-                    <div key={b.title} className="flex gap-4">
+                  ].map((b, i) => (
+                    <motion.div
+                      key={b.title}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + i * 0.12 }}
+                      className="flex gap-4"
+                    >
                       <div className="flex-shrink-0 mt-1">
                         <ArrowRight
                           className="h-6 w-6"
@@ -647,7 +661,7 @@ const Landing = () => {
                         <h4 className="text-xl font-bold text-foreground mb-2 font-heading">{b.title}</h4>
                         <p className="text-muted-foreground font-body">{b.text}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </TracingBeam>

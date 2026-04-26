@@ -50,17 +50,34 @@ export function Particles({
   const circlesRef = useRef<Circle[]>([]);
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
+  const rafRef = useRef<number>(0);
+  const isVisibleRef = useRef(false);
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
   const [rgb] = useState(() => hexToRgb(color));
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (!canvasRef.current || !containerRef.current) return;
     ctxRef.current = canvasRef.current.getContext("2d");
     initCanvas();
-    animate();
+
+    const el = containerRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisibleRef.current;
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting && !wasVisible) {
+          rafRef.current = requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0 },
+    );
+    observer.observe(el);
+
     window.addEventListener("resize", initCanvas);
     window.addEventListener("mousemove", onMouseMove);
     return () => {
+      observer.disconnect();
+      cancelAnimationFrame(rafRef.current);
       window.removeEventListener("resize", initCanvas);
       window.removeEventListener("mousemove", onMouseMove);
     };
@@ -136,6 +153,7 @@ export function Particles({
     ((v - a) * (d - c)) / (b - a) + c;
 
   const animate = () => {
+    if (!isVisibleRef.current) return;
     clearCanvas();
     circlesRef.current.forEach((c, i) => {
       const edge = [
@@ -179,7 +197,7 @@ export function Particles({
       }
     });
     void staticity;
-    window.requestAnimationFrame(animate);
+    rafRef.current = window.requestAnimationFrame(animate);
   };
 
   return (
