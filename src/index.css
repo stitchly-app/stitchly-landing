@@ -187,6 +187,7 @@
   .screenshot-glow {
     position: relative;
     isolation: isolate;
+    opacity: 0;
   }
   .screenshot-glow::before {
     content: "";
