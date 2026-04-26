@@ -520,7 +520,7 @@ const Landing = () => {
                 Icon: UploadIcon,
                 step: "01",
                 title: "Import Your Footage",
-                text: "Drop in your footage and Stitchly gets to work immediately. Proxies are generated for smooth playback and your interviews are transcribed with speaker detection in minutes. Rename speakers, group clips into folders, favorite key moments, and filter transcripts by category.",
+                text: "Drop in your footage and Stitchly gets to work immediately. Proxies are generated for smooth playback and your interviews are transcribed with speaker detection in minutes. Rename speakers, group clips into folders, favorite key moments, and filter soundbites by category.",
                 // Sidebar area (left side)
                 imgStyle: { objectPosition: "left center", transform: "scale(1.6)", transformOrigin: "left center" },
               },
