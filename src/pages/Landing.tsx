@@ -198,11 +198,6 @@ const Landing = () => {
               <Sparkles className="h-3.5 w-3.5 text-primary" /> AI Video Assembly for Editors
             </span>
 
-            <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-body mb-4 text-foreground/80 tracking-wide uppercase">
-              AI-Powered Desktop App for Mac
-              <Apple className="h-3.5 w-3.5 text-white fill-white" />
-            </span>
-
             <h2
               className="font-bold font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}
