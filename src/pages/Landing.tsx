@@ -293,23 +293,52 @@ const Landing = () => {
               delay={0.6}
               duration={1.4}
               yOffset={80}
-              className="mt-14 sm:mt-20 w-full max-w-[1100px] mx-auto relative"
+              className="mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto relative"
             >
-              {/* Soft pulsating purple glow behind the screenshot */}
+              {/* Soft purple-to-blue radial glow behind the card */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute -inset-8 rounded-[2rem] animate-hero-glow"
+                className="pointer-events-none absolute -inset-12 rounded-[2.5rem] animate-hero-glow"
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, rgba(124,58,237,0.45) 0%, rgba(124,58,237,0.15) 40%, transparent 70%)",
-                  filter: "blur(40px)",
+                    "radial-gradient(ellipse at 30% 40%, rgba(124,58,237,0.38) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(59,130,246,0.32) 0%, transparent 65%)",
+                  filter: "blur(60px)",
                   zIndex: 0,
                 }}
               />
               <div
-                className="glass-frame no-shimmer relative z-10 image-fade-bottom"
+                className="no-shimmer relative z-10 rounded-2xl overflow-hidden p-3 sm:p-4"
+                style={{
+                  background: "rgba(10, 12, 22, 0.55)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  boxShadow:
+                    "0 30px 80px -20px rgba(0,0,0,0.6), 0 10px 40px -10px rgba(124,58,237,0.25), inset 0 1px 0 0 rgba(255,255,255,0.08)",
+                }}
               >
+                {/* Mac-style header */}
+                <div className="flex items-center gap-1.5 px-2 pb-3">
+                  <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,95,86,0.55)" }} />
+                  <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,189,46,0.55)" }} />
+                  <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(39,201,63,0.55)" }} />
+                </div>
+                {/* Top-edge glass highlight */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%)",
+                  }}
+                />
                 <div className="relative w-full">
+                  <div
+                    className="relative w-full rounded-xl overflow-hidden"
+                    style={{
+                      boxShadow: "0 10px 30px -10px rgba(0,0,0,0.55)",
+                    }}
+                  >
                   {/* Sizer keeps frame height stable */}
                   <img
                     src={heroImages[0].src}
@@ -326,6 +355,7 @@ const Landing = () => {
                       style={{ opacity: heroImageIndex === i ? 1 : 0 }}
                     />
                   ))}
+                  </div>
                 </div>
                 <button
                   onClick={() => setVideoOpen(true)}
