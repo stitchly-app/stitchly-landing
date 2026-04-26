@@ -470,7 +470,7 @@ const Landing = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
               className="scroll-fade-in text-base sm:text-lg text-muted-foreground font-body leading-relaxed space-y-4 text-left"
             >
-              <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right clips.</p>
+               <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right soundbites and assemble them quickly.</p>
               <p>Import your interviews and everything stays local on your machine. Proxies are generated, transcripts are created with speaker detection, and your footage becomes fully searchable in minutes. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
               <p>Then you take over. Drag, drop, trim, cut, and reorganize every soundbite to build your sequence exactly how you want it.</p>
               <p>When you are ready, send it straight into Premiere, Resolve, or Final Cut with one click.</p>
