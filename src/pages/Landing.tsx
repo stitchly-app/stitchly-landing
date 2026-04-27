@@ -17,6 +17,12 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { ImageLightbox } from "@/components/ImageLightbox";
@@ -182,6 +188,7 @@ const Landing = () => {
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
+            <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
           </nav>
           <div className="flex items-center gap-2 sm:gap-3">
             <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground hover:bg-muted text-sm sm:text-base px-2 sm:px-4">
