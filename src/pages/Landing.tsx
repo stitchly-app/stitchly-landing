@@ -262,7 +262,7 @@ const Landing = () => {
               </span>
             </h2>
 
-            <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[600px] font-body leading-relaxed">
+            <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed">
               A professional tool for professional editors. Drop in your interview footage. Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.
             </p>
 
