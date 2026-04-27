@@ -560,4 +560,21 @@ html {
     animation: cta-sheen 7s ease-in-out infinite;
     will-change: transform, opacity;
   }
+
+  @keyframes hero-subtext-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-subtext-mobile {
+    animation: hero-subtext-fade-up 1s ease-out both;
+  }
 }

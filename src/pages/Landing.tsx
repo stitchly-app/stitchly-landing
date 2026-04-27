@@ -129,6 +129,7 @@ const Landing = () => {
     { src: dashboardImage, alt: "Stitchly Dashboard" },
     { src: dashboardImage2, alt: "Stitchly Project Area" },
   ];
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroImageIndex((i) => (i + 1) % heroImages.length);
@@ -310,7 +311,7 @@ const Landing = () => {
               </span>
             </h2>
 
-            <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed">
+            <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed hero-subtext-mobile">
               {[
                 <>A professional tool for professional editors. Drop in your interview footage.</>,
                 <>Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit</>,
@@ -319,9 +320,11 @@ const Landing = () => {
                 <motion.span
                   key={i}
                   className="inline md:block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 + i * 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  {...(!isMobile && {
+                    initial: { opacity: 0, y: 20 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { duration: 0.6, delay: 0.3 + i * 0.2, ease: [0.22, 1, 0.36, 1] },
+                  })}
                 >
                   {line}
                 </motion.span>
