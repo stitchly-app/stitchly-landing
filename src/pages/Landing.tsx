@@ -925,7 +925,7 @@ const Landing = () => {
       </FadeUpSection>
 
       {/* Founder credibility */}
-      <FadeUpSection className="relative overflow-hidden bg-section-feature2">
+      <FadeUpSection id="about" className="relative overflow-hidden bg-section-feature2">
         <div
           aria-hidden
           className="absolute inset-0 w-full h-full"
@@ -1317,7 +1317,7 @@ const Landing = () => {
               <div>
                 <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Company</h4>
                 <ul className="space-y-1.5 md:space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">About</a></li>
+                  <li><a href="#about" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">About</a></li>
                   <li><a href="mailto:support@stitchly.ai" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Contact</a></li>
                   <li><a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Privacy Policy</a></li>
                   <li><a href="/terms" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Terms</a></li>
