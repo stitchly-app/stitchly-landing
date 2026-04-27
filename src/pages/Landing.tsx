@@ -17,6 +17,12 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { ImageLightbox } from "@/components/ImageLightbox";
@@ -182,6 +188,7 @@ const Landing = () => {
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
+            <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
           </nav>
           <div className="flex items-center gap-2 sm:gap-3">
             <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground hover:bg-muted text-sm sm:text-base px-2 sm:px-4">
@@ -976,6 +983,110 @@ const Landing = () => {
             >
               Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for some of the biggest names in business. Kevin has taught video production workflows and marketing to tens of thousands of entrepreneurs and content creators. He didn't build this as an outsider looking in. He built it because he lived the problem every single day.
             </motion.p>
+          </div>
+        </div>
+      </FadeUpSection>
+
+      {/* FAQ */}
+      <FadeUpSection id="faq" className="relative overflow-hidden bg-section-feature2">
+        <GridPattern
+          width={48}
+          height={48}
+          className="opacity-50"
+          style={{ stroke: "rgba(59, 130, 246, 0.1)" }}
+        />
+        <div className="stitchly-container relative z-[2] py-20 sm:py-28">
+          <div className="text-center mb-10 sm:mb-14 max-w-3xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="font-body uppercase tracking-[0.2em] text-xs sm:text-sm text-primary mb-4"
+            >
+              Questions
+            </motion.p>
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="scroll-fade-in font-bold mb-4 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Everything You Need to{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
+              >
+                Know
+              </span>
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+              className="font-body text-muted-foreground mt-4 text-base sm:text-lg"
+            >
+              The questions editors ask before they download.
+            </motion.p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion
+              type="single"
+              collapsible
+              defaultValue="faq-1"
+              className="space-y-3"
+            >
+              {[
+                {
+                  q: "How does Stitchly actually work?",
+                  a: "Drop your interview footage into Stitchly. The app generates a lightweight proxy locally on your Mac, transcribes every word with speaker identification, and uses AI to categorize each soundbite by type including emotion, story, key points, and CTAs. From there you build a sequence by selecting the soundbites you want, and one click sends it to Premiere, Resolve, or Final Cut with all media already linked. The entire flow runs on your machine. No uploads, no waiting on cloud servers, no sending your footage anywhere.",
+                },
+                {
+                  q: "Do my files leave my computer?",
+                  a: "No. Stitchly is a desktop app and your video files, proxies, and exported sequences all stay on your local drives. The only thing that touches a cloud service is the audio sent to AssemblyAI for transcription, which is processed and then discarded. Your footage is never uploaded, stored, or shared anywhere. If you have sensitive client material, you can use Stitchly with full confidence that it never leaves your machine.",
+                },
+                {
+                  q: "What editing software does Stitchly work with?",
+                  a: "Adobe Premiere Pro, DaVinci Resolve, and Apple Final Cut Pro are all fully supported. When you hit the Send to NLE button, Stitchly checks if your editor is open, saves the sequence file silently to your system, and opens it directly in your timeline with all media paths already linked. There are no XML import dialogs to deal with, no relinking media, and no extra steps. You go from Stitchly to your timeline in one click.",
+                },
+                {
+                  q: "Does Stitchly replace my editing software?",
+                  a: "No, and it is not trying to. Stitchly handles the part of the job that does not require your creative judgment, which is finding the moments worth using, organizing them by type and quality, and getting them into your timeline in a logical order. The actual edit, color work, sound design, and final polish all happen in your NLE where they belong. Stitchly gives you a strong starting point instead of a blank sequence, so you spend your time on the decisions that actually require your skill.",
+                },
+                {
+                  q: "How long does processing take?",
+                  a: "Proxy generation runs in real time or faster on most modern Macs. Transcription typically takes between 5 and 15 minutes depending on file length. AI categorization of soundbites runs in under a minute once the transcript is ready. For a typical one-hour interview, you can go from import to building your sequence in around 15 to 20 minutes. Longer projects take longer, but everything runs locally so there is no queue to wait in.",
+                },
+                {
+                  q: "Can I use multiple interviews in one project?",
+                  a: "Yes. You can import as many videos as you want into a single project. Stitchly treats them as one unified searchable library, so you can pull the best moment from interview seven and place it next to the perfect setup from interview two without thinking about which file it came from. Multi-video assembly is one of the biggest advantages Stitchly has over working directly in your NLE, especially on documentary, testimonial, or long-form content where footage spans multiple shoots.",
+                },
+                {
+                  q: "What does a credit cost?",
+                  a: "Transcription costs 1 credit per 2 minutes of footage. AI commands cost 5 credits each. The Pro plan includes 500 credits per month, which covers roughly 16 hours of transcription or around 100 AI assembly commands. Most editors do not come close to using their full monthly allotment. If you do run out, you can purchase top-up credits at any time as a Pro subscriber. Top-ups range from 100 credits for $7.99 up to 1,000 credits for $54.99, and they never expire as long as your Pro subscription is active.",
+                },
+                {
+                  q: "Is there a free trial?",
+                  a: "Yes. Download Stitchly, create an account, and start using it immediately. No credit card is required to get started. You will receive enough credits to fully test the entire workflow from import through transcription to exporting a sequence into your NLE before making any decision about upgrading. If you want more after that, Pro is $29 per month or $290 per year.",
+                },
+              ].map((item, i) => (
+                <AccordionItem
+                  key={`faq-${i + 1}`}
+                  value={`faq-${i + 1}`}
+                  className="border border-border/60 rounded-xl bg-stitchly-base/50 backdrop-blur-sm px-5 sm:px-6 data-[state=open]:border-primary/40 data-[state=open]:bg-stitchly-base/70 transition-colors"
+                >
+                  <AccordionTrigger className="text-left font-heading text-base sm:text-lg font-semibold text-foreground hover:no-underline py-5">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="font-body text-muted-foreground text-sm sm:text-base leading-relaxed pb-5">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </FadeUpSection>
