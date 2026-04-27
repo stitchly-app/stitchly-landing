@@ -314,7 +314,7 @@ const Landing = () => {
             <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed hero-subtext-mobile">
               {[
                 <>A professional tool for professional editors. Drop in your interview footage.</>,
-                <>Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit</>,
+                <>Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit{' '}</>,
                 <>sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.</>,
               ].map((line, i) => (
                 <motion.span
