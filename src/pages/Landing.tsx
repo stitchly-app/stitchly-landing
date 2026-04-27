@@ -982,7 +982,7 @@ const Landing = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
               className="scroll-fade-in text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white"
             >
-              Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for clients like Tony Robbins, Mike Tyson, Russell Brunson, Grant Cardone, and Dean Graziosi. Kevin has taught video production workflows and marketing to tens of thousands of editors, entrepreneurs, and content creators. He did not build this as an outsider looking in. He built it because he sat through the same six hours of footage one too many times and decided there had to be a better way.
+              Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for clients like Tony Robbins, Mike Tyson, Russell Brunson, Grant Cardone, and Costco. Kevin has taught video production workflows and marketing to tens of thousands of editors, entrepreneurs, and content creators. He did not build this as an outsider looking in. He built it because he sat through the same six hours of footage one too many times and decided there had to be a better way.
             </motion.p>
           </div>
         </div>
