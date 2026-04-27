@@ -19,6 +19,7 @@ import {
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
 import { TypewriterLoop } from "@/components/TypewriterLoop";
@@ -28,6 +29,7 @@ import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard-product-shot.png";
 import dashboardImage2 from "@/assets/stitchly-project-area-product-shot.png";
 import uploadDashboard from "@/assets/stitchly-project-area-product-shot2.png";
+import professionalEditorsShot from "@/assets/stitchly-project-area-product-shot3.jpg";
 import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
 import builtByEditorBg from "@/assets/built-by-editor-bg.png";
