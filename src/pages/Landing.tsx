@@ -1076,7 +1076,7 @@ const Landing = () => {
                 <AccordionItem
                   key={`faq-${i + 1}`}
                   value={`faq-${i + 1}`}
-                  className="border border-border/60 rounded-xl bg-stitchly-base/50 backdrop-blur-sm px-5 sm:px-6 data-[state=open]:border-primary/40 data-[state=open]:bg-stitchly-base/70 transition-colors"
+                  className="border border-border/60 rounded-xl bg-stitchly-base/50 backdrop-blur-sm px-5 sm:px-6 data-[state=open]:border-primary/40 data-[state=open]:bg-stitchly-base/70 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(124,58,237,0.25)] data-[state=open]:shadow-[0_0_40px_rgba(124,58,237,0.35)]"
                 >
                   <AccordionTrigger className="text-left font-heading text-base sm:text-lg font-semibold text-foreground hover:no-underline py-5">
                     {item.q}
