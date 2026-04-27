@@ -1028,7 +1028,6 @@ const Landing = () => {
             <Accordion
               type="single"
               collapsible
-              defaultValue="faq-1"
               className="space-y-3"
             >
               {[
