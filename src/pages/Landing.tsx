@@ -1042,7 +1042,7 @@ const Landing = () => {
               {[
                 {
                   q: "How does Stitchly actually work?",
-                  a: "Drop your interview footage into Stitchly. The app generates a lightweight proxy locally on your Mac, transcribes every word with speaker identification, and uses AI to categorize each soundbite by type including emotion, story, key points, and CTAs. From there you build a sequence by selecting the soundbites you want, and one click sends it to Premiere, Resolve, or Final Cut with all media already linked. The entire flow runs on your machine. No uploads, no waiting on cloud servers, no sending your footage anywhere.",
+                  a: "Drop your interview footage into Stitchly. The app generates a lightweight proxy locally on your Mac, transcribes every word with speaker identification, and uses AI to categorize each soundbite by type including emotion, story, key points, and CTAs. Once your footage is transcribed and categorized, you write a plain English brief telling the AI what kind of video to build. Something like 'Build a 90-second testimonial, open with the problem, close with the result.' Stitchly reads your entire transcript, finds the clips that match your intent, and assembles a rough cut sequence automatically. One click sends it straight to Premiere, Resolve, or Final Cut with all media already linked. The entire flow runs on your machine. No uploads, no waiting on cloud servers, no sending your footage anywhere.",
                 },
                 {
                   q: "Do my files leave my computer?",
