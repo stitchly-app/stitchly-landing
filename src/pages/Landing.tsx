@@ -1004,7 +1004,7 @@ const Landing = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="font-body uppercase tracking-[0.2em] text-xs sm:text-sm text-primary mb-4"
             >
-              Questions
+              FAQs
             </motion.p>
             <motion.h3
               initial={{ opacity: 0, y: 30 }}
@@ -1014,23 +1014,14 @@ const Landing = () => {
               className="scroll-fade-in font-bold mb-4 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
-              Everything You Need to{" "}
+              Everything You <br />
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
               >
-                Know
+                Need To Know
               </span>
             </motion.h3>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-              className="font-body text-muted-foreground mt-4 text-base sm:text-lg"
-            >
-              The questions editors ask before they download.
-            </motion.p>
           </div>
           <div className="max-w-3xl mx-auto">
             <Accordion
