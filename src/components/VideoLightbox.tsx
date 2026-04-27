@@ -1,6 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { X } from "lucide-react";
-import Hls from "hls.js";
 
 interface VideoLightboxProps {
   open: boolean;
@@ -8,9 +7,7 @@ interface VideoLightboxProps {
   src: string;
 }
 
-export function VideoLightbox({ open, onClose, src }: VideoLightboxProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
+export function VideoLightbox({ open, onClose }: VideoLightboxProps) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -23,24 +20,6 @@ export function VideoLightbox({ open, onClose, src }: VideoLightboxProps) {
       document.body.style.overflow = "";
     };
   }, [open, onClose]);
-
-  useEffect(() => {
-    if (!open || !videoRef.current) return;
-    const video = videoRef.current;
-    let hls: Hls | null = null;
-    if (Hls.isSupported()) {
-      hls = new Hls();
-      hls.loadSource(src);
-      hls.attachMedia(video);
-    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = src;
-    }
-    video.play().catch(() => {});
-    return () => {
-      hls?.destroy();
-      video.pause();
-    };
-  }, [open, src]);
 
   if (!open) return null;
 
@@ -57,14 +36,13 @@ export function VideoLightbox({ open, onClose, src }: VideoLightboxProps) {
         <X className="h-7 w-7" />
       </button>
       <div
-        className="w-full max-w-[1200px] aspect-video"
+        className="w-full max-w-[1200px]"
         onClick={(e) => e.stopPropagation()}
       >
-        <video
-          ref={videoRef}
-          className="w-full h-full rounded-lg shadow-2xl bg-black"
-          controls
-          playsInline
+        <img
+          src="/Stitchly - VSL Promo Coming Soon.jpg"
+          alt="Stitchly VSL Promo Coming Soon"
+          className="w-full h-auto rounded-lg shadow-2xl"
         />
       </div>
     </div>
