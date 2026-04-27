@@ -27,7 +27,7 @@ import { GlassScreenshotFrame } from "@/components/GlassScreenshotFrame";
 import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard-product-shot.png";
 import dashboardImage2 from "@/assets/stitchly-project-area-product-shot.png";
-import uploadDashboard from "@/assets/upload-dashboard.png";
+import uploadDashboard from "@/assets/stitchly-project-area-product-shot2.png";
 import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
 import builtByEditorBg from "@/assets/built-by-editor-bg.png";
