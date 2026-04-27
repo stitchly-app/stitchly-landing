@@ -293,6 +293,26 @@ html {
     mix-blend-mode: overlay;
   }
 
+  /* Hero pill shimmer sweep */
+  @keyframes pill-shimmer {
+    0%   { transform: translateX(-150%); }
+    33%  { transform: translateX(150%); }
+    100% { transform: translateX(150%); }
+  }
+  .pill-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .pill-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+    transform: translateX(-150%);
+    animation: pill-shimmer 6s ease-in-out infinite;
+  }
+
   /* Border Beam animation */
   @keyframes border-beam {
     100% { offset-distance: 100%; }
