@@ -579,7 +579,7 @@ const Landing = () => {
                   {/* Screenshot frame */}
                   <ScreenshotReveal>
                     <GlassScreenshotFrame beamDelay={i * 4}>
-                      <div className={cn("w-full overflow-hidden bg-stitchly-alt", i <= 1 ? "aspect-video" : "aspect-[16/10]")}>
+                      <div className={cn("w-full overflow-hidden bg-stitchly-alt", i <= 2 ? "aspect-video" : "aspect-[16/10]")}>
                         {i === 0 ? (
                           <video
                             autoPlay
@@ -598,6 +598,16 @@ const Landing = () => {
                             playsInline
                             poster={dashboardImage}
                             src="/stitchly-how-it-works-step-2.mp4"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : i === 2 ? (
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            poster={dashboardImage}
+                            src="/stitchly-how-it-works-step-3.mp4"
                             className="w-full h-full object-cover"
                           />
                         ) : (
