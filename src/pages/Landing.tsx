@@ -1296,25 +1296,23 @@ const Landing = () => {
           className={cn("stroke-primary/30 opacity-100", "[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]")}
           strokeDasharray="0"
         />
-        <div className="stitchly-container relative py-12">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div className="md:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
-                <img src={stitchlyLogo} alt="Stitchly" className="h-8 w-auto" />
-              </div>
-              <p className="text-muted-foreground text-sm font-body">AI video assembly for professional editors.</p>
+        <div className="stitchly-container relative py-10 md:py-12">
+          <div className="mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-3 md:mb-4">
+              <img src={stitchlyLogo} alt="Stitchly" className="h-8 w-auto" />
             </div>
+            <p className="text-muted-foreground text-sm font-body">AI video assembly for professional editors.</p>
+          </div>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 mb-6 md:mb-8 pb-6 md:pb-8 border-b border-border">
+            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Features</a>
+            <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">How It Works</a>
+            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Pricing</a>
+            <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">FAQ</a>
+          </nav>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
             <div>
-              <h4 className="text-foreground font-semibold mb-4 font-heading">Product</h4>
-              <ul className="space-y-2">
-                <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Features</a></li>
-                <li><a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">How It Works</a></li>
-                <li><a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Pricing</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-foreground font-semibold mb-4 font-heading">Company</h4>
-              <ul className="space-y-2">
+              <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Company</h4>
+              <ul className="space-y-1.5 md:space-y-2">
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">About</a></li>
                 <li><a href="mailto:support@stitchly.ai" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Contact</a></li>
                 <li><a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Privacy Policy</a></li>
@@ -1322,14 +1320,14 @@ const Landing = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-foreground font-semibold mb-4 font-heading">Account</h4>
-              <ul className="space-y-2">
+              <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Account</h4>
+              <ul className="space-y-1.5 md:space-y-2">
                 <li><a href={SIGNIN_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Sign In</a></li>
                 <li><a href={SIGNUP_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Start Your Free Trial</a></li>
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-border">
+          <div className="pt-6 md:pt-8 border-t border-border">
             <p className="text-muted-foreground text-sm font-body text-center">© 2026 {BRAND}. All rights reserved.</p>
           </div>
         </div>
