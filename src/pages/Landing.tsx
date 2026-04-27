@@ -680,7 +680,7 @@ const Landing = () => {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
                   className="scroll-fade-in text-muted-foreground font-body"
-                >Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence — labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</motion.p>
+                >Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence, labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</motion.p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
                 <div className="relative space-y-6">
@@ -985,7 +985,7 @@ const Landing = () => {
                 Start Free.
               </span>
             </motion.h3>
-            <p className="text-muted-foreground font-body mb-10">Start with the desktop app — your files never leave your Mac.</p>
+            <p className="text-muted-foreground font-body mb-10">Start with the desktop app. Your files never leave your Mac.</p>
 
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-stretch">
               {/* Free Trial card */}
@@ -1006,7 +1006,7 @@ const Landing = () => {
                     <span className="text-4xl font-bold text-foreground font-heading">$0</span>
                   </div>
                   <p className="text-muted-foreground text-sm mt-1 font-body">No credit card required. Download to start.</p>
-                  <p className="text-muted-foreground mt-4 font-body">Desktop app for Mac. All files stay local — no uploading required.</p>
+                  <p className="text-muted-foreground mt-4 font-body">Desktop app for Mac. All files stay local, no uploading required.</p>
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
@@ -1129,7 +1129,7 @@ const Landing = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
               className="scroll-fade-in text-[18.4px] sm:text-[20.7px] text-white max-w-2xl mx-auto font-body"
             >
-              Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself — but now it doesn't have to.
+              Download Stitchly, import your footage, and get your first assembly cut before you finish your coffee. The footage isn't going to watch itself, but now it doesn't have to.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
