@@ -967,12 +967,12 @@ const Landing = () => {
               className="scroll-fade-in font-bold mb-6 font-heading text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
-              Built by an{" "}
+              Built by an Editor<br />
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
               >
-                Editor
+                For Editors
               </span>
             </motion.h3>
             <motion.p
@@ -982,7 +982,7 @@ const Landing = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
               className="scroll-fade-in text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white"
             >
-              Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for some of the biggest names in business. Kevin has taught video production workflows and marketing to tens of thousands of entrepreneurs and content creators. He didn't build this as an outsider looking in. He built it because he lived the problem every single day.
+              Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for clients like Tony Robbins, Mike Tyson, Russell Brunson, Grant Cardone, and Dean Graziosi. Kevin has taught video production workflows and marketing to tens of thousands of editors, entrepreneurs, and content creators. He did not build this as an outsider looking in. He built it because he sat through the same six hours of footage one too many times and decided there had to be a better way.
             </motion.p>
           </div>
         </div>
