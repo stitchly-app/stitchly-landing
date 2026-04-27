@@ -462,6 +462,12 @@ const Landing = () => {
       </section>
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
+      <ImageLightbox
+        open={lightboxImage !== null}
+        onClose={() => setLightboxImage(null)}
+        src={lightboxImage?.src ?? ""}
+        alt={lightboxImage?.alt ?? ""}
+      />
 
       {/* Wave divider: hero -> how it works */}
       <WaveDivider bottomColor="#0F1420" />
@@ -720,7 +726,8 @@ const Landing = () => {
                 <img
                   src={uploadDashboard}
                   alt="Stitchly Workspace"
-                  className="w-full h-auto block"
+                  className="w-full h-auto block cursor-zoom-in"
+                  onClick={() => setLightboxImage({ src: uploadDashboard, alt: "Stitchly Workspace" })}
                 />
               </GlassScreenshotFrame>
             </ScreenshotReveal>
@@ -741,9 +748,10 @@ const Landing = () => {
             <ScreenshotReveal className="w-full lg:order-1 order-2">
               <GlassScreenshotFrame beamDelay={20}>
                 <img
-                  src={adminDashboard}
+                  src={professionalEditorsShot}
                   alt="Stitchly Sequence Editor"
-                  className="w-full h-auto block"
+                  className="w-full h-auto block cursor-zoom-in"
+                  onClick={() => setLightboxImage({ src: professionalEditorsShot, alt: "Stitchly Sequence Editor" })}
                 />
               </GlassScreenshotFrame>
             </ScreenshotReveal>
