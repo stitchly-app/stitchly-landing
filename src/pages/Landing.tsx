@@ -310,7 +310,7 @@ const Landing = () => {
               </span>
             </h2>
 
-            <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed">
+            <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed">
               {[
                 <>A professional tool for professional editors. Drop in your interview footage.</>,
                 <>Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit</>,
@@ -318,7 +318,7 @@ const Landing = () => {
               ].map((line, i) => (
                 <motion.span
                   key={i}
-                  className="block"
+                  className="inline md:block"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 + i * 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -922,7 +922,7 @@ const Landing = () => {
               className="scroll-fade-in font-bold mb-3 font-heading text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
-              What Editors Are{" "}
+              What Editors{" "}<br className="md:hidden" />Are{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
@@ -1042,7 +1042,7 @@ const Landing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-              className="scroll-fade-in text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white"
+              className="scroll-fade-in text-base sm:text-lg lg:text-xl font-body leading-relaxed text-white text-left md:text-center"
             >
               Stitchly was built by Kevin Anson, a post-production veteran with 22 years in the industry and 10,000+ videos produced for clients like Tony Robbins, Mike Tyson, Russell Brunson, Grant Cardone, and Costco. Kevin has taught video production workflows and marketing to tens of thousands of editors, entrepreneurs, and content creators. He did not build this as an outsider looking in. He built it because he sat through the same six hours of footage one too many times and decided there had to be a better way.
             </motion.p>
@@ -1299,7 +1299,7 @@ const Landing = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="scroll-fade-in text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground font-heading"
             >
-              Your Next Edit{" "}
+              Your Next Edit{" "}<br className="md:hidden" />
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
