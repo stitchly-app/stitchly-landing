@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play, Apple } from "lucide-react";
+import { Sparkles, Monitor, Upload as UploadIcon, Users, ArrowRight, Star, Check, Play, Apple, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GridPattern } from "@/components/ui/grid-pattern";
@@ -124,6 +124,7 @@ const Landing = () => {
   const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
   const [heroEffectsReady, setHeroEffectsReady] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const heroImages = [
     { src: dashboardImage, alt: "Stitchly Dashboard" },
     { src: dashboardImage2, alt: "Stitchly Project Area" },
@@ -190,7 +191,7 @@ const Landing = () => {
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
             <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
           </nav>
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="hidden md:flex items-center gap-2 sm:gap-3">
             <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground hover:bg-muted text-sm sm:text-base px-2 sm:px-4">
               <a href={SIGNIN_URL}>Sign In</a>
             </Button>
@@ -198,6 +199,53 @@ const Landing = () => {
               <a href={SIGNUP_URL}>Start Your Free Trial →</a>
             </Button>
           </div>
+          <button
+            className="md:hidden text-white p-1"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        {/* Mobile menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <nav className="stitchly-container flex flex-col gap-4 pb-6 pt-2 text-sm text-muted-foreground font-body">
+            {[
+              { label: "Features", href: "#features" },
+              { label: "How It Works", href: "#how-it-works" },
+              { label: "Pricing", href: "#pricing" },
+              { label: "FAQ", href: "#faq" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="hover:text-foreground transition-colors py-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                  document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href={SIGNIN_URL}
+              className="hover:text-foreground transition-colors py-1"
+            >
+              Sign In
+            </a>
+            <a
+              href={SIGNUP_URL}
+              className="btn-gradient border-0 text-white text-center py-3 rounded-md font-medium"
+            >
+              Start Your Free Trial →
+            </a>
+          </nav>
         </div>
       </header>
 
