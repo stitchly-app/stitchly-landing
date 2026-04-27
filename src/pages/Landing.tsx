@@ -111,6 +111,7 @@ const loopingTestimonials = [...testimonials, ...testimonials];
 
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
