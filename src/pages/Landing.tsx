@@ -871,7 +871,7 @@ const Landing = () => {
             <p className="font-body text-muted-foreground mt-4">From editors who stopped scrubbing and started editing.</p>
           </div>
           <div
-            className="relative px-12 sm:px-16"
+            className="relative px-4 sm:px-12 lg:px-16"
             onMouseEnter={() => setTestimonialPaused(true)}
             onMouseLeave={() => setTestimonialPaused(false)}
           >
@@ -917,8 +917,8 @@ const Landing = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-0 sm:-left-2 h-10 w-10 bg-card/80 hover:bg-card border-border text-foreground" />
-              <CarouselNext className="right-0 sm:-right-2 h-10 w-10 bg-card/80 hover:bg-card border-border text-foreground" />
+              <CarouselPrevious className="-left-2 sm:-left-2 h-10 w-10 bg-card/80 hover:bg-card border-border text-foreground" />
+              <CarouselNext className="-right-2 sm:-right-2 h-10 w-10 bg-card/80 hover:bg-card border-border text-foreground" />
             </Carousel>
           </div>
         </div>
