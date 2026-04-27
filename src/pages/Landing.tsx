@@ -19,6 +19,7 @@ import {
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
 import { TypewriterLoop } from "@/components/TypewriterLoop";
@@ -28,6 +29,7 @@ import { cn } from "@/lib/utils";
 import dashboardImage from "@/assets/stitchly-dashboard-product-shot.png";
 import dashboardImage2 from "@/assets/stitchly-project-area-product-shot.png";
 import uploadDashboard from "@/assets/stitchly-project-area-product-shot2.png";
+import professionalEditorsShot from "@/assets/stitchly-project-area-product-shot3.jpg";
 import adminDashboard from "@/assets/admin-dashboard.png";
 import stitchlyLogo from "@/assets/stitchly-logo.svg";
 import builtByEditorBg from "@/assets/built-by-editor-bg.png";
@@ -109,6 +111,7 @@ const loopingTestimonials = [...testimonials, ...testimonials];
 
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
@@ -459,6 +462,12 @@ const Landing = () => {
       </section>
 
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} src={DEMO_VIDEO} />
+      <ImageLightbox
+        open={lightboxImage !== null}
+        onClose={() => setLightboxImage(null)}
+        src={lightboxImage?.src ?? ""}
+        alt={lightboxImage?.alt ?? ""}
+      />
 
       {/* Wave divider: hero -> how it works */}
       <WaveDivider bottomColor="#0F1420" />
@@ -717,7 +726,8 @@ const Landing = () => {
                 <img
                   src={uploadDashboard}
                   alt="Stitchly Workspace"
-                  className="w-full h-auto block"
+                  className="w-full h-auto block cursor-zoom-in"
+                  onClick={() => setLightboxImage({ src: uploadDashboard, alt: "Stitchly Workspace" })}
                 />
               </GlassScreenshotFrame>
             </ScreenshotReveal>
@@ -738,9 +748,10 @@ const Landing = () => {
             <ScreenshotReveal className="w-full lg:order-1 order-2">
               <GlassScreenshotFrame beamDelay={20}>
                 <img
-                  src={adminDashboard}
+                  src={professionalEditorsShot}
                   alt="Stitchly Sequence Editor"
-                  className="w-full h-auto block"
+                  className="w-full h-auto block cursor-zoom-in"
+                  onClick={() => setLightboxImage({ src: professionalEditorsShot, alt: "Stitchly Sequence Editor" })}
                 />
               </GlassScreenshotFrame>
             </ScreenshotReveal>
