@@ -1066,7 +1066,7 @@ const Landing = () => {
                 },
                 {
                   q: "What does a credit cost?",
-                  a: "Transcription costs 1 credit per 2 minutes of footage. AI commands cost 5 credits each. The Pro plan includes 500 credits per month, which covers roughly 16 hours of transcription or around 100 AI assembly commands. Most editors do not come close to using their full monthly allotment. If you do run out, you can purchase top-up credits at any time as a Pro subscriber. Top-ups range from 100 credits for $7.99 up to 1,000 credits for $54.99, and they never expire as long as your Pro subscription is active.",
+                  a: "Transcription costs 1 credit per 2 minutes of footage. AI commands cost 5 credits each. The Pro plan includes 500 credits per month, which covers roughly 16 hours of transcription or around 100 AI assembly commands. Most editors do not come close to using their full monthly allotment. If you do run out, you can purchase top-up credits at any time as a Pro subscriber. Top-ups range from 100 credits for $7.99 up to 1,200 credits for $54.99, and they never expire as long as your Pro subscription is active.",
                 },
                 {
                   q: "Is there a free trial?",
