@@ -523,6 +523,7 @@ const Landing = () => {
               <p>Import your interviews and everything stays local on your machine. Proxies are generated, transcripts are created with speaker detection, and your footage becomes fully searchable in minutes. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
               <p>Then you take over. Drag, drop, trim, cut, and reorganize every soundbite to build your sequence exactly how you want it.</p>
               <p>When you are ready, send it straight into Premiere, Resolve, or Final Cut with one click.</p>
+              <p className="font-bold text-foreground">One thing Stitchly is not: a replacement for your NLE. Premiere, Final Cut, and Resolve are where the real edit happens. Stitchly just makes sure you show up with the right material.</p>
             </motion.div>
           </div>
         </div>
