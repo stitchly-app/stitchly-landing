@@ -753,7 +753,7 @@ const Landing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="scroll-fade-in text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
+                  className="scroll-fade-in text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading text-center md:text-left"
                 >
                   Give it a Prompt.<br />
                   <span
@@ -842,7 +842,7 @@ const Landing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="scroll-fade-in text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
+                  className="scroll-fade-in text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading text-center md:text-left"
                 >
                   Built for{" "}
                   <span
@@ -1067,7 +1067,7 @@ const Landing = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="font-body uppercase tracking-[0.2em] text-xs sm:text-sm text-primary mb-4"
             >
-              FAQs
+              FAQ's
             </motion.p>
             <motion.h3
               initial={{ opacity: 0, y: 30 }}
@@ -1170,7 +1170,7 @@ const Landing = () => {
                 Start Free.
               </span>
             </motion.h3>
-            <p className="text-muted-foreground font-body mb-10">Start with the desktop app. Your files never leave your Mac.</p>
+            <p className="text-muted-foreground font-body mb-10">Get started with 50 credits on us.</p>
 
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-stretch">
               {/* Free Trial card */}
