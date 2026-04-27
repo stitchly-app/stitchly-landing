@@ -1158,7 +1158,7 @@ const Landing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                className="scroll-fade-in group relative p-8 sm:p-10 text-left rounded-2xl transition-all duration-200 overflow-hidden flex flex-col"
+                className="scroll-fade-in group relative p-8 sm:p-10 text-left rounded-2xl overflow-hidden flex flex-col"
               style={{
                 backgroundColor: "#141B2D",
                 border: "1px solid rgba(124, 58, 237, 0.4)",
