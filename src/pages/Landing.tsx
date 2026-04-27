@@ -311,7 +311,21 @@ const Landing = () => {
             </h2>
 
             <p className="mt-6 text-base sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed">
-              A professional tool for professional editors. Drop in your interview footage. Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.
+              {[
+                <>A professional tool for professional editors. Drop in your interview footage.</>,
+                <>Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit</>,
+                <>sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.</>,
+              ].map((line, i) => (
+                <motion.span
+                  key={i}
+                  className="block"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 + i * 0.2, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {line}
+                </motion.span>
+              ))}
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
