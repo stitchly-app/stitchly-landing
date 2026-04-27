@@ -1062,7 +1062,7 @@ const Landing = () => {
                 },
                 {
                   q: "Can I use multiple interviews in one project?",
-                  a: "Yes. You can import as many videos as you want into a single project. Stitchly treats them as one unified searchable library, so you can pull the best moment from interview seven and place it next to the perfect setup from interview two without thinking about which file it came from. Multi-video assembly is one of the biggest advantages Stitchly has over working directly in your NLE, especially on documentary, testimonial, or long-form content where footage spans multiple shoots.",
+                  a: "Yes. You can import as many videos as you want into a single project. Stitchly treats them as one unified searchable library, so you can pull the best moment from interview#7 and place it next to the perfect setup from interview #2 without thinking about which file it came from. Multi-video assembly is one of the biggest advantages Stitchly has over working directly in your NLE, especially on documentary, testimonial, or long-form content where footage spans multiple shoots.",
                 },
                 {
                   q: "What does a credit cost?",
