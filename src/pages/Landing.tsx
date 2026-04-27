@@ -1297,34 +1297,39 @@ const Landing = () => {
           strokeDasharray="0"
         />
         <div className="stitchly-container relative py-10 md:py-12">
-          <div className="mb-6 md:mb-8">
-            <div className="flex items-center gap-2 mb-3 md:mb-4">
-              <img src={stitchlyLogo} alt="Stitchly" className="h-8 w-auto" />
+          <div className="flex flex-col md:flex-row md:justify-between md:gap-12 mb-6 md:mb-8">
+            <div className="mb-6 md:mb-0 md:max-w-xs">
+              <div className="flex items-center gap-2 mb-3 md:mb-4">
+                <img src={stitchlyLogo} alt="Stitchly" className="h-8 w-auto" />
+              </div>
+              <p className="text-muted-foreground text-sm font-body">AI video assembly for professional editors.</p>
             </div>
-            <p className="text-muted-foreground text-sm font-body">AI video assembly for professional editors.</p>
-          </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 mb-6 md:mb-8 pb-6 md:pb-8 border-b border-border">
-            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Features</a>
-            <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">How It Works</a>
-            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Pricing</a>
-            <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">FAQ</a>
-          </nav>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
-            <div>
-              <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Company</h4>
-              <ul className="space-y-1.5 md:space-y-2">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">About</a></li>
-                <li><a href="mailto:support@stitchly.ai" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Contact</a></li>
-                <li><a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Privacy Policy</a></li>
-                <li><a href="/terms" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Terms</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Account</h4>
-              <ul className="space-y-1.5 md:space-y-2">
-                <li><a href={SIGNIN_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Sign In</a></li>
-                <li><a href={SIGNUP_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Start Your Free Trial</a></li>
-              </ul>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-12">
+              <div>
+                <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Product</h4>
+                <ul className="space-y-1.5 md:space-y-2">
+                  <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Features</a></li>
+                  <li><a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">How It Works</a></li>
+                  <li><a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Pricing</a></li>
+                  <li><a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">FAQ</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Company</h4>
+                <ul className="space-y-1.5 md:space-y-2">
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">About</a></li>
+                  <li><a href="mailto:support@stitchly.ai" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Contact</a></li>
+                  <li><a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Privacy Policy</a></li>
+                  <li><a href="/terms" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Terms</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-foreground font-semibold mb-3 md:mb-4 font-heading">Account</h4>
+                <ul className="space-y-1.5 md:space-y-2">
+                  <li><a href={SIGNIN_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Sign In</a></li>
+                  <li><a href={SIGNUP_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-body">Start Your Free Trial</a></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className="pt-6 md:pt-8 border-t border-border">
