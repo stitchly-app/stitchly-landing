@@ -20,6 +20,7 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { WaveDivider } from "@/components/WaveDivider";
 import { VideoLightbox } from "@/components/VideoLightbox";
 import { ImageLightbox } from "@/components/ImageLightbox";
+import { SimpleVideoLightbox } from "@/components/SimpleVideoLightbox";
 import { FadeUpSection } from "@/components/FadeUpSection";
 import { Typewriter } from "@/components/Typewriter";
 import { TypewriterLoop } from "@/components/TypewriterLoop";
@@ -112,6 +113,7 @@ const loopingTestimonials = [...testimonials, ...testimonials];
 const Landing = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+  const [lightboxVideo, setLightboxVideo] = useState<string | null>(null);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
@@ -468,6 +470,11 @@ const Landing = () => {
         src={lightboxImage?.src ?? ""}
         alt={lightboxImage?.alt ?? ""}
       />
+      <SimpleVideoLightbox
+        open={lightboxVideo !== null}
+        onClose={() => setLightboxVideo(null)}
+        src={lightboxVideo ?? ""}
+      />
 
       {/* Wave divider: hero -> how it works */}
       <WaveDivider bottomColor="#0F1420" />
@@ -597,7 +604,8 @@ const Landing = () => {
                             playsInline
                             poster={dashboardImage}
                             src="/stitchly-how-it-works-step-1.mp4"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover cursor-zoom-in"
+                            onClick={() => setLightboxVideo("/stitchly-how-it-works-step-1.mp4")}
                           />
                         ) : i === 1 ? (
                           <video
@@ -607,7 +615,8 @@ const Landing = () => {
                             playsInline
                             poster={dashboardImage}
                             src="/stitchly-how-it-works-step-2.mp4"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover cursor-zoom-in"
+                            onClick={() => setLightboxVideo("/stitchly-how-it-works-step-2.mp4")}
                           />
                         ) : i === 2 ? (
                           <video
@@ -617,7 +626,8 @@ const Landing = () => {
                             playsInline
                             poster={dashboardImage}
                             src="/stitchly-how-it-works-step-3.mp4"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover cursor-zoom-in"
+                            onClick={() => setLightboxVideo("/stitchly-how-it-works-step-3.mp4")}
                           />
                         ) : (
                           <img
