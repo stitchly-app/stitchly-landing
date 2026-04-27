@@ -693,7 +693,7 @@ const Landing = () => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   className="scroll-fade-in text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 font-heading"
                 >
-                  Give it a Prompt.{" "}
+                  Give it a Prompt.<br />
                   <span
                     className="bg-clip-text text-transparent"
                     style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}
