@@ -112,6 +112,7 @@ const Landing = () => {
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const [testimonialApi, setTestimonialApi] = useState<CarouselApi | null>(null);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
+  const [heroEffectsReady, setHeroEffectsReady] = useState(false);
   const heroImages = [
     { src: dashboardImage, alt: "Stitchly Dashboard" },
     { src: dashboardImage2, alt: "Stitchly Project Area" },
@@ -122,6 +123,21 @@ const Landing = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  useEffect(() => {
+    const decodes = [dashboardImage, dashboardImage2].map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img.decode().catch(() => {});
+    });
+    Promise.all(decodes).then(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setHeroEffectsReady(true);
+        });
+      });
+    });
+  }, []);
 
   useEffect(() => {
     if (!testimonialApi) return;
@@ -288,28 +304,31 @@ const Landing = () => {
               </motion.div>
             </div>
 
-            {/* Product screenshot */}
-            <ScreenshotReveal
-              immediate
-              delay={0}
-              duration={1.4}
-              yOffset={80}
-              className="mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto relative"
+            {/* Product screenshot — bare on first paint, effects deferred until images decode + paint */}
+            <motion.div
+              initial={{ y: 80, scale: 0.96 }}
+              animate={{ y: 0, scale: 1 }}
+              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              className={cn(
+                "mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto relative",
+                heroEffectsReady && "screenshot-hover"
+              )}
             >
-              {/* Soft purple-to-blue radial glow behind the card */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -inset-12 rounded-[2.5rem] animate-hero-glow"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at 30% 40%, rgba(124,58,237,0.38) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(59,130,246,0.32) 0%, transparent 65%)",
-                  filter: "blur(60px)",
-                  zIndex: 0,
-                }}
-              />
+              {heroEffectsReady && (
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-12 rounded-[2.5rem] animate-hero-glow"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at 30% 40%, rgba(124,58,237,0.38) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(59,130,246,0.32) 0%, transparent 65%)",
+                    filter: "blur(60px)",
+                    zIndex: 0,
+                  }}
+                />
+              )}
               <div
                 className="no-shimmer relative z-10 rounded-2xl overflow-hidden p-3 sm:p-4"
-                style={{
+                style={heroEffectsReady ? {
                   background: "rgba(8, 10, 20, 0.62)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
@@ -317,30 +336,35 @@ const Landing = () => {
                   boxShadow:
                     "0 30px 80px -20px rgba(0,0,0,0.6), 0 10px 40px -10px rgba(124,58,237,0.25), inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.35)",
                   willChange: "transform",
+                } : {
+                  background: "rgba(8, 10, 20, 0.95)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
                 }}
               >
-                {/* Static light gradients — top-left brighter, bottom-right darker, faint center glow */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 rounded-2xl"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse 70% 60% at 12% 8%, rgba(255,255,255,0.08) 0%, transparent 55%), radial-gradient(ellipse 70% 60% at 90% 95%, rgba(0,0,0,0.35) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%)",
-                    zIndex: 1,
-                  }}
-                />
-                {/* Slow drifting ambient light */}
-                <div aria-hidden className="glass-drift rounded-2xl" style={{ zIndex: 1 }} />
-                {/* Slow clockwise traveling purple glow border */}
-                <BorderBeam
-                  size={320}
-                  duration={30}
-                  borderWidth={2}
-                  colorFrom="#A855F7"
-                  colorTo="rgba(168,85,247,0)"
-                  className="rounded-2xl"
-                />
-                {/* Edge highlights — left bright, right dark */}
+                {heroEffectsReady && (
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-2xl"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 70% 60% at 12% 8%, rgba(255,255,255,0.08) 0%, transparent 55%), radial-gradient(ellipse 70% 60% at 90% 95%, rgba(0,0,0,0.35) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%)",
+                      zIndex: 1,
+                    }}
+                  />
+                )}
+                {heroEffectsReady && (
+                  <div aria-hidden className="glass-drift rounded-2xl" style={{ zIndex: 1 }} />
+                )}
+                {heroEffectsReady && (
+                  <BorderBeam
+                    size={320}
+                    duration={30}
+                    borderWidth={2}
+                    colorFrom="#A855F7"
+                    colorTo="rgba(168,85,247,0)"
+                    className="rounded-2xl"
+                  />
+                )}
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-y-0 left-0 w-px"
@@ -368,13 +392,11 @@ const Landing = () => {
                     zIndex: 2,
                   }}
                 />
-                {/* Mac-style header */}
                 <div className="relative flex items-center gap-1.5 px-2 pb-3" style={{ zIndex: 3 }}>
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,95,86,0.55)" }} />
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(255,189,46,0.55)" }} />
                   <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "rgba(39,201,63,0.55)" }} />
                 </div>
-                {/* Top-edge glass highlight */}
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-x-0 top-0 h-px"
@@ -392,7 +414,6 @@ const Landing = () => {
                       aspectRatio: "1920 / 1313",
                     }}
                   >
-                  {/* Sizer keeps frame height stable */}
                   <img
                     src={heroImages[0].src}
                     alt=""
@@ -416,19 +437,23 @@ const Landing = () => {
                   className="absolute inset-0 flex items-center justify-center group"
                   style={{ zIndex: 10 }}
                 >
-                  {/* Pulsating glow behind the play button */}
+                  {heroEffectsReady && (
+                    <span
+                      aria-hidden
+                      className="hero-play-glow absolute rounded-full pointer-events-none"
+                    />
+                  )}
                   <span
-                    aria-hidden
-                    className="hero-play-glow absolute rounded-full pointer-events-none"
-                  />
-                  <span
-                    className="hero-play-button relative flex items-center justify-center rounded-full backdrop-blur-md"
+                    className={cn(
+                      "hero-play-button relative flex items-center justify-center rounded-full",
+                      heroEffectsReady && "backdrop-blur-md"
+                    )}
                   >
                     <Play className="h-8 w-8 ml-1 text-primary fill-primary" />
                   </span>
                 </button>
               </div>
-            </ScreenshotReveal>
+            </motion.div>
           </motion.div>
         </div>
       </section>
