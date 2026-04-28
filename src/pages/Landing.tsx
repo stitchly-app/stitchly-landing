@@ -252,6 +252,21 @@ const Landing = () => {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-stitchly-base">
+        {/* Scrolling background image */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
+          <div
+            className="hero-bg-scroll absolute top-0 h-full"
+            style={{
+              width: "200%",
+              display: "flex",
+              alignItems: "center",
+              opacity: 0.11,
+            }}
+          >
+            <img src="/timeline-bg-looping.jpg" alt="" className="h-full w-1/2 object-cover object-center flex-shrink-0" />
+            <img src="/timeline-bg-looping.jpg" alt="" className="h-full w-1/2 object-cover object-center flex-shrink-0" />
+          </div>
+        </div>
         <div className="hero-radial-glow" />
         <div className="hero-radial-glow hero-radial-glow--br" aria-hidden />
         <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#7C3AED" />
