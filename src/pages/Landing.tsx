@@ -311,11 +311,9 @@ const Landing = () => {
               </span>
             </h2>
 
-            <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[700px] font-body leading-relaxed hero-subtext-mobile">
+            <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[850px] font-body leading-relaxed hero-subtext-mobile">
               {[
-                <>A professional tool for professional editors. Drop in your interview footage.{' '}</>,
-                <>Stitchly transcribes it, finds the best soundbites, and sends a ready-to-edit{' '}</>,
-                <>sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.</>,
+                <>A <strong>professional</strong> tool for <strong>professional</strong> editors. Drop in your interview footage. Stitchly creates <u>local</u> proxies, transcribes your content, finds your best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.{' '}<u>No uploads. No footage in the cloud.</u></>,
               ].map((line, i) => (
                 <motion.span
                   key={i}
@@ -382,12 +380,13 @@ const Landing = () => {
             </div>
 
             {/* Product screenshot — bare on first paint, effects deferred until images decode + paint */}
+            <div className="mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto flex flex-col items-center gap-4">
             <motion.div
               initial={{ y: 80, scale: 0.96 }}
               animate={{ y: 0, scale: 1 }}
               transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
               className={cn(
-                "mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto relative",
+                "w-full relative",
                 heroEffectsReady && "screenshot-hover"
               )}
             >
@@ -531,6 +530,10 @@ const Landing = () => {
                 </button>
               </div>
             </motion.div>
+              <span className="pill-shimmer inline-flex items-center gap-2 rounded-md border border-primary/60 bg-primary/15 px-[15px] py-[5px] text-sm font-bold font-body text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)]">
+                Runs locally. Your footage stays on your machine.
+              </span>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -584,11 +587,10 @@ const Landing = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
               className="scroll-fade-in text-base sm:text-lg text-muted-foreground font-body leading-relaxed space-y-4 text-left"
             >
-               <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right soundbites and assemble them quickly.</p>
-              <p>Import your interviews and everything stays local on your machine. Proxies are generated, transcripts are created with speaker detection, and your footage becomes fully searchable in minutes. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
+              <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right clips.</p>
+              <p>Import your interviews and everything stays <u>local</u> on your machine. Stitchly creates smooth local proxies, transcribes your footage with speaker detection, and makes every interview searchable. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
               <p>Then you take over. Drag, drop, trim, cut, and reorganize every soundbite to build your sequence exactly how you want it.</p>
-              <p>When you are ready, send it straight into Premiere, Resolve, or Final Cut with one click.</p>
-              <p className="font-bold text-foreground">One thing Stitchly is not: a replacement for your NLE. Premiere, Final Cut, and Resolve are where the real edit happens. Stitchly just makes sure you show up with the right material.</p>
+              <p>When you are ready, export your sequence to <strong><em>Premiere, Resolve, or Final Cut</em></strong>, or download transcripts and selects as docx, pdf, or txt.</p>
             </motion.div>
           </div>
         </div>
@@ -634,8 +636,8 @@ const Landing = () => {
               {
                 Icon: UploadIcon,
                 step: "01",
-                title: "Import Your Footage",
-                text: "Drop in your footage and Stitchly gets to work immediately. Proxies are generated for smooth playback and your interviews are transcribed with speaker detection in minutes. Rename speakers, group clips into folders, favorite key moments, and filter soundbites by category.",
+                title: <>Import Your Footage <u>Locally</u></>,
+                text: <>Drop in your footage and Stitchly gets to work <u>locally</u>. It creates local proxies for smoother playback, transcribes your interviews with speaker detection, and helps you organize everything <em>without</em> uploading your source footage to the cloud.</>,
                 // Sidebar area (left side)
                 imgStyle: { objectPosition: "left center", transform: "scale(1.6)", transformOrigin: "left center" },
               },
@@ -1125,6 +1127,10 @@ const Landing = () => {
                   a: "Transcription costs 1 credit per 2 minutes of footage. AI commands cost 5 credits each. The Pro plan includes 500 credits per month, which covers roughly 16 hours of transcription or around 100 AI assembly commands. Most editors do not come close to using their full monthly allotment. If you do run out, you can purchase top-up credits at any time as a Pro subscriber. Top-ups range from 100 credits for $7.99 up to 1,200 credits for $54.99, and they never expire as long as your Pro subscription is active.",
                 },
                 {
+                  q: "Does Stitchly upload my footage to the cloud?",
+                  a: <>No. Stitchly is a Mac desktop app. Your source footage stays <u>on your machine</u>. Stitchly creates <u>local</u> proxies for smoother playback, transcribes your media, and links exported sequences back to your original files.</>,
+                },
+                {
                   q: "Is there a free trial?",
                   a: "Yes. Download Stitchly, create an account, and start using it immediately. No credit card is required to get started. You will receive enough credits to fully test the entire workflow from import through transcription to exporting a sequence into your NLE before making any decision about upgrading. If you want more after that, Pro is $29 per month or $290 per year.",
                 },
@@ -1211,6 +1217,10 @@ const Landing = () => {
                       <span className="text-foreground/90 text-sm font-body">{feature}</span>
                     </li>
                   ))}
+                  <li className="flex gap-3 items-start">
+                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground/90 text-sm font-body italic">No footage uploads required</span>
+                  </li>
                 </ul>
                 <Button asChild size="lg" variant="secondary" className="rounded-lg w-full">
                   <a href={SIGNUP_URL}>Download Free Trial →</a>
@@ -1255,6 +1265,10 @@ const Landing = () => {
                     <span className="text-foreground/90 text-sm font-body">{feature}</span>
                   </li>
                 ))}
+                <li className="flex gap-3 items-start">
+                  <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground/90 text-sm font-body italic">No footage uploads required</span>
+                </li>
               </ul>
               <Button asChild size="lg" className="btn-gradient border-0 rounded-lg w-full relative overflow-hidden">
                 <a href={SIGNUP_URL}>
