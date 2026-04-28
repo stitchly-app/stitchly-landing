@@ -311,7 +311,7 @@ const Landing = () => {
               </span>
             </h2>
 
-            <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[850px] font-body leading-relaxed hero-subtext-mobile">
+            <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[640px] font-body leading-relaxed hero-subtext-mobile">
               {[
                 <>A <strong>professional</strong> tool for <strong>professional</strong> editors. Drop in your interview footage. Stitchly creates <u>local</u> proxies, transcribes your content, finds your best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.{' '}<u>No uploads. No footage in the cloud.</u></>,
               ].map((line, i) => (
