@@ -269,7 +269,7 @@ const Landing = () => {
           size={0.5}
           color="#7C3AED"
         />
-        <div className="stitchly-container relative z-10 py-16 sm:py-24 lg:py-32">
+        <div className="stitchly-container relative z-10 pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
