@@ -1179,7 +1179,7 @@ const Landing = () => {
                 Start Free.
               </span>
             </motion.h3>
-            <p className="text-muted-foreground font-body mb-10">Get started with 50 credits on us.</p>
+            <p className="text-muted-foreground font-body mb-10">No uploads. No cloud delays. No risk to your footage.</p>
 
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-stretch">
               {/* Free Trial card */}
