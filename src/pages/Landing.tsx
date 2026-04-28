@@ -284,7 +284,7 @@ const Landing = () => {
           size={0.5}
           color="#7C3AED"
         />
-        <div className="stitchly-container relative z-10 pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-32">
+        <div className="stitchly-container relative z-10 pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-32 max-[639px]:pb-40">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -395,7 +395,7 @@ const Landing = () => {
             </div>
 
             {/* Product screenshot — bare on first paint, effects deferred until images decode + paint */}
-            <div className="mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto flex flex-col items-center gap-4">
+            <div className="mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto flex flex-col items-center gap-4 max-[768px]:px-4">
             <motion.div
               initial={{ y: 80, scale: 0.96 }}
               animate={{ y: 0, scale: 1 }}
@@ -545,7 +545,7 @@ const Landing = () => {
                 </button>
               </div>
             </motion.div>
-              <span className="pill-shimmer inline-flex items-center gap-2 rounded-md border border-primary/60 bg-primary/15 px-[15px] py-[5px] text-sm font-bold font-body text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)]">
+              <span className="pill-shimmer inline-flex items-center gap-2 rounded-md border border-primary/60 bg-primary/15 px-[15px] py-[5px] text-sm font-bold font-body text-foreground/95 shadow-[0_0_20px_rgba(124,58,237,0.25)] max-[768px]:text-xs max-[768px]:px-[10px] max-[768px]:py-[4px] max-[768px]:whitespace-nowrap">
                 Runs locally. Your footage stays on your machine.
               </span>
             </div>
