@@ -746,6 +746,18 @@ const Landing = () => {
       <FadeUpSection id="features" className="relative overflow-hidden bg-section-feature1">
         <div
           aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: "url('/timeline-bg.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            opacity: 0.15,
+            zIndex: 0,
+          }}
+        />
+        <div
+          aria-hidden
           className="pointer-events-none absolute top-1/2 -translate-y-1/2 left-[-150px] w-[600px] h-[600px] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)" }}
         />
@@ -1155,6 +1167,18 @@ const Landing = () => {
 
       {/* Pricing */}
       <FadeUpSection id="pricing" className="relative overflow-hidden bg-section-feature1">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: "url('/timeline-bg.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            opacity: 0.15,
+            zIndex: 0,
+          }}
+        />
         {/* Large radial purple spotlight behind the card */}
         <div
           aria-hidden
