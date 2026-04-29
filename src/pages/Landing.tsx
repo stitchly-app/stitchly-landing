@@ -1288,7 +1288,7 @@ const Landing = () => {
               <div className="mb-6">
                 <h4 className="text-2xl font-bold font-heading text-gradient-bp inline-block">Pro</h4>
                 <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-4xl font-bold font-heading" style={{ color: 'white', textDecoration: 'line-through', textDecorationColor: '#7C3AED' }}>$49</span>
+                  <span className="text-4xl font-bold font-heading" style={{ background: 'linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textDecoration: 'line-through', textDecorationColor: 'white' }}>$49</span>
                   <span className="text-4xl font-bold text-foreground font-heading">$29</span>
                   <span className="text-muted-foreground font-body">/ month</span>
                 </div>
