@@ -393,6 +393,11 @@ const Landing = () => {
                 </Button>
               </motion.div>
             </div>
+            <p className="mt-3 text-xs text-muted-foreground font-body text-center">
+              <span className="line-through text-muted-foreground">$49</span>{" "}
+              <span className="font-bold bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}>$29/mo</span>
+              {" "}- Launch pricing, first 100 users only
+            </p>
 
             {/* Product screenshot — bare on first paint, effects deferred until images decode + paint */}
             <div className="mt-14 sm:mt-20 w-full max-w-[1180px] mx-auto flex flex-col items-center gap-4 max-[768px]:px-4">
@@ -1283,10 +1288,12 @@ const Landing = () => {
               <div className="mb-6">
                 <h4 className="text-2xl font-bold font-heading text-gradient-bp inline-block">Pro</h4>
                 <div className="mt-2 flex items-baseline gap-2">
+                  <span className="text-4xl font-bold font-heading" style={{ color: 'white', textDecoration: 'line-through', textDecorationColor: '#7C3AED' }}>$49</span>
                   <span className="text-4xl font-bold text-foreground font-heading">$29</span>
                   <span className="text-muted-foreground font-body">/ month</span>
                 </div>
                 <p className="text-muted-foreground text-sm mt-1 font-body">or $290/year</p>
+                <p className="mt-1 text-xs text-muted-foreground font-body">Launch pricing, first 100 users only. Price increases after.</p>
                 <p className="text-muted-foreground mt-4 font-body">Everything you need to stop scrubbing and start editing.</p>
               </div>
                 <ul className="space-y-3 mb-8 flex-1">
@@ -1401,6 +1408,11 @@ const Landing = () => {
                 </Button>
               </motion.div>
             </motion.div>
+            <p className="text-xs text-muted-foreground font-body text-center">
+              <span className="line-through text-muted-foreground">$49</span>{" "}
+              <span className="font-bold bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}>$29/mo</span>
+              {" "}— Lock in launch pricing before it's gone.
+            </p>
           </div>
         </div>
       </FadeUpSection>
