@@ -1411,7 +1411,7 @@ const Landing = () => {
             <p className="text-xs text-muted-foreground font-body text-center">
               <span className="line-through text-muted-foreground">$49</span>{" "}
               <span className="font-bold bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #7C3AED 0%, #3B82F6 100%)" }}>$29/mo</span>
-              {" "}— Lock in launch pricing before it's gone.
+              {" "}- Lock in launch pricing before it's gone.
             </p>
           </div>
         </div>
