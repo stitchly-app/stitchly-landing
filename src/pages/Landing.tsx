@@ -668,7 +668,7 @@ const Landing = () => {
                 Icon: Monitor,
                 step: "03",
                 title: "One Click to Your NLE",
-                text: "Hit Send to Premiere Pro, Resolve, or Final Cut and your sequence opens directly in your editor with all media already linked. No XML hunting. No relinking. No extra steps. Need the transcript instead? Export as docx, pdf, txt, srt, and more.",
+                text: "Hit Send to Premiere Pro, Resolve, or Final Cut and your sequence opens directly in your editor with all original media already linked at full resolution. No XML hunting. No relinking. No extra steps. Need the transcript instead? Export as docx, pdf, txt, srt, and more.",
                 // Top right (right side, top)
                 imgStyle: { objectPosition: "right top", transform: "scale(1.6)", transformOrigin: "right top" },
               },
