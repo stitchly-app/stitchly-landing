@@ -328,7 +328,7 @@ const Landing = () => {
 
             <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[640px] font-body leading-relaxed hero-subtext-mobile">
               {[
-                <>A <strong>professional</strong> tool for <strong>professional</strong> editors. Drop in your interview footage. Stitchly creates <u>local</u> proxies, transcribes your content, finds your best soundbites, and sends a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.{' '}<u>No uploads. No footage in the cloud.</u></>,
+                <>A <strong>professional</strong> tool for <strong>professional</strong> editors. Drop in your interview footage. Stitchly creates <u>local</u> proxies, transcribes your content and finds your best soundbites. Just export your video or send a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.{' '}<u>No uploads. No footage in the cloud.</u></>,
               ].map((line, i) => (
                 <motion.span
                   key={i}
@@ -610,7 +610,7 @@ const Landing = () => {
               <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right clips.</p>
               <p>Import your interviews and everything stays <u>local</u> on your machine. Stitchly creates smooth local proxies, transcribes your footage with speaker detection, and makes every interview searchable. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
               <p>Then you take over. Drag, drop, trim, cut, and reorganize every soundbite to build your sequence exactly how you want it.</p>
-              <p>When you are ready, export your sequence to <strong><em>Premiere, Resolve, or Final Cut</em></strong>, or download transcripts and selects as docx, pdf, or txt.</p>
+              <p>When you are ready, export your video or send your sequence to <strong><em>Premiere, Resolve, or Final Cut</em></strong>, or download transcripts and selects as docx, pdf, or txt.</p>
             </motion.div>
           </div>
         </div>
@@ -673,7 +673,7 @@ const Landing = () => {
                 Icon: Monitor,
                 step: "03",
                 title: "One Click to Your NLE",
-                text: "Hit Send to Premiere Pro, Resolve, or Final Cut and your sequence opens directly in your editor with all original media already linked at full resolution. No XML hunting. No relinking. No extra steps. Need the transcript instead? Export as docx, pdf, txt, srt, and more.",
+                text: "Export your video or hit \"Send to Premiere Pro, Resolve, or Final Cut\" and your sequence opens directly in your editor with all original media already linked at full resolution. No XML hunting. No relinking. No extra steps. Need the transcript instead? Export as docx, pdf, txt, srt, and more.",
                 // Top right (right side, top)
                 imgStyle: { objectPosition: "right top", transform: "scale(1.6)", transformOrigin: "right top" },
               },
@@ -806,7 +806,7 @@ const Landing = () => {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
                   className="scroll-fade-in text-muted-foreground font-body"
-                >Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript library and assembles the best clips into a structured sequence, labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</motion.p>
+                >Tell Stitchly what you need the way you'd brief a senior editor. It reads your entire transcript and assembles the best clips into a structured sequence, labeled, timestamped, and ordered by narrative logic. When you're happy with the sequence, one click exports your video or opens it directly in Premiere, Resolve, or Final Cut with your original files already linked.</motion.p>
               </div>
               <TracingBeam className="pl-8 sm:pl-10">
                 <div className="relative space-y-6">
@@ -904,6 +904,7 @@ const Landing = () => {
                     { title: "Proxy-based workflow", text: "Stitchly generates lightweight proxies locally so your machine stays fast. Original media paths are preserved in every export." },
                     { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
                     { title: "Runs entirely on your Mac", text: "Your footage never leaves your drive." },
+                    { title: "Export your media as an mp4 or audio file", text: "Choose your size and export a full resolution version of your video or audio file." },
                   ].map((b, i) => (
                     <motion.div
                       key={b.title}
@@ -1132,7 +1133,7 @@ const Landing = () => {
               {[
                 {
                   q: "How does Stitchly actually work?",
-                  a: "Drop your interview footage into Stitchly. The app generates a lightweight proxy locally on your Mac, transcribes every word with speaker identification, and uses AI to categorize each soundbite by type including emotion, story, key points, and CTAs. Once your footage is transcribed and categorized, you write a plain English brief telling the AI what kind of video to build. Something like 'Build a 90-second testimonial, open with the problem, close with the result.' Stitchly reads your entire transcript, finds the clips that match your intent, and assembles a rough cut sequence automatically. One click sends it straight to Premiere, Resolve, or Final Cut with all media already linked. The entire flow runs on your machine. No uploads, no waiting on cloud servers, no sending your footage anywhere.",
+                  a: "Drop your interview footage into Stitchly. The app generates a lightweight proxy locally on your Mac, transcribes every word with speaker identification, and uses AI to categorize each soundbite by type including emotion, story, key points, and CTAs. Once your footage is transcribed and categorized, you write a plain English brief telling the AI what kind of video to build. Something like 'Build a 90-second testimonial, open with the problem, close with the result.' Stitchly reads your entire transcript, finds the clips that match your intent, and assembles a rough cut sequence automatically. Once your sequence is built, export it as an MP4 or send it to your NLE. One click sends it straight to Premiere, Resolve, or Final Cut with all media already linked. The entire flow runs on your machine. No uploads, no waiting on cloud servers, no sending your footage anywhere.",
                 },
                 {
                   q: "Do my files leave my computer?",
@@ -1140,11 +1141,11 @@ const Landing = () => {
                 },
                 {
                   q: "What editing software does Stitchly work with?",
-                  a: "Adobe Premiere Pro, DaVinci Resolve, and Apple Final Cut Pro are all fully supported. When you hit the Send to NLE button, Stitchly checks if your editor is open, saves the sequence file silently to your system, and opens it directly in your timeline with all media paths already linked. There are no XML import dialogs to deal with, no relinking media, and no extra steps. You go from Stitchly to your timeline in one click.",
+                  a: "Adobe Premiere Pro, DaVinci Resolve, and Apple Final Cut Pro are all fully supported. When you hit the Send to NLE button, Stitchly checks if your editor is open, saves the sequence file silently to your system, and opens it directly in your timeline with all media paths already linked. There are no XML import dialogs to deal with, no relinking media, and no extra steps. You go from Stitchly to your timeline in one click. You can also export your sequence as an MP4 directly from Stitchly.",
                 },
                 {
                   q: "Does Stitchly replace my editing software?",
-                  a: "No, and it is not trying to. Stitchly handles the part of the job that does not require your creative judgment, which is finding the moments worth using, organizing them by type and quality, and getting them into your timeline in a logical order. The actual edit, color work, sound design, and final polish all happen in your NLE where they belong. Stitchly gives you a strong starting point instead of a blank sequence, so you spend your time on the decisions that actually require your skill.",
+                  a: "No, and it is not trying to. Stitchly handles the part of the job that does not require your creative judgment, which is finding the moments worth using, organizing them by type and quality, and getting them into your timeline in a logical order. The actual edit, color work, sound design, and final polish all happen in your NLE where they belong. Stitchly gives you a strong starting point instead of a blank sequence, so you spend your time on the decisions that actually require your skill. You can also export a finished video directly when you just need a quick shareable cut.",
                 },
                 {
                   q: "How long does processing take?",
@@ -1255,6 +1256,7 @@ const Landing = () => {
                     "AI-powered soundbite assembly",
                     "One-click export to Premiere, Resolve & FCP",
                     "Prompt Builder + Quick Actions",
+                    "Export videos as MP4 files",
                   ].map((feature) => (
                     <li key={feature} className="flex gap-3 items-start">
                       <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -1305,6 +1307,7 @@ const Landing = () => {
                   "Prompt Builder + Quick Actions",
                   "Priority processing",
                   "Credit top-ups available",
+                  "Export videos as MP4 files",
                 ].map((feature) => (
                   <li key={feature} className="flex gap-3 items-start">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
