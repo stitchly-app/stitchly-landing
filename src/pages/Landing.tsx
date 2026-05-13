@@ -328,7 +328,7 @@ const Landing = () => {
 
             <p className="mt-6 text-[15px] sm:text-lg lg:text-xl text-white max-w-[640px] font-body leading-relaxed hero-subtext-mobile">
               {[
-                <>A <strong>professional</strong> tool for <strong>professional</strong> editors. Drop in your interview footage. Stitchly creates <u>local</u> proxies, transcribes your content and finds your best soundbites. Just export your video or send a ready-to-edit sequence straight to <strong><em>Premiere, Resolve, or Final Cut</em></strong>.{' '}<u>No uploads. No footage in the cloud.</u></>,
+                <>A professional tool for professional editors. Drop in your interview footage. Stitchly transcribes your content, finds your best soundbites, and sends a ready-to-edit sequence straight to Premiere, Resolve, or Final Cut. No uploads. No footage in the cloud.</>,
               ].map((line, i) => (
                 <motion.span
                   key={i}
@@ -608,7 +608,7 @@ const Landing = () => {
               className="scroll-fade-in text-base sm:text-lg text-muted-foreground font-body leading-relaxed space-y-4 text-left"
             >
               <p>Stitchly is a Mac desktop app for video editors who are tired of scrubbing through hours of footage just to find the right clips.</p>
-              <p>Import your interviews and everything stays <u>local</u> on your machine. Stitchly creates smooth local proxies, transcribes your footage with speaker detection, and makes every interview searchable. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
+              <p>Import your interviews and everything stays <u>local</u> on your machine. Stitchly transcribes your footage with speaker detection and makes every interview searchable. AI surfaces and categorizes the strongest soundbites so you can work faster and make better decisions without second guessing.</p>
               <p>Then you take over. Drag, drop, trim, cut, and reorganize every soundbite to build your sequence exactly how you want it.</p>
               <p>When you are ready, export your video or send your sequence to <strong><em>Premiere, Resolve, or Final Cut</em></strong>, or download transcripts and selects as docx, pdf, or txt.</p>
             </motion.div>
@@ -657,7 +657,7 @@ const Landing = () => {
                 Icon: UploadIcon,
                 step: "01",
                 title: <>Import Your Footage <u>Locally</u></>,
-                text: <>Drop in your footage and Stitchly gets to work <u>locally</u>. It creates local proxies for smoother playback, transcribes your interviews with speaker detection, and helps you organize everything <em>without</em> uploading your source footage to the cloud.</>,
+                text: <>Drop in your footage and Stitchly gets to work <u>locally</u>. It transcribes your interviews with speaker detection and helps you organize everything <em>without</em> uploading your source footage to the cloud. Proxy generation is available for smoother playback and can be enabled in settings.</>,
                 // Sidebar area (left side)
                 imgStyle: { objectPosition: "left center", transform: "scale(1.6)", transformOrigin: "left center" },
               },
@@ -901,7 +901,7 @@ const Landing = () => {
                 <div className="relative space-y-6">
                   {[
                     { title: "Premiere, Resolve, and Final Cut", text: "Export a ready-to-edit XML for any major editing platform. One click opens your sequence directly in your editor with all media paths linked." },
-                    { title: "Proxy-based workflow", text: "Stitchly generates lightweight proxies locally so your machine stays fast. Original media paths are preserved in every export." },
+                    { title: "Proxy-based workflow", text: "Stitchly supports proxy generation for smoother playback. Original media paths are always preserved in every export." },
                     { title: "Your footage stays local", text: "No cloud uploads. No waiting. Everything runs on your Mac with files stored on your own drives." },
                     { title: "Runs entirely on your Mac", text: "Your footage never leaves your drive." },
                     { title: "Export your media as an mp4 or audio file", text: "Choose your size and export a full resolution version of your video or audio file." },
